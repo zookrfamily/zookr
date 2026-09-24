@@ -213,6 +213,7 @@ function publish() {
     pools,
     accrued: Object.fromEntries(Object.entries(state.accrued).map(([w, z]) => [w, Number(z)])),
     paid: state.paid, payments: state.payments.slice(-500), registered: Object.keys(state.registry.dest).length,
+    registeredWallets: Object.keys(state.registry.dest),
     totals: { paidZat: state.payments.reduce((s, x) => s + x.zat, 0), payments: state.payments.length },
   };
   writeFileSync(`${DATA}/public.json`, JSON.stringify(out, null, 1));

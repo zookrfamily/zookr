@@ -5,6 +5,7 @@ import { encodeFunctionData } from "viem";
 import { Nav, Foot } from "../nav.tsx";
 import { useWallet, reader, friendly } from "../wallet.ts";
 import { useData } from "../data.ts";
+import { EligibleWallets } from "../eligible.tsx";
 import { REGISTRY, registryAbi, zec, short, ZEC_EXPLORER, EXPLORER } from "../../src/site.ts";
 
 export default function Dashboard() {
@@ -154,6 +155,16 @@ export default function Dashboard() {
             )}
           </aside>
         </div>
+
+        {d && (
+          <div style={{ marginTop: 40 }}>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
+              <h2 style={{ fontSize: 20 }}>Who the next round pays</h2>
+              <span className="k">automatic · pro-rata · every {d.roundSeconds / 60} min</span>
+            </div>
+            <EligibleWallets d={d} me={me} />
+          </div>
+        )}
       </main>
       <Foot />
     </>
