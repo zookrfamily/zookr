@@ -1,9 +1,8 @@
-node_modules/
+﻿node_modules/
 .env
 *.log
 worker/wallet/
 out/
 cache/
-worker/data/state.json
 contracts/.env
 web/.env.local
