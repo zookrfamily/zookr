@@ -6,3 +6,4 @@ out/
 cache/
 contracts/.env
 web/.env.local
+web/.vercel/
