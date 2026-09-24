@@ -1,0 +1,13 @@
+{
+  "name": "zookr-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Zookr rounds engine: reads holders on Robinhood Chain, allocates ZEC from the pool every ten minutes, pays registered holders through zingo-cli.",
+  "scripts": {
+    "round": "node index.mjs round",
+    "address": "node index.mjs address",
+    "status": "node index.mjs status"
+  },
+  "dependencies": { "viem": "^2.21.0" }
+}

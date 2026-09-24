@@ -1,0 +1,29 @@
+# Build zingo-cli once on Linux and keep the binary as a release asset, so the
+# ten-minute rounds job can download it in seconds instead of compiling.
+name: build zingo-cli
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: zingolib git ref
+        default: dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { repository: zingolabs/zingolib, ref: "${{ inputs.ref }}", path: zingolib }
+      - run: sudo apt-get update && sudo apt-get install -y build-essential libsqlite3-dev protobuf-compiler pkg-config libssl-dev
+      - uses: dtolnay/rust-toolchain@stable
+        with: { components: rustfmt }
+      - uses: Swatinem/rust-cache@v2
+        with: { workspaces: zingolib }
+      - run: cd zingolib && cargo build --release --package zingo-cli
+      - run: cp zingolib/target/release/zingo-cli zingo-cli-linux-x64 && ./zingo-cli-linux-x64 --version || true
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: zingo-cli
+          name: zingo-cli (linux x64)
+          files: zingo-cli-linux-x64
+          make_latest: false
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }

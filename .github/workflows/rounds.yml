@@ -1,0 +1,47 @@
+# The rounds engine. Every ten minutes: pull holders, process rounds, pay
+# registered holders from the pool wallet, publish data/public.json.
+# The wallet directory is cached between runs so sync is incremental.
+name: rounds
+on:
+  schedule: [{ cron: "*/10 * * * *" }]
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: dry run (no payouts)
+        type: boolean
+        default: false
+concurrency: { group: rounds, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  round:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: cd worker && npm ci --omit=dev --no-audit --no-fund
+      - name: zingo-cli
+        run: |
+          curl -sSL -o /usr/local/bin/zingo-cli "https://github.com/${{ github.repository }}/releases/download/zingo-cli/zingo-cli-linux-x64"
+          chmod +x /usr/local/bin/zingo-cli
+      - name: wallet cache
+        uses: actions/cache@v4
+        with:
+          path: worker/wallet
+          key: zookr-wallet-${{ github.run_id }}
+          restore-keys: zookr-wallet-
+      - name: round
+        env:
+          RPC_URL: ${{ vars.RPC_URL || 'https://rpc.mainnet.chain.robinhood.com' }}
+          LIGHTWALLETD: ${{ vars.LIGHTWALLETD || 'https://zec.rocks:443' }}
+          ZCASH_SEED: ${{ secrets.ZCASH_SEED }}
+          ZCASH_BIRTHDAY: ${{ vars.ZCASH_BIRTHDAY }}
+          DRY_RUN: ${{ inputs.dry && '1' || '0' }}
+        run: cd worker && node index.mjs round
+      - name: commit data
+        run: |
+          git config user.name zookr-bot
+          git config user.email zookr-bot@users.noreply.github.com
+          git add worker/data/state.json worker/data/public.json
+          git diff --cached --quiet || (git commit -m "round $(date -u +%FT%TZ)" && git push)

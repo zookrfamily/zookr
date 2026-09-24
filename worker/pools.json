@@ -1,0 +1,20 @@
+{
+  "registry": "",
+  "roundSeconds": 600,
+  "minPayoutZat": 100000,
+  "pools": [
+    {
+      "id": "rnode",
+      "token": "0x954f81c9bdce955619e8533bc5fdd9d0503cf8b4",
+      "symbol": "RNODE",
+      "name": "Rentnode",
+      "decimals": 18,
+      "fromBlock": 69616000,
+      "emissionZatPerDay": 50000000,
+      "startsAt": "2026-09-26T00:00:00Z",
+      "endsAt": null,
+      "minHold": "1000",
+      "exclude": []
+    }
+  ]
+}

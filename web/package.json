@@ -1,0 +1,25 @@
+{
+  "name": "zookr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Native ZEC rewards for token holders on Robinhood Chain. Hold in your own wallet, register a Zcash address, get paid every round.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.9.0"
+  }
+}
