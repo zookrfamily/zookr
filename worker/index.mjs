@@ -87,6 +87,19 @@ async function pullTransfers(p) {
   save();
 }
 
+// Contracts - LP pools, routers, vaults - hold tokens but are not holders.
+// Checked once per address and remembered.
+async function markContracts(p) {
+  const ps = poolState(p); ps.contracts ??= {};
+  for (const w of Object.keys(ps.lots)) {
+    if (w in ps.contracts) continue;
+    const code = await client.getCode({ address: w }).catch(() => "0x");
+    ps.contracts[w] = !!code && code !== "0x";
+  }
+  save();
+}
+const isHolder = (ps, w) => !ps.contracts?.[w];
+
 // ------------------------------------------------------------------ rounds
 const perRoundZat = (p) => Math.floor((p.emissionZatPerDay * ROUND) / 86400);
 function processRounds(p, nowSec) {
@@ -103,6 +116,7 @@ function processRounds(p, nowSec) {
     const eligible = [];
     let total = 0n;
     for (const [w, lots] of Object.entries(ps.lots)) {
+      if (!isHolder(ps, w)) continue;
       const amt = lots.filter((l) => l.at < prev).reduce((s, l) => s + l.amount, 0n);
       if (amt >= minHold && amt > 0n) { eligible.push([w, amt]); total += amt; }
     }
@@ -197,7 +211,13 @@ function payouts() {
 function publish() {
   const pools = CFG.pools.map((p) => {
     const ps = poolState(p);
-    const holders = Object.entries(ps.lots).map(([w, lots]) => ({ w, bal: lots.reduce((s, l) => s + l.amount, 0n), eligible: lots.filter((l) => l.at < ps.lastRound).reduce((s, l) => s + l.amount, 0n) })).filter((h) => h.bal > 0n);
+    const minHold = BigInt(p.minHold ?? "0") * 10n ** BigInt(p.decimals);
+    // eligible mirrors the round rule exactly: held through the previous round, and at least minHold
+    const holders = Object.entries(ps.lots).filter(([w]) => isHolder(ps, w)).map(([w, lots]) => {
+      const bal = lots.reduce((s, l) => s + l.amount, 0n);
+      const held = lots.filter((l) => l.at < ps.lastRound).reduce((s, l) => s + l.amount, 0n);
+      return { w, bal, eligible: held >= minHold ? held : 0n };
+    }).filter((h) => h.bal > 0n);
     return {
       id: p.id, token: p.token, symbol: p.symbol, name: p.name, decimals: p.decimals,
       emissionZatPerDay: p.emissionZatPerDay, perRoundZat: perRoundZat(p), startsAt: p.startsAt, endsAt: p.endsAt, minHold: p.minHold ?? "0",
@@ -226,7 +246,7 @@ if (cmd === "address") { console.log(zingo("addresses")); }
 else if (cmd === "status") { readPool(); publish(); }
 else {
   const now = Math.floor(Date.now() / 1000);
-  for (const p of CFG.pools) await pullTransfers(p);
+  for (const p of CFG.pools) { await pullTransfers(p); await markContracts(p); }
   await pullRegistry();
   if (SEED && existsSync(ZINGO) || (SEED && !DRY)) readPool(); else console.log("[pool] skipped (no wallet binary or dry run)");
   for (const p of CFG.pools) processRounds(p, now);
