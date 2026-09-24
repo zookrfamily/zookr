@@ -29,7 +29,7 @@ export function EligibleWallets({ d, me }: { d: PublicData; me: string }) {
             <tr key={w} style={w === me ? { background: "var(--paper-2)" } : undefined}>
               <td className="mono"><a href={`${EXPLORER}/address/${w}`} target="_blank" rel="noreferrer">{short(w)}</a>{w === me ? " · you" : ""}</td>
               <td className="mono">{r.pools.join(", ")}</td>
-              <td className="r mono">{r.eligible.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+              <td className="r mono">{r.eligible.toLocaleString("en-US", { maximumFractionDigits: 0 })}</td>
               <td className="r mono">{zec(r.perRound)} ZEC</td>
               <td className="r mono">{zec(d.accrued[w] ?? 0)} ZEC</td>
               <td className="r mono">{zec(d.paid[w] ?? 0, 4)} ZEC</td>

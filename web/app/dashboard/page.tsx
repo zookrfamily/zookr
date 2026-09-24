@@ -121,7 +121,7 @@ export default function Dashboard() {
                 <div className="table-wrap"><table>
                   <thead><tr><th>Pool</th><th className="r">Balance</th><th className="r">Eligible</th><th className="r">Waiting</th><th className="r">Share</th><th className="r">Per round</th></tr></thead>
                   <tbody>{mine.holdings.map(({ p, bal, eligible, waiting, share }) => (
-                    <tr key={p.id}><td><a href={`/pools/${p.id}`}><b>{p.symbol}</b> <span style={{ color: "var(--dim)" }}>{p.name}</span></a></td><td className="r mono">{bal.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td><td className="r mono">{eligible.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td><td className="r mono">{waiting.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td><td className="r mono">{(share * 100).toFixed(3)}%</td><td className="r mono">{zec(share * p.perRoundZat)} ZEC</td></tr>
+                    <tr key={p.id}><td><a href={`/pools/${p.id}`}><b>{p.symbol}</b> <span style={{ color: "var(--dim)" }}>{p.name}</span></a></td><td className="r mono">{bal.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{eligible.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{waiting.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{(share * 100).toFixed(3)}%</td><td className="r mono">{zec(share * p.perRoundZat)} ZEC</td></tr>
                   ))}</tbody>
                 </table></div>
               ) : mine.pays.length === 0 ? <div className="empty">No payments yet.</div> : (

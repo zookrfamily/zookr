@@ -40,7 +40,7 @@ export default function PoolPage({ params }: { params: Promise<{ id: string }> }
                 <div className="card"><div className="table-wrap"><table>
                   <thead><tr><th>Wallet</th><th className="r">Balance</th><th className="r">Eligible</th><th className="r">Share</th><th className="r">Per round</th></tr></thead>
                   <tbody>{top.map((h) => (
-                    <tr key={h.a} style={h.a === me ? { background: "var(--paper-2)" } : undefined}><td className="mono"><a href={`${EXPLORER}/address/${h.a}`} target="_blank" rel="noreferrer">{short(h.a)}</a>{h.a === me ? " · you" : ""}</td><td className="r mono">{h.bal.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td className="r mono">{h.el.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td className="r mono">{totalEligible ? ((h.el / totalEligible) * 100).toFixed(2) : "0.00"}%</td><td className="r mono">{zec(totalEligible ? (h.el / totalEligible) * p.perRoundZat : 0)}</td></tr>
+                    <tr key={h.a} style={h.a === me ? { background: "var(--paper-2)" } : undefined}><td className="mono"><a href={`${EXPLORER}/address/${h.a}`} target="_blank" rel="noreferrer">{short(h.a)}</a>{h.a === me ? " · you" : ""}</td><td className="r mono">{h.bal.toLocaleString("en-US", { maximumFractionDigits: 0 })}</td><td className="r mono">{h.el.toLocaleString("en-US", { maximumFractionDigits: 0 })}</td><td className="r mono">{totalEligible ? ((h.el / totalEligible) * 100).toFixed(2) : "0.00"}%</td><td className="r mono">{zec(totalEligible ? (h.el / totalEligible) * p.perRoundZat : 0)}</td></tr>
                   ))}</tbody>
                 </table></div></div>
                 <h2 style={{ fontSize: 20, margin: "30px 0 12px" }}>Recent payments</h2>
