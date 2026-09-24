@@ -11,7 +11,7 @@
       "decimals": 18,
       "fromBlock": 69616000,
       "emissionZatPerDay": 50000000,
-      "startsAt": "2026-09-26T00:00:00Z",
+      "startsAt": "2026-09-24T00:00:00Z",
       "endsAt": null,
       "minHold": "1000",
       "exclude": []

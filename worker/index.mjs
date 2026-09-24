@@ -108,7 +108,7 @@ function processRounds(p, nowSec) {
     }
     const emission = BigInt(perRoundZat(p));
     // a round only allocates what the pool can actually cover
-    const funded = DRY || state.pool.balanceZat - owedZat() >= Number(emission);
+    const funded = !DRY && state.pool.balanceZat - owedZat() >= Number(emission);
     if (total > 0n && funded) {
       let given = 0n;
       for (const [w, amt] of eligible) {
