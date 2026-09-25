@@ -19,7 +19,10 @@ jobs:
         with: { components: rustfmt }
       - uses: Swatinem/rust-cache@v2
         with: { workspaces: zingolib }
-      - run: cd zingolib && cargo build --release --package zingo-cli
+      # dev builds force the Nym mixnet for any online session; the clearnet
+      # feature compiles the plain-https path back in, which is what a CI
+      # runner talking to zec.rocks needs
+      - run: cd zingolib && cargo build --release --package zingo-cli --no-default-features --features clearnet-test-mode
       - run: cp zingolib/target/release/zingo-cli zingo-cli-linux-x64 && ./zingo-cli-linux-x64 --version || true
       - uses: softprops/action-gh-release@v2
         with:
