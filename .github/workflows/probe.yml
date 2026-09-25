@@ -1,0 +1,37 @@
+# One-off: learn how this zingo-cli build behaves, with a throwaway seed.
+# Every probe has a hard timeout and prints exit code, stdout and stderr.
+name: probe zingo-cli
+on: { workflow_dispatch: {} }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: zingo-cli
+        run: |
+          curl -fsSL -o /usr/local/bin/zingo-cli "https://github.com/${{ github.repository }}/releases/download/zingo-cli/zingo-cli-linux-x64"
+          chmod +x /usr/local/bin/zingo-cli
+      - name: probes
+        env:
+          S: "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon art"
+          SRV: https://zec.rocks:443
+        run: |
+          set +e
+          p() { echo; echo "=================== $1"; shift; timeout -k 5 "$T" "$@" </dev/null > out.txt 2> err.txt; c=$?; echo "exit=$c"; echo "--- stdout"; head -c 3000 out.txt; echo; echo "--- stderr"; tail -c 3000 err.txt; echo; }
+          T=60
+          p "version" zingo-cli --version
+          p "help" zingo-cli --help
+          p "help-cmds" zingo-cli help
+          p "offline addresses (fresh seed)" zingo-cli --data-dir w1 --offline --seed "$S" --birthday 3494800 addresses
+          p "offline spendable_balance" zingo-cli --data-dir w1 --offline spendable_balance
+          p "offline recovery_info" zingo-cli --data-dir w1 --offline recovery_info
+          T=300
+          p "online nosync height" zingo-cli --data-dir w1 --server "$SRV" --online --nosync height
+          p "online waitsync height" zingo-cli --data-dir w1 --server "$SRV" --online --waitsync height
+          p "online nosync sync status" zingo-cli --data-dir w1 --server "$SRV" --online --nosync sync status
+          p "online waitsync value_transfers" zingo-cli --data-dir w1 --server "$SRV" --online --waitsync value_transfers
+          p "remember-online nosync height" zingo-cli --data-dir w1 --server "$SRV" --remember-online --nosync height
+          p "standing consent: waitsync spendable_balance" zingo-cli --data-dir w1 --server "$SRV" --waitsync spendable_balance
+          p "standing consent: plain addresses" zingo-cli --data-dir w1 addresses
+          p "standing consent: nosync balance" zingo-cli --data-dir w1 --nosync balance
+          echo; echo "=================== files"; ls -la w1 ~/.zingo-cli 2>/dev/null; find w1 -maxdepth 2 -type f 2>/dev/null
