@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-09-25T17:23:25.273Z",
+ "generatedAt": "2026-09-25T18:39:09.933Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
- "registry": "",
+ "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "balanceZat": 0,
@@ -22,13 +22,13 @@
    "startsAt": "2026-09-24T00:00:00Z",
    "endsAt": null,
    "minHold": "1000",
-   "rounds": 248,
-   "lastRound": 1790356800,
-   "nextRound": 1790357400,
+   "rounds": 255,
+   "lastRound": 1790361000,
+   "nextRound": 1790361600,
    "allocatedZat": 0,
-   "holders": 11,
-   "eligibleHolders": 11,
-   "lastBlock": 72402756,
+   "holders": 12,
+   "eligibleHolders": 12,
+   "lastBlock": 72448040,
    "wallets": {
     "0x4583439924005ba530e63e59d0f3e19cbbe32063": {
      "balance": "12457124.786647208782189213",
@@ -73,6 +73,10 @@
     "0x4f2bd69fa247bba32457c7b2ef6dd2e7bf32a1ce": {
      "balance": "1053030.326550479758366987",
      "eligible": "1053030.326550479758366987"
+    },
+    "0xdfbbd4d45c1cac8e437d74dcbb71545839c83951": {
+     "balance": "1919728.968736166507142407",
+     "eligible": "1919728.968736166507142407"
     }
    }
   }
