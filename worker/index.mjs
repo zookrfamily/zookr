@@ -155,21 +155,43 @@ async function pullRegistry() {
 }
 
 // ------------------------------------------------------------------ wallet
-// commands that never touch the network must not be given --online/--waitsync
-const OFFLINE = new Set(["addresses", "recovery_info", "help", "version"]);
-function zingo(cmd, ...args) {
+// zingo-cli decides per command whether a session may be online, and refuses
+// --online for commands that "need no network". Rather than keep a list that
+// drifts with the CLI, run once with a standing consent stored beside the
+// wallet, then let each command tell us which flags it wants.
+let consented = false;
+function zingoRun(flags, cmd, args) {
   const base = ["--data-dir", WALLET_DIR, "--server", SERVER];
   if (!existsSync(`${WALLET_DIR}/zingo-wallet.dat`) && SEED) base.push("--seed", SEED, ...(BIRTHDAY ? ["--birthday", BIRTHDAY] : []));
-  if (!OFFLINE.has(cmd)) base.push("--online", "--waitsync");
-  const out = execFileSync(ZINGO, [...base, cmd, ...args], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 20 * 60_000 });
-  // zingo prints logs before the JSON result; take the last JSON block
-  const m = out.match(/[\{\[][\s\S]*[\}\]]\s*$/);
-  return m ? JSON.parse(m[0]) : out.trim();
+  return execFileSync(ZINGO, [...base, ...flags, cmd, ...args], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 20 * 60_000, stdio: ["ignore", "pipe", "pipe"] });
+}
+function zingo(cmd, ...args) {
+  if (!consented) {
+    // one connected session: sync to the tip and remember the consent
+    try { zingoRun(["--remember-online", "--waitsync"], "sync", ["status"]); } catch (e) { console.warn("[zingo] consent/sync:", (e.stderr || e.message).toString().split("\n").find((l) => /Error|error/.test(l)) ?? ""); }
+    consented = true;
+  }
+  let flags = ["--waitsync"];
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const out = zingoRun(flags, cmd, args);
+      const m = out.match(/[\{\[][\s\S]*[\}\]]\s*$/);
+      return m ? JSON.parse(m[0]) : out.trim();
+    } catch (e) {
+      const err = (e.stderr || e.message || "").toString();
+      if (/needs no network|never uses/i.test(err) && flags.length) { flags = []; continue; }
+      if (/consent|Offline Mode|go online/i.test(err) && !flags.includes("--online")) { flags = ["--online", "--waitsync"]; continue; }
+      throw new Error(`${cmd}: ${err.split("\n").find((l) => /Error|error/.test(l)) ?? err.slice(0, 200)}`);
+    }
+  }
+  throw new Error(`${cmd}: gave up`);
 }
 function readPool() {
   const addrs = zingo("addresses");
-  const ua = Array.isArray(addrs) ? (addrs[0]?.address ?? addrs[0]?.unified ?? addrs[0]) : addrs;
-  if (typeof ua === "string") state.pool.address = ua;
+  console.log("[pool] addresses:", JSON.stringify(addrs).slice(0, 400));
+  const first = Array.isArray(addrs) ? addrs[0] : addrs;
+  const ua = typeof first === "string" ? first : (first?.address ?? first?.unified ?? first?.encoded ?? first?.ua ?? "");
+  if (typeof ua === "string" && ua.startsWith("u1")) state.pool.address = ua;
   const bal = zingo("spendable_balance");
   state.pool.balanceZat = Number(bal.spendable_balance ?? bal);
   // deposits: incoming value transfers, deduplicated by txid
