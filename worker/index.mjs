@@ -248,8 +248,12 @@ else {
   const now = Math.floor(Date.now() / 1000);
   for (const p of CFG.pools) { await pullTransfers(p); await markContracts(p); }
   await pullRegistry();
-  if (SEED && existsSync(ZINGO) || (SEED && !DRY)) readPool(); else console.log("[pool] skipped (no wallet binary or dry run)");
+  // no wallet (no seed, no binary, or a dry run): rounds still advance, but
+  // nothing is allocated or paid - the pool balance reads as zero
+  let wallet = false;
+  if (SEED && !DRY) { try { readPool(); wallet = true; } catch (e) { console.warn("[pool] unavailable:", e.message.split("\n")[0]); } }
+  else console.log("[pool] skipped (no seed or dry run)");
   for (const p of CFG.pools) processRounds(p, now);
-  payouts();
+  if (wallet) { try { payouts(); } catch (e) { console.error("[payouts]", e.message.split("\n")[0]); } }
   publish();
 }

@@ -23,8 +23,11 @@ jobs:
       - run: cd worker && npm ci --omit=dev --no-audit --no-fund
       - name: zingo-cli
         run: |
-          curl -sSL -o /usr/local/bin/zingo-cli "https://github.com/${{ github.repository }}/releases/download/zingo-cli/zingo-cli-linux-x64"
-          chmod +x /usr/local/bin/zingo-cli
+          if curl -fsSL -o /usr/local/bin/zingo-cli "https://github.com/${{ github.repository }}/releases/download/zingo-cli/zingo-cli-linux-x64"; then
+            chmod +x /usr/local/bin/zingo-cli && echo "zingo-cli ready"
+          else
+            echo "::warning::zingo-cli release not found yet - this run allocates nothing and pays nothing"
+          fi
       - name: wallet cache
         uses: actions/cache@v4
         with:
