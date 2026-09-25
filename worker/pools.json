@@ -1,5 +1,6 @@
 {
-  "registry": "",
+  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
+  "registryFromBlock": 72446700,
   "roundSeconds": 600,
   "minPayoutZat": 100000,
   "pools": [
