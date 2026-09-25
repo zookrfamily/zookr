@@ -23,7 +23,7 @@
 // for paying real, private ZEC.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
-import { execFileSync } from "node:child_process";
+import { execFileSync } from "node:child_process"; // ssh-keygen style helpers may use it later
 import { createPublicClient, http, parseAbiItem, formatUnits } from "viem";
 
 // ------------------------------------------------------------------ config
@@ -155,61 +155,87 @@ async function pullRegistry() {
 }
 
 // ------------------------------------------------------------------ wallet
-// zingo-cli decides per command whether a session may be online, and refuses
-// --online for commands that "need no network". Rather than keep a list that
-// drifts with the CLI, run once with a standing consent stored beside the
-// wallet, then let each command tell us which flags it wants.
-let consented = false;
-function zingoRun(flags, cmd, args) {
-  const base = ["--data-dir", WALLET_DIR, "--server", SERVER];
-  if (!existsSync(`${WALLET_DIR}/zingo-wallet.dat`) && SEED) base.push("--seed", SEED, ...(BIRTHDAY ? ["--birthday", BIRTHDAY] : []));
-  return execFileSync(ZINGO, [...base, ...flags, cmd, ...args], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 20 * 60_000, stdio: ["ignore", "pipe", "pipe"] });
-}
-function zingo(cmd, ...args) {
-  if (!consented) {
-    // one connected session: sync to the tip and remember the consent
-    try { zingoRun(["--remember-online", "--waitsync"], "sync", ["status"]); } catch (e) { console.warn("[zingo] consent/sync:", (e.stderr || e.message).toString().split("\n").find((l) => /Error|error/.test(l)) ?? ""); }
-    consented = true;
+// zingo-cli is driven at its interactive prompt over stdin. That is the one
+// mode where a session may be online for every command: --online is refused
+// by almost every one-shot command, and --waitsync never returns. A session
+// syncs in the background; we poll `sync status` until every range is
+// Scanned, then read and send, then `quit`. Standing consent is stored beside
+// the wallet by --remember-online.
+import { spawn } from "node:child_process";
+
+class Zingo {
+  constructor() {
+    const args = ["--data-dir", WALLET_DIR, "--server", SERVER, "--remember-online"];
+    if (!existsSync(`${WALLET_DIR}/zingo-wallet.dat`) && SEED) args.push("--seed", SEED, ...(BIRTHDAY ? ["--birthday", BIRTHDAY] : []));
+    this.p = spawn(ZINGO, args, { stdio: ["pipe", "pipe", "pipe"] });
+    this.buf = ""; this.err = "";
+    this.p.stdout.on("data", (d) => { this.buf += d; });
+    this.p.stderr.on("data", (d) => { this.err += d; });
+    this.exited = new Promise((res) => this.p.on("exit", res));
   }
-  let flags = ["--waitsync"];
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      const out = zingoRun(flags, cmd, args);
-      const m = out.match(/[\{\[][\s\S]*[\}\]]\s*$/);
-      return m ? JSON.parse(m[0]) : out.trim();
-    } catch (e) {
-      const err = (e.stderr || e.message || "").toString();
-      if (/needs no network|never uses/i.test(err) && flags.length) { flags = []; continue; }
-      if (/consent|Offline Mode|go online/i.test(err) && !flags.includes("--online")) { flags = ["--online", "--waitsync"]; continue; }
-      throw new Error(`${cmd}: ${err.split("\n").find((l) => /Error|error/.test(l)) ?? err.slice(0, 200)}`);
+  /** Send one command; everything printed before the next `height` answer is
+   *  its output. `height` always prints a JSON object, so it doubles as the
+   *  end-of-output marker even for commands that print nothing. */
+  async cmd(line, timeoutMs = 180_000) {
+    const start = this.buf.length;
+    this.p.stdin.write(`${line}\nheight\n`);
+    const t0 = Date.now();
+    for (;;) {
+      const chunk = this.buf.slice(start);
+      const m = chunk.match(/\{\s*"height"\s*:\s*(\d+)\s*\}\s*$/);
+      if (m) {
+        const raw = chunk.slice(0, m.index).trim();
+        this.height = Number(m[1]);
+        try { return raw ? JSON.parse(raw) : null; } catch { return raw; }
+      }
+      if (Date.now() - t0 > timeoutMs) throw new Error(`${line.split(" ")[0]}: no answer in ${timeoutMs / 1000}s\n${this.err.slice(-400)}`);
+      await new Promise((r) => setTimeout(r, 300));
     }
   }
-  throw new Error(`${cmd}: gave up`);
+  /** Wait until the background sync has scanned every range to the tip. */
+  async synced(maxMs = 12 * 60_000) {
+    const t0 = Date.now(); let last = "";
+    for (;;) {
+      const s = await this.cmd("sync status", 60_000);
+      const ranges = s?.scan_ranges ?? [];
+      const done = ranges.length > 0 && ranges.every((r) => r.priority === "Scanned") && Number(s.percentage_total_blocks_scanned) >= 100;
+      const line = `${s?.total_blocks_scanned ?? 0} blocks, ${s?.percentage_total_blocks_scanned ?? 0}%`;
+      if (line !== last) { console.log(`[wallet] sync ${line}`); last = line; }
+      if (done) return s;
+      if (Date.now() - t0 > maxMs) throw new Error(`sync did not finish: ${line}`);
+      await new Promise((r) => setTimeout(r, 4000));
+    }
+  }
+  async quit() {
+    try { this.p.stdin.write("quit\n"); } catch { /* already gone */ }
+    await Promise.race([this.exited, new Promise((r) => setTimeout(r, 15_000))]);
+    if (this.p.exitCode === null) this.p.kill();
+  }
 }
-function readPool() {
-  const addrs = zingo("addresses");
-  console.log("[pool] addresses:", JSON.stringify(addrs).slice(0, 400));
+
+async function readPool(z) {
+  const addrs = await z.cmd("addresses");
   const first = Array.isArray(addrs) ? addrs[0] : addrs;
-  const ua = typeof first === "string" ? first : (first?.address ?? first?.unified ?? first?.encoded ?? first?.ua ?? "");
+  const ua = typeof first === "string" ? first : (first?.encoded_address ?? first?.address ?? "");
   if (typeof ua === "string" && ua.startsWith("u1")) state.pool.address = ua;
-  const bal = zingo("spendable_balance");
-  state.pool.balanceZat = Number(bal.spendable_balance ?? bal);
+  const bal = await z.cmd("spendable_balance");
+  state.pool.balanceZat = Number(bal?.spendable_balance ?? 0);
   // deposits: incoming value transfers, deduplicated by txid
-  let vts = [];
-  try { vts = zingo("value_transfers"); } catch (e) { console.warn("[pool] value_transfers:", e.message.split("\n")[0]); }
-  const list = Array.isArray(vts) ? vts : (vts.value_transfers ?? []);
+  const vts = await z.cmd("value_transfers");
+  const list = Array.isArray(vts) ? vts : (vts?.value_transfers ?? []);
+  if (list.length && !state.pool.sampleLogged) { console.log("[pool] value_transfers sample:", JSON.stringify(list[0]).slice(0, 400)); state.pool.sampleLogged = true; }
   const seen = new Set(state.pool.deposits.map((d) => d.txid));
   for (const v of list) {
-    const kind = (v.kind ?? v.type ?? "").toString().toLowerCase();
-    if (!/received|incoming/.test(kind) || seen.has(v.txid)) continue;
+    const kind = (v.kind ?? v.type ?? v.direction ?? "").toString().toLowerCase();
+    if (!/receiv|incoming|in\b/.test(kind) || seen.has(v.txid)) continue;
     state.pool.deposits.push({ txid: v.txid, zat: Number(v.value ?? v.amount ?? 0), at: v.datetime ?? v.timestamp ?? null, memo: v.memos?.[0] ?? v.memo ?? "" });
   }
   save();
-  console.log(`[pool] ${state.pool.address.slice(0, 12)}… spendable ${(state.pool.balanceZat / 1e8).toFixed(6)} ZEC, ${state.pool.deposits.length} deposits`);
+  console.log(`[pool] ${state.pool.address.slice(0, 14)}… height ${z.height} spendable ${(state.pool.balanceZat / 1e8).toFixed(6)} ZEC, ${state.pool.deposits.length} deposits`);
 }
 
 // ----------------------------------------------------------------- payouts
-function payouts() {
+async function payouts(z) {
   const due = Object.entries(state.accrued)
     .map(([w, zat]) => [w, BigInt(zat)])
     .filter(([w, zat]) => zat >= BigInt(CFG.minPayoutZat) && state.registry.dest[w]);
@@ -220,8 +246,9 @@ function payouts() {
   if (Number(total) + 100_000 > state.pool.balanceZat) return console.warn(`[payouts] pool short: owes ${Number(total) / 1e8} ZEC, has ${state.pool.balanceZat / 1e8}`);
   const recipients = batch.map(([w, zat]) => ({ address: state.registry.dest[w], amount: Number(zat), memo: `zookr reward ${w.slice(0, 10)}` }));
   if (DRY) return console.log("[payouts] DRY", JSON.stringify(recipients));
-  const r = zingo("quicksend", JSON.stringify(recipients));
-  const txid = r.txids?.[0] ?? String(r);
+  const r = await z.cmd(`quicksend ${JSON.stringify(recipients)}`, 10 * 60_000);
+  const txid = r?.txids?.[0] ?? (typeof r === "string" ? r.slice(0, 80) : "");
+  if (!txid || /error/i.test(txid)) throw new Error(`quicksend answered: ${JSON.stringify(r).slice(0, 300)}`);
   const at = new Date().toISOString();
   for (const [w, zat] of batch) {
     state.payments.push({ wallet: w, to: state.registry.dest[w], zat: Number(zat), txid, at });
@@ -231,7 +258,6 @@ function payouts() {
   save();
   console.log(`[payouts] ${batch.length} holders, ${Number(total) / 1e8} ZEC, txid ${txid}`);
 }
-
 // ----------------------------------------------------------------- publish
 function publish() {
   const pools = CFG.pools.map((p) => {
@@ -267,18 +293,21 @@ function publish() {
 
 // -------------------------------------------------------------------- main
 const cmd = process.argv[2] ?? "round";
-if (cmd === "address") { console.log(zingo("addresses")); }
-else if (cmd === "status") { readPool(); publish(); }
-else {
+if (cmd === "address" || cmd === "status") {
+  const z = new Zingo();
+  try { await z.synced(); await readPool(z); publish(); } finally { await z.quit(); }
+} else {
   const now = Math.floor(Date.now() / 1000);
   for (const p of CFG.pools) { await pullTransfers(p); await markContracts(p); }
   await pullRegistry();
   // no wallet (no seed, no binary, or a dry run): rounds still advance, but
   // nothing is allocated or paid - the pool balance reads as zero
-  let wallet = false;
-  if (SEED && !DRY) { try { readPool(); wallet = true; } catch (e) { console.warn("[pool] unavailable:", e.message.split("\n")[0]); } }
-  else console.log("[pool] skipped (no seed or dry run)");
+  let z = null;
+  if (SEED && !DRY) {
+    try { z = new Zingo(); await z.synced(); await readPool(z); }
+    catch (e) { console.warn("[pool] unavailable:", e.message.split("\n").slice(0, 3).join(" | ")); if (z) { await z.quit(); z = null; } }
+  } else console.log("[pool] skipped (no seed or dry run)");
   for (const p of CFG.pools) processRounds(p, now);
-  if (wallet) { try { payouts(); } catch (e) { console.error("[payouts]", e.message.split("\n")[0]); } }
+  if (z) { try { await payouts(z); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); } await z.quit(); }
   publish();
 }
