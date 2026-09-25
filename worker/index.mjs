@@ -155,10 +155,13 @@ async function pullRegistry() {
 }
 
 // ------------------------------------------------------------------ wallet
+// commands that never touch the network must not be given --online/--waitsync
+const OFFLINE = new Set(["addresses", "recovery_info", "help", "version"]);
 function zingo(cmd, ...args) {
-  const base = ["--data-dir", WALLET_DIR, "--server", SERVER, "--online"];
+  const base = ["--data-dir", WALLET_DIR, "--server", SERVER];
   if (!existsSync(`${WALLET_DIR}/zingo-wallet.dat`) && SEED) base.push("--seed", SEED, ...(BIRTHDAY ? ["--birthday", BIRTHDAY] : []));
-  const out = execFileSync(ZINGO, [...base, "--waitsync", cmd, ...args], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 20 * 60_000 });
+  if (!OFFLINE.has(cmd)) base.push("--online", "--waitsync");
+  const out = execFileSync(ZINGO, [...base, cmd, ...args], { encoding: "utf8", maxBuffer: 64 << 20, timeout: 20 * 60_000 });
   // zingo prints logs before the JSON result; take the last JSON block
   const m = out.match(/[\{\[][\s\S]*[\}\]]\s*$/);
   return m ? JSON.parse(m[0]) : out.trim();
