@@ -27,11 +27,11 @@ export default function PoolPage({ params }: { params: Promise<{ id: string }> }
               <div><span className="k">Native ZEC rewards</span><h1>{p.name} / {p.symbol}</h1><a className="mono" style={{ fontSize: 12, color: "rgba(255,255,255,.8)" }} href={`${EXPLORER}/token/${p.token}`} target="_blank" rel="noreferrer">{p.token} ↗</a></div>
               <span className="pill ok"><i />Round {p.rounds} · next {new Date(p.nextRound * 1000).toUTCString().slice(17, 25)} UTC</span>
             </div>
-            <div className="card g2" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            <div className="card gstat g4">
               <div className="card-pad"><span className="k">Emission</span><div className="big" style={{ fontSize: 24 }}>{zec(p.emissionZatPerDay, 3)}</div><span className="k">ZEC / day · {zec(p.perRoundZat)} per round</span></div>
-              <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">Allocated so far</span><div className="big" style={{ fontSize: 24 }}>{zec(p.allocatedZat, 4)}</div><span className="k">ZEC over {p.rounds} rounds</span></div>
-              <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">Holders</span><div className="big" style={{ fontSize: 24 }}>{p.holders}</div><span className="k">{p.eligibleHolders} eligible this round</span></div>
-              <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">Runway</span><div className="big" style={{ fontSize: 24 }}>{runway.toFixed(1)} d</div><span className="k">at current emission</span></div>
+              <div className="card-pad"><span className="k">Allocated so far</span><div className="big" style={{ fontSize: 24 }}>{zec(p.allocatedZat, 4)}</div><span className="k">ZEC over {p.rounds} rounds</span></div>
+              <div className="card-pad"><span className="k">Holders</span><div className="big" style={{ fontSize: 24 }}>{p.holders}</div><span className="k">{p.eligibleHolders} eligible this round</span></div>
+              <div className="card-pad"><span className="k">Runway</span><div className="big" style={{ fontSize: 24 }}>{runway.toFixed(1)} d</div><span className="k">at current emission</span></div>
             </div>
 
             <div className="g31">

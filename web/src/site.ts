@@ -4,7 +4,8 @@
 export const REGISTRY = (process.env.NEXT_PUBLIC_REGISTRY ?? "") as `0x${string}` | "";
 export const DATA_URL = process.env.DATA_URL ?? "";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "";
-export const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? "";
+export const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/zookrfamily/zookr";
+export const TELEGRAM_URL = "https://t.me/ZookrFamily";
 export const EXPLORER = "https://robinhoodchain.blockscout.com";
 export const ZEC_EXPLORER = "https://mainnet.zcashexplorer.app/transactions";
 

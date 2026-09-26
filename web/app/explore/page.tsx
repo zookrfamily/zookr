@@ -13,10 +13,10 @@ export default function Explore() {
       <main className="wrap page">
         <div className="page-head"><div><span className="k">Pools</span><h1>Explore</h1></div>{d && <span className="pill ok"><i />Updated {new Date(d.generatedAt).toLocaleTimeString()}</span>}</div>
         {err && <div className="msg err">data unavailable: {err}</div>}
-        <div className="card g2" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="card gstat g3">
           <div className="card-pad"><span className="k">Pools</span><div className="big">{d?.pools.length ?? "—"}</div></div>
-          <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">ZEC paid across Zookr</span><div className="big">{d ? zec(d.totals.paidZat, 4) : "—"}</div><span className="k">{d?.totals.payments ?? 0} payments, each counted once</span></div>
-          <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">Pool balance</span><div className="big">{d ? zec(d.pool.balanceZat, 4) : "—"}</div><span className="k">spendable ZEC · {d ? zec(d.pool.owedZat, 4) : "—"} owed</span></div>
+          <div className="card-pad"><span className="k">ZEC paid across Zookr</span><div className="big">{d ? zec(d.totals.paidZat, 4) : "—"}</div><span className="k">{d?.totals.payments ?? 0} payments, each counted once</span></div>
+          <div className="card-pad"><span className="k">Pool balance</span><div className="big">{d ? zec(d.pool.balanceZat, 4) : "—"}</div><span className="k">spendable ZEC · {d ? zec(d.pool.owedZat, 4) : "—"} owed</span></div>
         </div>
         <div className="card" style={{ marginTop: 34 }}>
           <div className="table-wrap"><table>
