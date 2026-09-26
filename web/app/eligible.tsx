@@ -26,7 +26,7 @@ export function EligibleWallets({ d, me }: { d: PublicData; me: string }) {
         <div className="table-wrap"><table>
           <thead><tr><th>Wallet</th><th>Pool</th><th className="r">Eligible</th><th className="r">Per round</th><th className="r">Accrued</th><th className="r">Paid</th><th>Zcash address</th></tr></thead>
           <tbody>{list.slice(0, 100).map(([w, r]) => (
-            <tr key={w} style={w === me ? { background: "var(--paper-2)" } : undefined}>
+            <tr key={w} className={w === me ? "me" : undefined}>
               <td className="mono"><a href={`${EXPLORER}/address/${w}`} target="_blank" rel="noreferrer">{short(w)}</a>{w === me ? " · you" : ""}</td>
               <td className="mono">{r.pools.join(", ")}</td>
               <td className="r mono">{r.eligible.toLocaleString("en-US", { maximumFractionDigits: 0 })}</td>

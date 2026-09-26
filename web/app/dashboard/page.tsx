@@ -105,15 +105,15 @@ export default function Dashboard() {
         <div className="g31">
           <div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-              <div><span style={{ color: "var(--dim)" }}>ZEC received</span><div className="big">{mine ? zec(mine.paid, 4) : "—"}</div><span className="k">completed payments, cumulative</span></div>
+              <div className="onpaper"><span style={{ opacity: .8 }}>ZEC received</span><div className="big">{mine ? zec(mine.paid, 4) : "—"}</div><span className="k">completed payments, cumulative</span></div>
               <div className="tabs">{(["1h", "6h", "all"] as const).map((r) => <button key={r} className={range === r ? "on" : ""} onClick={() => setRange(r)}>{r.toUpperCase()}</button>)}</div>
             </div>
-            {!w.address ? <div className="empty" style={{ borderTop: "1px solid var(--hair)", borderBottom: "1px solid var(--hair)", margin: "30px 0" }}>↗<br />Connect a wallet to see your rewards</div>
-              : series.length === 0 ? <div className="empty" style={{ borderTop: "1px solid var(--hair)", borderBottom: "1px solid var(--hair)", margin: "30px 0" }}>No completed payments in this range yet.</div>
+            {!w.address ? <div className="empty onpaper" style={{ borderTop: "1px solid rgba(255,255,255,.3)", borderBottom: "1px solid rgba(255,255,255,.3)", margin: "30px 0" }}>↗<br />Connect a wallet to see your rewards</div>
+              : series.length === 0 ? <div className="empty onpaper" style={{ borderTop: "1px solid rgba(255,255,255,.3)", borderBottom: "1px solid rgba(255,255,255,.3)", margin: "30px 0" }}>No completed payments in this range yet.</div>
               : <div className="bars" style={{ margin: "20px 0" }}>{cum.map((v, i) => <i key={i} style={{ height: `${(v / max) * 100}%` }} title={`${zec(v)} ZEC`} />)}</div>}
 
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "30px 0 12px" }}>
-              <h2 style={{ fontSize: 20 }}>{tab === "holdings" ? "Holdings" : "Payments"}</h2>
+              <h2 style={{ fontSize: 20, color: "#fff" }}>{tab === "holdings" ? "Holdings" : "Payments"}</h2>
               <div className="tabs"><button className={tab === "holdings" ? "on" : ""} onClick={() => setTab("holdings")}>Holdings</button><button className={tab === "payments" ? "on" : ""} onClick={() => setTab("payments")}>Payments</button></div>
             </div>
             <div className="card">
@@ -135,13 +135,13 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <aside>
+          <aside className="onpaper">
             <h2 style={{ fontSize: 20, marginBottom: 10 }}>Rewards</h2>
             <div className="kv"><span>Pending · next round</span><b>{mine ? `${zec(mine.pending)} ZEC` : "—"}</b></div>
             <div className="kv"><span>Earned, unpaid</span><b>{mine ? `${zec(mine.accrued)} ZEC` : "—"}</b></div>
             <div className="kv"><span>ZEC received</span><b>{mine ? `${zec(mine.paid)} ZEC` : "—"}</b></div>
             <p style={{ color: "var(--dim)", fontSize: 13, margin: "14px 0 10px" }}>Your rewards stay with your wallet</p>
-            {!w.address && <button className="btn" onClick={() => void w.connect()}>Connect wallet</button>}
+            {!w.address && <button className="btn primary" onClick={() => void w.connect()}>Connect wallet</button>}
             {d && (
               <div style={{ marginTop: 30 }}>
                 <span className="k">The pool</span>
@@ -159,8 +159,8 @@ export default function Dashboard() {
         {d && (
           <div style={{ marginTop: 40 }}>
             <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
-              <h2 style={{ fontSize: 20 }}>Who the next round pays</h2>
-              <span className="k">automatic · pro-rata · every {d.roundSeconds / 60} min</span>
+              <h2 style={{ fontSize: 20, color: "#fff" }}>Who the next round pays</h2>
+              <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>automatic · pro-rata · every {d.roundSeconds / 60} min</span>
             </div>
             <EligibleWallets d={d} me={me} />
           </div>

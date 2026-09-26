@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const sans = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans", display: "swap" });
+const sans = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-sans", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-mono", display: "swap" });
 
 const TITLE = "Zookr - native ZEC rewards on Robinhood Chain";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", title: TITLE, description: DESCRIPTION, url: "/" },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
-export const viewport: Viewport = { themeColor: "#F4B728", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#F1837F", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

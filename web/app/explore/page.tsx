@@ -15,8 +15,8 @@ export default function Explore() {
         {err && <div className="msg err">data unavailable: {err}</div>}
         <div className="card g2" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
           <div className="card-pad"><span className="k">Pools</span><div className="big">{d?.pools.length ?? "—"}</div></div>
-          <div className="card-pad" style={{ borderLeft: "2px solid var(--line)" }}><span className="k">ZEC paid across Zookr</span><div className="big">{d ? zec(d.totals.paidZat, 4) : "—"}</div><span className="k">{d?.totals.payments ?? 0} payments, each counted once</span></div>
-          <div className="card-pad" style={{ borderLeft: "2px solid var(--line)" }}><span className="k">Pool balance</span><div className="big">{d ? zec(d.pool.balanceZat, 4) : "—"}</div><span className="k">spendable ZEC · {d ? zec(d.pool.owedZat, 4) : "—"} owed</span></div>
+          <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">ZEC paid across Zookr</span><div className="big">{d ? zec(d.totals.paidZat, 4) : "—"}</div><span className="k">{d?.totals.payments ?? 0} payments, each counted once</span></div>
+          <div className="card-pad" style={{ borderLeft: "1px solid var(--line)" }}><span className="k">Pool balance</span><div className="big">{d ? zec(d.pool.balanceZat, 4) : "—"}</div><span className="k">spendable ZEC · {d ? zec(d.pool.owedZat, 4) : "—"} owed</span></div>
         </div>
         <div className="card" style={{ marginTop: 34 }}>
           <div className="table-wrap"><table>

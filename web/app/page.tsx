@@ -6,11 +6,13 @@ export default function Home() {
       <Nav />
       <section className="hero">
         <div>
+          {/* eslint-disable-next-line @next/next/no-img-element -- static mark */}
+          <img src="/logo.png" alt="Zookr" width={132} height={132} />
           <h1>Native ZEC rewards<br />for holders</h1>
           <p>Hold a token on Robinhood Chain in your own wallet. Register a Zcash address once. A funded pool pays you shielded ZEC every ten minutes. No staking, no claim.</p>
           <div className="ctas">
-            <a className="btn primary" href="/dashboard">Dashboard →</a>
-            <a className="btn" href="/explore">Explore pools</a>
+            <a className="btn primary" href="/dashboard">Open dashboard →</a>
+            <a className="btn ghost" href="/explore">Explore pools</a>
           </div>
         </div>
       </section>

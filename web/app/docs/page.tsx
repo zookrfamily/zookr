@@ -7,7 +7,7 @@ export default function Docs() {
     <>
       <Nav />
       <main className="wrap page docs">
-        <nav className="docs-toc"><span className="k" style={{ paddingLeft: 12, marginBottom: 6 }}>Quick guide</span>{TOC.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
+        <nav className="docs-toc"><span className="k" style={{ paddingLeft: 12, marginBottom: 6, color: "rgba(255,255,255,.75)" }}>Quick guide</span>{TOC.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
         <div className="docs-main">
           <h2 id="how">How Zookr works.</h2>
           <p>A funded pool pays automatic rewards to holders, in native shielded ZEC. You hold tokens in your own wallet on Robinhood Chain. There is no staking deposit and no claim transaction.</p>
