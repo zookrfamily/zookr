@@ -78,7 +78,7 @@ h1, h2, h3 { margin: 0; line-height: 1.1; letter-spacing: -.025em; font-weight: 
 .pill.onpaper { background: rgba(255,255,255,.2); color: #fff; border-color: rgba(255,255,255,.45); }
 
 /* layout pieces */
-.page { padding: 34px 0 80px; }
+.page { padding-block: 34px 80px; } /* keep .wrap's side gutter */
 .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; color: #fff; }
 .page-head h1 { font-size: 30px; }
 .page-head .k { color: rgba(255,255,255,.75); }
