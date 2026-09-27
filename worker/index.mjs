@@ -227,7 +227,9 @@ async function readPool(z) {
   const ta = typeof t0 === "string" ? t0 : (t0?.encoded_address ?? t0?.address ?? "");
   if (typeof ta === "string" && ta.startsWith("t1")) state.pool.taddress = ta;
   const balText = String(await z.cmd("balance") ?? "");
-  const tconf = Number((balText.match(/confirmed_transparent_balance:\s*(\d+)/) ?? [])[1] ?? 0);
+  const pick = (k) => Number((balText.match(new RegExp(`(?<![a-z_])${k}:\\s*(\\d+)`)) ?? [])[1] ?? 0);
+  const tconf = pick("confirmed_transparent_balance"), tunconf = pick("unconfirmed_transparent_balance");
+  console.log(`[pool] balances: orchard ${pick("total_orchard_balance") / 1e8} ironwood ${pick("total_ironwood_balance") / 1e8} transparent ${tconf / 1e8} (+${tunconf / 1e8} unconfirmed) ZEC`);
   if (tconf > 20_000 && !DRY) {
     try { const r = await z.cmd("quickshield", 10 * 60_000); console.log(`[pool] shielded ${(tconf / 1e8).toFixed(6)} ZEC from t-addr: ${JSON.stringify(r).slice(0, 120)}`); }
     catch (e) { console.warn("[pool] shield failed:", e.message.split("\n")[0]); }
