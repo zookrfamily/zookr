@@ -4,7 +4,10 @@
   "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
   "launchpadFromBlock": 73890400,
   "factory": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
-  "platformToken": "",
+  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
+  "tokens": [
+    { "token": "0x8031df281c8d3ea06c495749eba444e1ced574eb", "vault": "0xe3d173541e0b0B81454D89A52D008aa55434CbEf", "fromBlock": 73960310 }
+  ],
   "roundSeconds": 600,
   "minPayoutZat": 100000,
   "holderShareBps": 9000,

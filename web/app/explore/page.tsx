@@ -65,7 +65,7 @@ export default function Explore() {
                 : rows.length === 0 ? <tr><td colSpan={7} className="empty">{d.tokens.length === 0 ? <>No token launched yet. <a href="/launch" style={{ textDecoration: "underline" }}>Be the first →</a></> : "Nothing matches."}</td></tr>
                 : rows.map((t) => (
                   <tr key={t.token}>
-                    <td><a href={`/tokens/${t.token}`} style={{ display: "flex", gap: 12, alignItems: "center" }}><Logo t={t} /><span><b>{t.name}</b><br /><span className="mono" style={{ fontSize: 11.5, color: "var(--dim)" }}>{t.symbol}</span></span></a></td>
+                    <td><a href={`/tokens/${t.token}`} style={{ display: "flex", gap: 12, alignItems: "center" }}><Logo t={t} /><span><b>{t.name}</b>{d?.platformToken?.toLowerCase() === t.token && <span className="pill ok" style={{ boxShadow: "none", padding: "2px 8px", marginLeft: 8 }}><i />platform</span>}<br /><span className="mono" style={{ fontSize: 11.5, color: "var(--dim)" }}>{t.symbol}</span></span></a></td>
                     <td className="mono">{usd(t.mcapUsd)}<br /><span className="k" style={{ letterSpacing: ".06em" }}>USD · estimate</span></td>
                     <td className="mono">{t.allocatedZat > 0 ? zec(t.allocatedZat, 5) : "—"}<br /><span className="k" style={{ letterSpacing: ".06em" }}>ZEC · to holders</span></td>
                     <td className="mono">{eth(t.feesEthCollected)} ETH</td>

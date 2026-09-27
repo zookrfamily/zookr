@@ -87,15 +87,7 @@ async function discoverLaunches() {
       const t = l.args.token.toLowerCase();
       if (state.tokens[t]) continue;
       const b = await client.getBlock({ blockNumber: l.blockNumber });
-      // metadata lives on the Pons token itself
-      const meta = { logo: "", description: "", socials: {} };
-      try {
-        const rd = (name, outputs) => client.readContract({ address: t, abi: [{ type: "function", name, stateMutability: "view", inputs: [], outputs }], functionName: name });
-        meta.logo = await rd("logo", [{ type: "string" }]); meta.description = await rd("description", [{ type: "string" }]);
-        const s = await rd("socials", [{ type: "string" }, { type: "string" }, { type: "string" }, { type: "string" }, { type: "string" }]);
-        meta.socials = { twitter: s[0], telegram: s[1], discord: s[2], website: s[3], farcaster: s[4] };
-      } catch (e) { console.warn(`[launches] ${t} metadata:`, e.message.split("\n")[0]); }
-      if (meta.logo.length > 400_000) meta.logo = ""; // ponytail: a 2 MB data URL would bloat public.json; link logos are unaffected
+      const meta = await tokenMeta(t); // metadata lives on the Pons token itself
       state.tokens[t] = { token: t, symbol: l.args.symbol, name: l.args.name, curve: l.args.curve.toLowerCase(), vault: l.args.vault.toLowerCase(), creator: l.args.creator.toLowerCase(),
         launchedAt: Number(b.timestamp), launchBlock: Number(l.blockNumber), lastBlock: Number(l.blockNumber) - 1, lots: {}, contracts: {}, blockTimes: {},
         lastRound: 0, rounds: 0, creditedZat: 0n, allocatedZat: 0n, feesEthCollected: 0n, feesEthConverted: 0n, graduated: false, mcapUsd: 0, ...meta };
@@ -103,7 +95,33 @@ async function discoverLaunches() {
     }
     state.launches.lastBlock = to;
   }
+  // tokens launched on Pons directly, adopted with a vault of their own (config.tokens)
+  for (const m of CFG.tokens ?? []) {
+    const t = m.token.toLowerCase();
+    if (state.tokens[t]) continue;
+    const pons = await client.readContract({ address: CFG.factory, abi: ponsAbi, functionName: "getLaunchedToken", args: [t] });
+    const b = await client.getBlock({ blockNumber: BigInt(m.fromBlock) });
+    const meta = await tokenMeta(t);
+    const ercName = (n) => client.readContract({ address: t, abi: [{ type: "function", name: n, stateMutability: "view", inputs: [], outputs: [{ type: "string" }] }], functionName: n });
+    state.tokens[t] = { token: t, symbol: await ercName("symbol"), name: await ercName("name"), curve: pons.curve.toLowerCase(), vault: m.vault.toLowerCase(), creator: pons.deployer.toLowerCase(), adopted: true,
+      launchedAt: Number(b.timestamp), launchBlock: m.fromBlock, lastBlock: m.fromBlock - 1, lots: {}, contracts: {}, blockTimes: {},
+      lastRound: 0, rounds: 0, creditedZat: 0n, allocatedZat: 0n, feesEthCollected: 0n, feesEthConverted: 0n, graduated: false, mcapUsd: 0, ...meta };
+    console.log(`[launches] adopted ${state.tokens[t].symbol} ${t} from block ${m.fromBlock}`);
+  }
   save();
+}
+const ponsAbi = [{ type: "function", name: "getLaunchedToken", stateMutability: "view", inputs: [{ type: "address" }], outputs: [{ type: "tuple", components: [{ name: "token", type: "address" }, { name: "curve", type: "address" }, { name: "deployer", type: "address" }, { name: "creatorFeeRecipient", type: "address" }, { name: "pairToken", type: "address" }, { name: "graduationThreshold", type: "uint256" }, { name: "poolFee", type: "uint24" }, { name: "tickSpacing", type: "int24" }, { name: "creatorTaxBps", type: "uint16" }, { name: "phase", type: "uint8" }] }] }];
+async function tokenMeta(t) {
+  const meta = { logo: "", description: "", socials: {} };
+  try {
+    const rd = (name, outputs) => client.readContract({ address: t, abi: [{ type: "function", name, stateMutability: "view", inputs: [], outputs }], functionName: name });
+    meta.logo = await rd("logo", [{ type: "string" }]); meta.description = await rd("description", [{ type: "string" }]);
+    const s = await rd("socials", [{ type: "string" }, { type: "string" }, { type: "string" }, { type: "string" }, { type: "string" }]);
+    meta.socials = { twitter: s[0], telegram: s[1], discord: s[2], website: s[3], farcaster: s[4] };
+  } catch (e) { console.warn(`[launches] ${t} metadata:`, e.message.split("\n")[0]); }
+  if (meta.logo.length > 400_000) meta.logo = ""; // ponytail: a 2 MB data URL would bloat public.json; link logos are unaffected
+  if (meta.logo.startsWith("ipfs://")) meta.logo = `https://ipfs.io/ipfs/${meta.logo.slice(7)}`;
+  return meta;
 }
 
 // ------------------------------------------------------------------ ledger
@@ -190,8 +208,10 @@ async function collectFees() {
     ts.feesEthPending = collectable;
     if (collectable < min) continue;
     try {
-      // 1. sweep the curve + claim the escrow into the vault
-      const h1 = await wallet.sendTransaction({ to: CFG.launchpad, data: encodeFunctionData({ abi: padAbi, functionName: "collect", args: [ts.token] }) });
+      // 1. sweep the curve + claim the escrow into the vault (adopted tokens are unknown to the launchpad, so hit the vault directly)
+      const h1 = ts.adopted
+        ? await wallet.sendTransaction({ to: ts.vault, data: encodeFunctionData({ abi: [{ type: "function", name: "collect", stateMutability: "nonpayable", inputs: [], outputs: [{ type: "uint256" }] }], functionName: "collect" }) })
+        : await wallet.sendTransaction({ to: CFG.launchpad, data: encodeFunctionData({ abi: padAbi, functionName: "collect", args: [ts.token] }) });
       await client.waitForTransactionReceipt({ hash: h1 });
       const bal = await client.getBalance({ address: ts.vault });
       if (bal < min) continue;
@@ -322,6 +342,13 @@ function allocate(ts, prevBoundary, amount, label) {
 }
 function processRounds(nowSec) {
   const spendable = BigInt(state.pool.balanceZat);
+  // ZEC in the pool that no token owns (operator deposits, dust) belongs to the platform-token holders
+  const pt = CFG.platformToken && state.tokens[CFG.platformToken.toLowerCase()];
+  if (pt && spendable > 0n) {
+    const reserved = owedZat() + Object.values(state.tokens).reduce((s, t) => s + big(t.creditedZat) - big(t.allocatedZat), 0n) + big(state.platform.creditedZat) - big(state.platform.allocatedZat);
+    const free = spendable - reserved - 20_000n; // keep a fee margin behind
+    if (free > 0n) { state.platform.creditedZat = big(state.platform.creditedZat) + free; console.log(`[rounds] ${Number(free) / 1e8} ZEC unassigned in the pool -> credited to ${pt.symbol} holders`); }
+  }
   for (const ts of Object.values(state.tokens)) {
     let boundary = ts.lastRound ? ts.lastRound + ROUND : ts.launchedAt + ROUND;
     while (boundary <= nowSec) {
@@ -333,7 +360,6 @@ function processRounds(nowSec) {
       ts.lastRound = boundary; ts.rounds++; boundary += ROUND;
     }
   }
-  const pt = CFG.platformToken && state.tokens[CFG.platformToken.toLowerCase()];
   if (pt) {
     const p = state.platform;
     let boundary = p.lastRound ? p.lastRound + ROUND : pt.launchedAt + ROUND;

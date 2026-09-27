@@ -99,7 +99,7 @@ export default function TokenPage({ params }: { params: Promise<{ address: strin
                     </p>
                   )}
                   <h3 style={{ fontSize: 16, margin: "22px 0 6px" }}>How rewards work</h3>
-                  <p style={{ color: "var(--dim)", margin: 0, fontSize: 14 }}>90% of this token&apos;s distributable reward revenue is paid to its eligible holders in native ZEC. The other 10% is allocated to platform-token holders.</p>
+                  <p style={{ color: "var(--dim)", margin: 0, fontSize: 14 }}>90% of this token&apos;s distributable reward revenue is paid to its eligible holders in native ZEC. The other 10% is allocated to platform-token holders.{d.platformToken?.toLowerCase() === t.token && <> <b>{t.symbol} is the platform token</b>: its holders also receive 10% of every other token&apos;s converted fees and any ZEC deposited to the pool.</>}</p>
                   <p style={{ color: "var(--dim)", margin: "8px 0 0", fontSize: 14 }}>Fees are collected in ETH and converted to ZEC before payment. Collected fees, funded ZEC, earned rewards and completed payments are separate stages.</p>
                 </div>
               </div>
@@ -110,7 +110,9 @@ export default function TokenPage({ params }: { params: Promise<{ address: strin
                 <div className="kv"><span>Fees waiting to be collected</span><b>{eth(t.feesEthPending)} ETH</b></div>
                 <div className="kv"><span>ZEC funded for holders</span><b>{t.creditedZat > 0 ? zec(t.creditedZat, 5) : "—"} ZEC</b></div>
                 <div className="kv"><span>ZEC paid to holders</span><b style={{ color: "#fff" }}>{t.allocatedZat > 0 ? zec(t.allocatedZat, 5) : "—"} ZEC</b></div>
-                <div className="kv"><span>Platform allocation funded</span><b>{d.platform.creditedZat > 0 ? zec(d.platform.creditedZat, 5) : "—"} ZEC</b></div>
+                {d.platformToken?.toLowerCase() === t.token
+                  ? <div className="kv"><span>Platform share funded (10% of every token)</span><b>{d.platform.creditedZat > 0 ? zec(d.platform.creditedZat, 5) : "—"} ZEC</b></div>
+                  : <div className="kv"><span>Platform allocation funded</span><b>{d.platform.creditedZat > 0 ? zec(d.platform.creditedZat, 5) : "—"} ZEC</b></div>}
                 <div style={{ margin: "18px 0 4px" }}><span className="k">Reward round</span><div style={{ fontSize: 18, fontWeight: 700 }}>ZEC rewards enabled</div><span className="k">round {t.rounds} · next {hhmm(t.nextRound)} · {t.eligibleHolders} eligible</span></div>
 
                 <h2 style={{ fontSize: 20, margin: "30px 0 10px" }}>Token details</h2>
