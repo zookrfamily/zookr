@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-09-27T21:39:36.643Z",
+ "generatedAt": "2026-09-27T23:58:47.807Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
- "nextPayout": 1790545553,
+ "nextPayout": 1790560705,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2683.16,
+ "ethUsd": 2689.04,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -16,12 +16,12 @@
   "balanceZat": 39098074,
   "depositedZat": 0,
   "deposits": [],
-  "owedZat": 38931063
+  "owedZat": 38489116
  },
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 51
+  "rounds": 65
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4952.542755512992,
+   "mcapUsd": 4963.395985064125,
    "feesEthPending": "0.000123093394037527",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 47,
-   "lastRound": 1790544754,
-   "nextRound": 1790545354,
+   "rounds": 61,
+   "lastRound": 1790553154,
+   "nextRound": 1790553754,
    "holders": 2,
    "eligibleHolders": 2,
    "wallets": {
@@ -90,11 +90,11 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 51,
-   "lastRound": 1790544901,
-   "nextRound": 1790545501,
-   "holders": 151,
-   "eligibleHolders": 151,
+   "rounds": 65,
+   "lastRound": 1790553301,
+   "nextRound": 1790553901,
+   "holders": 147,
+   "eligibleHolders": 147,
    "wallets": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": {
      "balance": "17739633.211909431772812599",
@@ -129,8 +129,8 @@
      "eligible": "202303.734890394993373159"
     },
     "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": {
-     "balance": "10427576.987601131895216823",
-     "eligible": "10427576.987601131895216823"
+     "balance": "16943944.873262445981262359",
+     "eligible": "16943944.873262445981262359"
     },
     "0x4bd48cd524c80107dc9b8336c866068f5f77e5a5": {
      "balance": "13102939.56522806782924201",
@@ -143,14 +143,6 @@
     "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": {
      "balance": "11293312.417371872674164615",
      "eligible": "11293312.417371872674164615"
-    },
-    "0xa26446dc39adf5b108d40720db4f881e4dd84183": {
-     "balance": "3564682.292645332128001354",
-     "eligible": "3564682.292645332128001354"
-    },
-    "0xba8ab41449e3d1d6f0b588186a114143ab4915aa": {
-     "balance": "1412060.646852898830469339",
-     "eligible": "1412060.646852898830469339"
     },
     "0xf5c4f3dc02c3fb9279495a8fef7b0741da956157": {
      "balance": "5274.80150557064380076",
@@ -237,8 +229,8 @@
      "eligible": "554864.820883280493501618"
     },
     "0x62935045f04bd7f3e5b19e8e2cfba3e08255e83e": {
-     "balance": "181933.977953308291458898",
-     "eligible": "181933.977953308291458898"
+     "balance": "609650.106754542530746387",
+     "eligible": "609650.106754542530746387"
     },
     "0x48b51287fb5281ea0913100809c3b7f1649c7996": {
      "balance": "3186.923325545340845715",
@@ -251,10 +243,6 @@
     "0x77018191c32bdf7542d8d82007ae26b41f614d96": {
      "balance": "2539102.787829605417503855",
      "eligible": "2539102.787829605417503855"
-    },
-    "0x2d0594aededa99b9520a3214ec8574adce8a0a01": {
-     "balance": "833684.670445358308293304",
-     "eligible": "833684.670445358308293304"
     },
     "0xa68480759000e61696d4ad0eec52395bc2e971d1": {
      "balance": "164971.495941871031795612",
@@ -283,10 +271,6 @@
     "0x597c7fa551fd0d9edbea889494c2c78543d65f69": {
      "balance": "135611.976538527606216003",
      "eligible": "135611.976538527606216003"
-    },
-    "0xb9a66d6724484190f166653274969354e7610bdf": {
-     "balance": "9424.431705063628391575",
-     "eligible": "9424.431705063628391575"
     },
     "0x1d6c07908d25c9de59a15ebded518cb652428b97": {
      "balance": "12788.260559565584772159",
@@ -335,10 +319,6 @@
     "0x0c44b2df330ee27e76ac704ed4b1642a6c8913e7": {
      "balance": "74034.730516365591092799",
      "eligible": "74034.730516365591092799"
-    },
-    "0xc0af59e2fdfd53080b9c5fa0293c463fac535b3c": {
-     "balance": "395497.167293739981639317",
-     "eligible": "395497.167293739981639317"
     },
     "0x68b48ffec961ce54f7af24a56032dec01d7dfe50": {
      "balance": "114575.509813725970313357",
@@ -440,10 +420,6 @@
      "balance": "1000000",
      "eligible": "1000000"
     },
-    "0x1ad8a638a1269cd2a4d2c9a31a14ef428f434e1c": {
-     "balance": "3604224.114473253640109271",
-     "eligible": "3604224.114473253640109271"
-    },
     "0xf96f86344308441fd6482057e16d2aa8c6b96585": {
      "balance": "759274.308746150670670671",
      "eligible": "759274.308746150670670671"
@@ -460,17 +436,9 @@
      "balance": "5519558.932617885630084417",
      "eligible": "5519558.932617885630084417"
     },
-    "0xf640c3db99dce50ce0550487f2a9d3c0d8e7f10a": {
-     "balance": "1053301.672881309145207266",
-     "eligible": "1053301.672881309145207266"
-    },
     "0x95c819be78a9ac10d1a4c9b00812348670f01791": {
      "balance": "705601.685342142274637982",
      "eligible": "705601.685342142274637982"
-    },
-    "0xc1d2fb1adb936a2af9ab149e8834ecda4c321ba8": {
-     "balance": "673364.550894130341932973",
-     "eligible": "673364.550894130341932973"
     },
     "0xf0b075334e38cada6852f665f24496e333e1b96a": {
      "balance": "193424.403271791770660288",
@@ -503,10 +471,6 @@
     "0x2b4b0f3a65058a8e232bf666a7018a234d0596db": {
      "balance": "376384.332843403849317653",
      "eligible": "376384.332843403849317653"
-    },
-    "0xd0e94ec73560b6a34a7abd0869588b4dac60bd74": {
-     "balance": "1391926.911700909908652669",
-     "eligible": "1391926.911700909908652669"
     },
     "0x93a521182d42cb04b2ad2d54100dc94d90386d7c": {
      "balance": "288955.518761036552048079",
@@ -549,12 +513,8 @@
      "eligible": "16155.628751807291354258"
     },
     "0x2cffed5d56eb6a17662756ca0fdf350e732c9818": {
-     "balance": "103152.276722779088992728",
-     "eligible": "103152.276722779088992728"
-    },
-    "0xd0ce594eab011c1d2cf49cdfc15d0af7c2a78311": {
-     "balance": "827472.800028563436778723",
-     "eligible": "827472.800028563436778723"
+     "balance": "207545.929938097761055233",
+     "eligible": "207545.929938097761055233"
     },
     "0xce37320b062589b5b67c3ce428a521682dd0def2": {
      "balance": "473426.281974583607096355",
@@ -672,10 +632,6 @@
      "balance": "38831.811530519768436876",
      "eligible": "38831.811530519768436876"
     },
-    "0xa56988b14742128b57a1d1b2728a3d0e00ece13e": {
-     "balance": "377388.132155062656315598",
-     "eligible": "377388.132155062656315598"
-    },
     "0x11ee5aabcec04785ae45c8943adb9f5a996397dd": {
      "balance": "20329865.633148533812452719",
      "eligible": "20329865.633148533812452719"
@@ -696,9 +652,37 @@
      "balance": "1354823.855196011644922687",
      "eligible": "1354823.855196011644922687"
     },
-    "0x9d830b96629492655c760b7ae08d3556623536b4": {
-     "balance": "456677.537230822501612251",
-     "eligible": "456677.537230822501612251"
+    "0xca5b3bbb368db39d223a9fa57a577f9a98a03638": {
+     "balance": "8426.413383050473161658",
+     "eligible": "8426.413383050473161658"
+    },
+    "0x5b56a7512ab360a5da340a8eb35ae23e156d3541": {
+     "balance": "7360583.797710728457881162",
+     "eligible": "7360583.797710728457881162"
+    },
+    "0xa28d0e146d6c5aae49d7ba3a0d722a65bee31422": {
+     "balance": "7061813.042999848810908228",
+     "eligible": "7061813.042999848810908228"
+    },
+    "0x483f8ce7438f736a4897b66d396157df7b9ffe5d": {
+     "balance": "6780871.382215254580232313",
+     "eligible": "6780871.382215254580232313"
+    },
+    "0x789e8b14db1da1a06ea9d5acfc6c2df0653739de": {
+     "balance": "6267044.669792815181163452",
+     "eligible": "6267044.669792815181163452"
+    },
+    "0x40e08121828a54c356f9dfd1d4323a204f2d9805": {
+     "balance": "6031761.91241745147173695",
+     "eligible": "6031761.91241745147173695"
+    },
+    "0x16176535c6a550b9749da21ad3e5483d03d7faf1": {
+     "balance": "5809484.800620697460122171",
+     "eligible": "5809484.800620697460122171"
+    },
+    "0x154a998c96dbbec23c4b793d1323337616ec7033": {
+     "balance": "3417858.117440428761575858",
+     "eligible": "3417858.117440428761575858"
     }
    }
   }
@@ -884,7 +868,7 @@
   "0x70b9978acb99a1613653051046d32fc2d62a470a": 137077,
   "0x4b9922e8a9e16540e0393ac5b8813fe9e8d1e412": 2458,
   "0x3ca53fe0817814b4581e342ffd2a69946613436b": 22281,
-  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": 441947,
+  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": 0,
   "0xa26446dc39adf5b108d40720db4f881e4dd84183": 465782,
   "0xba8ab41449e3d1d6f0b588186a114143ab4915aa": 184502,
   "0xd7793741842638f96e11155d3206d4d403a9c84b": 10822,
@@ -1093,7 +1077,8 @@
   "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": 1332106,
   "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": 687599,
   "0x46269cbff1c6066077f6f38fd0f43178b1ffca97": 133275,
-  "0xd2fe04f0782179120094430a5af65fbc3d483a9c": 227161
+  "0xd2fe04f0782179120094430a5af65fbc3d483a9c": 227161,
+  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": 441947
  },
  "payments": [
   {
@@ -1137,9 +1122,16 @@
    "zat": 227161,
    "txid": "fff428159599de7830720f8ea1dedb1171ffa19d2da20e6dc110415af1612e38",
    "at": "2026-09-27T19:46:10.309Z"
+  },
+  {
+   "wallet": "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8",
+   "to": "u13nkxekzzkp6ufk7kxsxdkje9kvc9325d3ewk5vkrctvvpzm5h0uvry78r04st3zkvrf29k2luf8637y3vkfne9rxmxh4g3hkwqz6y9emwfjfshlqq98t2vrtj4qddg72dyckthcvc79kvclqtehass0mhv08sk3mzhdz0nk00g6epz0h",
+   "zat": 441947,
+   "txid": "8e97a39fc4a9d32bbbec1ce1262617d42a2b371e5b008412f1b801d9cc8f3638",
+   "at": "2026-09-27T23:58:47.194Z"
   }
  ],
- "registered": 10,
+ "registered": 11,
  "registeredWallets": [
   "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e",
   "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868",
@@ -1150,7 +1142,8 @@
   "0xd2fe04f0782179120094430a5af65fbc3d483a9c",
   "0x46269cbff1c6066077f6f38fd0f43178b1ffca97",
   "0xf6b48ccd62143b6dd3b04215347cdd38a06e6d3b",
-  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8"
+  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8",
+  "0xb91bc56fb3df749a1e32cd8415df049ef2c2b531"
  ],
  "registeredList": [
   {
@@ -1192,11 +1185,15 @@
   {
    "wallet": "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8",
    "zcash": "u13nkxekzzkp6ufk7kxsxdkje9kvc9325d3ewk5vkrctvvpzm5h0uvry78r04st3zkvrf29k2luf8637y3vkfne9rxmxh4g3hkwqz6y9emwfjfshlqq98t2vrtj4qddg72dyckthcvc79kvclqtehass0mhv08sk3mzhdz0nk00g6epz0h"
+  },
+  {
+   "wallet": "0xb91bc56fb3df749a1e32cd8415df049ef2c2b531",
+   "zcash": "u1gp0u67pt5ypv5jwmpdmff6jmk9s37r6umcgscmpjegdjqfqf7hxh0gr85epjrswqtehhc48yttvnge6wtsw9sjum99s7fpvk5l7ahr34dq3gm8p8jk3kwdx70tl730utsx5uksqwtzs5velrvgkcu6nf9g2xg8e0msr2ygh7uv7vj0xe"
   }
  ],
  "totals": {
-  "paidZat": 2380141,
-  "payments": 6,
+  "paidZat": 2822088,
+  "payments": 7,
   "tokens": 2,
   "feesEthCollected": "0.109051821783797468",
   "platformPaidZat": 30601064
