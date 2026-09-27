@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T18:56:01.722Z",
+ "generatedAt": "2026-09-27T19:06:02.809Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2696.72,
+ "ethUsd": 2693.57,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -16,12 +16,12 @@
   "balanceZat": 39890295,
   "depositedZat": 0,
   "deposits": [],
-  "owedZat": 39698266
+  "owedZat": 39698276
  },
  "platform": {
   "creditedZat": 30601074,
-  "allocatedZat": 30601046,
-  "rounds": 35
+  "allocatedZat": 30601056,
+  "rounds": 36
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4984.242892514895,
+   "mcapUsd": 4978.420869794175,
    "feesEthPending": "0.0000995",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 31,
-   "lastRound": 1790535154,
-   "nextRound": 1790535754,
+   "rounds": 32,
+   "lastRound": 1790535754,
+   "nextRound": 1790536354,
    "holders": 2,
    "eligibleHolders": 2,
    "wallets": {
@@ -88,13 +88,13 @@
    "feesEthCollected": "0",
    "feesEthConverted": "0",
    "creditedZat": 30601074,
-   "allocatedZat": 30601046,
+   "allocatedZat": 30601056,
    "platform": true,
-   "rounds": 35,
-   "lastRound": 1790535301,
-   "nextRound": 1790535901,
-   "holders": 147,
-   "eligibleHolders": 146,
+   "rounds": 36,
+   "lastRound": 1790535901,
+   "nextRound": 1790536501,
+   "holders": 145,
+   "eligibleHolders": 145,
    "wallets": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": {
      "balance": "8923557.026453399043302117",
@@ -271,10 +271,6 @@
     "0xfd2a475d7ce02ec077867d72177063b5c2ab01b6": {
      "balance": "4883.858569473076702235",
      "eligible": "4883.858569473076702235"
-    },
-    "0x46269cbff1c6066077f6f38fd0f43178b1ffca97": {
-     "balance": "1056677.591242695983470543",
-     "eligible": "1056677.591242695983470543"
     },
     "0xded2ffdce14e7b9f676ac0d1c0b130aa64765867": {
      "balance": "0.000000000127617465",
@@ -672,17 +668,13 @@
      "balance": "1672571.609432016564863999",
      "eligible": "1672571.609432016564863999"
     },
-    "0x1ddbd11c2587834d4dc771487b208043ac70630c": {
-     "balance": "1814250.903763430127806364",
-     "eligible": "1814250.903763430127806364"
-    },
     "0x9e0bfeb071916ff292e6ee513efd56eab29a99de": {
      "balance": "13834683.151603070528782511",
      "eligible": "13834683.151603070528782511"
     },
     "0x865196ad39b66762280c6b0bc8ec481ebf0753fe": {
      "balance": "38831.811530519768436876",
-     "eligible": "0"
+     "eligible": "38831.811530519768436876"
     }
    }
   }
@@ -827,7 +819,7 @@
  "accrued": {
   "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": 24339,
   "0x49dc62277700ec8ed878c568dfae4c4616fe4901": 42032,
-  "0x04bf8305087f674ab11148a81187d84ff673bb03": 428557,
+  "0x04bf8305087f674ab11148a81187d84ff673bb03": 428558,
   "0xaea12b0ca4fd4c10355baef4879f2e111f8bf9cd": 5216,
   "0x029fb5d8ea85af1d7fe36ddfaf817050f82e99fb": 4864837,
   "0xc3ffce3145fa41bc5fe6159cc11428fffd3b1297": 44083,
@@ -862,13 +854,13 @@
   "0x9af51966f830738025ab9e451b5a8e8f39369483": 16014,
   "0x3aa9c9a4019da22e879691f9cc42160666f91190": 25971,
   "0x1ac7296268dc1c59aa94f25a5aabdd1d1b47cb01": 5762,
-  "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": 265447,
+  "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": 265448,
   "0x4bd48cd524c80107dc9b8336c866068f5f77e5a5": 15367,
-  "0xb91bc56fb3df749a1e32cd8415df049ef2c2b531": 44064,
+  "0xb91bc56fb3df749a1e32cd8415df049ef2c2b531": 44065,
   "0x70b9978acb99a1613653051046d32fc2d62a470a": 137077,
   "0x4b9922e8a9e16540e0393ac5b8813fe9e8d1e412": 2458,
   "0x3ca53fe0817814b4581e342ffd2a69946613436b": 22281,
-  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": 441946,
+  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": 441947,
   "0xa26446dc39adf5b108d40720db4f881e4dd84183": 465782,
   "0xba8ab41449e3d1d6f0b588186a114143ab4915aa": 184502,
   "0xd7793741842638f96e11155d3206d4d403a9c84b": 10822,
@@ -883,7 +875,7 @@
   "0x48b51287fb5281ea0913100809c3b7f1649c7996": 555125,
   "0xad01c20d5886137e056775af56915de824c8fce5": 17063,
   "0xee2001abd562c94d417cce36285931e9d5c42056": 349,
-  "0x7df718cdeb3dddcad753101e54ee8bdda71dff20": 1273696,
+  "0x7df718cdeb3dddcad753101e54ee8bdda71dff20": 1273697,
   "0x45508f43e5439be2d991f53c5586b936e00ebd83": 1695,
   "0x4f79dd35aa49a87e55b7af3ed0bb9d3c09e0febc": 5441,
   "0x18948c0b4bc7a59af02484264433d4f7d0ab9a5a": 2156,
@@ -942,7 +934,7 @@
   "0xabb4670f2bb0e2bf57a57677fe76cd260a1b36d8": 136087,
   "0x47f60a1266d6499e9363af2b794cf3a9b60872b2": 32967,
   "0x1cdbdb52c21f511d939e6a0b286511f073d45419": 89,
-  "0xc2c6acd377458010713e733e1b21dd6f670d091c": 1694759,
+  "0xc2c6acd377458010713e733e1b21dd6f670d091c": 1694760,
   "0x67579ac300eb2db8faf63c2414e5c5080d88da3e": 23222,
   "0x7111809669a4a3ed3cc73e3250c3308c509d4d56": 265759,
   "0xdd32b9a1d161654b622b6367241e117f63610c4c": 228984,
@@ -1000,7 +992,7 @@
   "0xc1d2fb1adb936a2af9ab149e8834ecda4c321ba8": 84927,
   "0x5d2ec57c9d3168f018244ddefa60b3cbf8d64dab": 522,
   "0xf0b075334e38cada6852f665f24496e333e1b96a": 24395,
-  "0x95dc68e02d0f9e71a19754a25ed4a0fcaf17d94d": 1330523,
+  "0x95dc68e02d0f9e71a19754a25ed4a0fcaf17d94d": 1330524,
   "0x4acb6c4321253548a7d4bb9c84032cc4ee04bfd7": 757,
   "0x07f6c3ab4db889dcd5c268ee5ab00717caf95a61": 3634,
   "0x8e9b50231df352cfbfdda3dca87e00f26cb41269": 48079,
@@ -1061,15 +1053,15 @@
   "0x0580090393cf03bf195a016c7277438e888fd6df": 126366,
   "0xa2ac5d3d1269b54bfd24bfe380cdaa1ad5f264df": 461095,
   "0x758ea2c950c95552ddf89c27410389870a4cd9af": 47877,
-  "0xd2fe04f0782179120094430a5af65fbc3d483a9c": 227160,
-  "0x1133067709fbf49f9e08afab8d1685729aeba498": 414604,
+  "0xd2fe04f0782179120094430a5af65fbc3d483a9c": 227161,
+  "0x1133067709fbf49f9e08afab8d1685729aeba498": 414605,
   "0x06d71c42737d2ef29312961f567225c190c5ee01": 20795,
   "0xa1925c0f07b33263cc4227cc3bb61d4ee8ae8b01": 52781,
   "0x818aec620c29406c0f1945cd68101c418eb93baf": 4464,
   "0xe8ee4b57e33fcea0bb663677263149e4649e3b5e": 17580,
   "0x58678762815b88c7fa2f4227bde4418bc494f04c": 5339,
   "0x771fc2e2c7924988f0a6e4d31bab3b2e95f59c11": 42576,
-  "0x9e0bfeb071916ff292e6ee513efd56eab29a99de": 3470,
+  "0x9e0bfeb071916ff292e6ee513efd56eab29a99de": 3471,
   "0x77018191c32bdf7542d8d82007ae26b41f614d96": 474
  },
  "paid": {
@@ -1147,6 +1139,6 @@
   "payments": 2,
   "tokens": 2,
   "feesEthCollected": "0.109051821783797468",
-  "platformPaidZat": 30601046
+  "platformPaidZat": 30601056
  }
 }
