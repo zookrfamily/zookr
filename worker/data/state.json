@@ -1,7 +1,7 @@
 {
  "pools": {
   "rnode": {
-   "lastBlock": 73613349,
+   "lastBlock": 73769487,
    "lots": {
     "0x3b778a02c52da568376041c4f813b1f4eb7b37f2": [],
     "0xb300000b72deaeb607a12d5f54773d1c19c7028d": [],
@@ -182,6 +182,18 @@
      {
       "amount": "47943923184259504155546n",
       "at": 1790479040
+     },
+     {
+      "amount": "2745894487015308283797678n",
+      "at": 1790480491
+     },
+     {
+      "amount": "490868321092209801257937n",
+      "at": 1790482202
+     },
+     {
+      "amount": "225909378832690230995150n",
+      "at": 1790491615
      }
     ],
     "0xe5e702641ea86f4ae6cc3cdaed2b886f976be044": [
@@ -317,6 +329,10 @@
      {
       "amount": "563303246907702017570n",
       "at": 1790340160
+     },
+     {
+      "amount": "1384717340905349613614n",
+      "at": 1790480491
      }
     ],
     "0x5aafc1f252d544f744d17a4e734afd6efc47ede4": [
@@ -475,10 +491,19 @@
       "amount": "3533970981763328469558390n",
       "at": 1790446310
      }
-    ]
+    ],
+    "0xbc36e12c1ff3087002efbf1147e1d5f97ca76b28": [],
+    "0xfad4c8f1e71e4c56b87733bd916ff7cff46c6c29": [
+     {
+      "amount": "22155477454485593817832n",
+      "at": 1790480491
+     }
+    ],
+    "0xd3e5c5f7dc99ce2be4859dd43c84087b03c0ad91": [],
+    "0x297e7a89767e4f2f14c7ebe13b8f7324fc985646": []
    },
-   "lastRound": 1790478600,
-   "rounds": 451,
+   "lastRound": 1790494800,
+   "rounds": 478,
    "allocatedZat": 0,
    "blockTimes": {
     "69616213": 1790076231,
@@ -607,7 +632,10 @@
     "73175849": 1790435063,
     "73287837": 1790446310,
     "73457029": 1790463357,
-    "73611876": 1790479040
+    "73611876": 1790479040,
+    "73626160": 1790480491,
+    "73643007": 1790482202,
+    "73735967": 1790491615
    },
    "contracts": {
     "0x3b778a02c52da568376041c4f813b1f4eb7b37f2": false,
@@ -719,12 +747,16 @@
     "0x082652417fb7eda61ed43795206044de533f3bfb": false,
     "0x6859e54c4bcb9beabfe8c02d6fb68942d3cd05d1": true,
     "0x7efd9c152fd06ce77f8df14fc76f698570d30316": false,
-    "0xa3812e64e917e847d6d3a22f77f10bc1139cd4ec": false
+    "0xa3812e64e917e847d6d3a22f77f10bc1139cd4ec": false,
+    "0xbc36e12c1ff3087002efbf1147e1d5f97ca76b28": true,
+    "0xfad4c8f1e71e4c56b87733bd916ff7cff46c6c29": false,
+    "0xd3e5c5f7dc99ce2be4859dd43c84087b03c0ad91": true,
+    "0x297e7a89767e4f2f14c7ebe13b8f7324fc985646": false
    }
   }
  },
  "registry": {
-  "lastBlock": 73613349,
+  "lastBlock": 73769526,
   "dest": {}
  },
  "accrued": {},
@@ -733,6 +765,8 @@
  "pool": {
   "balanceZat": 0,
   "deposits": [],
-  "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n"
+  "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
+  "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
+  "transparentZat": 0
  }
 }
