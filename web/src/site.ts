@@ -2,7 +2,7 @@
    Zcash wallet the worker holds; the data the site shows is the JSON the worker
    publishes every round. */
 export const REGISTRY = (process.env.NEXT_PUBLIC_REGISTRY ?? "") as `0x${string}` | "";
-export const LAUNCHPAD = (process.env.NEXT_PUBLIC_LAUNCHPAD ?? "") as `0x${string}` | "";
+export const LAUNCHPAD = (process.env.NEXT_PUBLIC_LAUNCHPAD ?? "0x02976Ff212005BA28469541a62cf219201326EDE") as `0x${string}`;
 export const DATA_URL = process.env.DATA_URL ?? "";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "";
 export const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/zookrfamily/zookr";
