@@ -120,7 +120,7 @@ async function tokenMeta(t) {
     meta.socials = { twitter: s[0], telegram: s[1], discord: s[2], website: s[3], farcaster: s[4] };
   } catch (e) { console.warn(`[launches] ${t} metadata:`, e.message.split("\n")[0]); }
   if (meta.logo.length > 400_000) meta.logo = ""; // ponytail: a 2 MB data URL would bloat public.json; link logos are unaffected
-  if (meta.logo.startsWith("ipfs://")) meta.logo = `https://ipfs.io/ipfs/${meta.logo.slice(7)}`;
+  if (meta.logo.startsWith("ipfs://")) meta.logo = `https://gateway.pinata.cloud/ipfs/${meta.logo.slice(7)}`; // ipfs.io / dweb.link rate-limit (429)
   return meta;
 }
 
@@ -394,7 +394,11 @@ async function payouts(z) {
 
 // ----------------------------------------------------------------- publish
 function publish() {
+  const platform = (CFG.platformToken || "").toLowerCase();
   const tokens = Object.values(state.tokens).map((ts) => {
+    // the platform token's holders are paid from the platform pool; show that as the token's own numbers
+    const credited = big(ts.creditedZat) + (ts.token === platform ? big(state.platform.creditedZat) : 0n);
+    const allocated = big(ts.allocatedZat) + (ts.token === platform ? big(state.platform.allocatedZat) : 0n);
     const holders = Object.entries(ts.lots).filter(([w]) => isHolder(ts, w)).map(([w, lots]) => {
       const bal = lots.reduce((s, l) => s + l.amount, 0n);
       const held = lots.filter((l) => l.at < ts.lastRound).reduce((s, l) => s + l.amount, 0n);
@@ -405,7 +409,7 @@ function publish() {
       token: ts.token, symbol: ts.symbol, name: ts.name, curve: ts.curve, vault: ts.vault, creator: ts.creator, launchedAt: ts.launchedAt, logo: ts.logo ?? "", description: ts.description ?? "", socials: ts.socials ?? {},
       venue: ts.graduated ? "uniswap" : "curve", mcapUsd: ts.mcapUsd ?? 0,
       feesEthPending: formatEther(big(ts.feesEthPending)), feesEthCollected: formatEther(big(ts.feesEthCollected)), feesEthConverted: formatEther(big(ts.feesEthConverted)),
-      creditedZat: Number(big(ts.creditedZat)), allocatedZat: Number(big(ts.allocatedZat)),
+      creditedZat: Number(credited), allocatedZat: Number(allocated), platform: ts.token === platform,
       rounds: ts.rounds, lastRound: ts.lastRound, nextRound: (ts.lastRound || ts.launchedAt) + ROUND,
       holders: holders.length, eligibleHolders: holders.filter((h) => h.eligible > 0n).length,
       wallets: Object.fromEntries(holders.map((h) => [h.w, { balance: formatUnits(h.bal, 18), eligible: formatUnits(h.eligible, 18) }])),
