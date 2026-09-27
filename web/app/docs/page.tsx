@@ -1,6 +1,6 @@
 import { Nav, Foot } from "../nav.tsx";
 
-const TOC: [string, string][] = [["how", "How Zookr works"], ["launch", "Launching a token"], ["fees", "Fees to ZEC"], ["qualify", "Who qualifies"], ["rounds", "Reward rounds"], ["selling", "Selling & transfers"], ["payments", "Payments & the minimum"], ["address", "Your Zcash address"], ["dashboard", "The dashboard"], ["verify", "Check a payment"], ["trust", "What you are trusting"]];
+const TOC: [string, string][] = [["how", "How Zookr works"], ["launch", "Launching a token"], ["fees", "Fees to ZEC"], ["qualify", "Who qualifies"], ["rounds", "Reward rounds"], ["selling", "Selling & transfers"], ["payments", "Payments & the minimum"], ["address", "Your Zcash address (video)"], ["dashboard", "The dashboard"], ["verify", "Check a payment"], ["trust", "What you are trusting"]];
 
 export default function Docs() {
   return (
@@ -47,6 +47,8 @@ export default function Docs() {
 
           <h2 id="address">Your Zcash address</h2>
           <p>Open the dashboard, connect your holder wallet, and paste a mainnet Unified Address starting with <code>u1</code> that includes an Orchard receiver. Sign the registration on Robinhood Chain.</p>
+          <video controls playsInline preload="metadata" poster="/tutorial-register.jpg" src="/tutorial-register.mp4" style={{ display: "block", width: "100%", maxWidth: 680, aspectRatio: "16 / 9", borderRadius: 16, background: "#2a0d14", margin: "14px 0 6px" }} />
+          <p style={{ fontSize: 13 }}>19 seconds: dashboard, connect, paste the u1 address, register. A free wallet that gives you a u1 address: Zashi, Ywallet or Nighthawk. Exchange addresses (t1…) cannot receive shielded payouts.</p>
           <table><tbody>
             <tr><td><b>Public and permanent</b></td><td>The registered address is intentionally public and cannot be edited, reset, or replaced. A different destination needs a different wallet.</td></tr>
             <tr><td><b>Only you authorize it</b></td><td>The registry has no owner and no override. Nothing ever asks for a seed phrase or viewing key.</td></tr>
