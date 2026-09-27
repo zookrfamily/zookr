@@ -1,6 +1,6 @@
 # Registered wallets
 
-Updated 2026-09-27T18:36:03.650Z · **9 wallets** · 2 payments · 0.01612920 ZEC paid · next payout window 2026-09-27 19:43 UTC
+Updated 2026-09-27T18:40:44.501Z · **9 wallets** · 2 payments · 0.01612920 ZEC paid · next payout window 2026-09-27 19:43 UTC
 
 Registry contract: [0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319](https://robinhoodchain.blockscout.com/address/0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319). Written by the rounds engine every run; the on-chain registry is the source of truth.
 
