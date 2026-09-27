@@ -133,7 +133,7 @@ async function blockTime(ts, n) {
 }
 async function pullTransfers(ts) {
   const head = Number(await client.getBlockNumber()) - 2;
-  const skip = new Set([ts.token, ts.curve, ts.vault, "0x0000000000000000000000000000000000000000"]);
+  const skip = new Set([ts.token, ts.curve, ts.vault, ...BURN]);
   for (let from = ts.lastBlock + 1; from <= head; from += 20_000) {
     const to = Math.min(from + 19_999, head);
     const logs = await client.getLogs({ address: ts.token, event: TRANSFER, fromBlock: BigInt(from), toBlock: BigInt(to) });
@@ -159,7 +159,11 @@ async function pullTransfers(ts) {
   }
   save();
 }
-const isHolder = (ts, w) => !ts.contracts?.[w];
+// burned tokens belong to nobody: never a holder, never paid
+const BURN = ["0x0000000000000000000000000000000000000000", "0x000000000000000000000000000000000000dead"];
+const isHolder = (ts, w) => !ts.contracts?.[w] && !BURN.includes(w);
+// anything a burn address accrued before this rule is handed back to the pool (it re-credits to platform holders)
+for (const a of BURN) if (big(state.accrued[a]) > 0n) { console.log(`[ledger] ${Number(big(state.accrued[a])) / 1e8} ZEC accrued by burn address ${a.slice(0, 10)} returned to the pool`); state.accrued[a] = 0n; }
 
 // ---------------------------------------------------------------- registry
 async function pullRegistry() {

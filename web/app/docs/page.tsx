@@ -27,7 +27,8 @@ export default function Docs() {
           <p>Collected fees, funded ZEC, earned rewards and completed payments are separate stages; each token&apos;s page shows all four.</p>
 
           <h2 id="qualify">Who qualifies?</h2>
-          <p>Holding is passive: keep a launched token in your own wallet and it qualifies for reward rounds. Amounts are tracked as lots, so you can hold 1,500 tokens while only 1,000 are eligible for the next round. Contracts - the bonding curve, the vault, liquidity pools - are never holders.</p>
+          <p>Holding is passive: keep a launched token in your own wallet and it qualifies for reward rounds. Amounts are tracked as lots, so you can hold 1,500 tokens while only 1,000 are eligible for the next round. Contracts - the bonding curve, the vault, liquidity pools - and burn addresses are never holders.</p>
+          <p>Each round is split strictly pro-rata: your share equals your eligible tokens divided by all eligible tokens held by real wallets. Tokens sitting on the curve or burned are left out of that denominator, so a wallet holding 0.5% of the total supply receives more than 0.5% of the round - the same rule for everyone, with nothing set aside for anyone.</p>
           <table><tbody>
             <tr><td><b>Opening round</b></td><td>The first round is ten minutes after the token launches. Tokens bought in the launch transaction qualify for it.</td></tr>
             <tr><td><b>Buy at minute 9</b></td><td>Can qualify for the minute-20 round, not the minute-10 one.</td></tr>
