@@ -218,8 +218,23 @@ async function readPool(z) {
   const first = Array.isArray(addrs) ? addrs[0] : addrs;
   const ua = typeof first === "string" ? first : (first?.encoded_address ?? first?.address ?? "");
   if (typeof ua === "string" && ua.startsWith("u1")) state.pool.address = ua;
+  // a transparent address for exchanges that cannot send to u1 (Binance and
+  // friends); whatever lands there is shielded into the pool every run
+  let tas = await z.cmd("t_addresses");
+  let tlist = Array.isArray(tas) ? tas : (tas?.t_addresses ?? []);
+  if (!tlist.length) { await z.cmd("new_taddress"); tas = await z.cmd("t_addresses"); tlist = Array.isArray(tas) ? tas : (tas?.t_addresses ?? []); }
+  const t0 = tlist[0];
+  const ta = typeof t0 === "string" ? t0 : (t0?.encoded_address ?? t0?.address ?? "");
+  if (typeof ta === "string" && ta.startsWith("t1")) state.pool.taddress = ta;
+  const balText = String(await z.cmd("balance") ?? "");
+  const tconf = Number((balText.match(/confirmed_transparent_balance:\s*(\d+)/) ?? [])[1] ?? 0);
+  if (tconf > 20_000 && !DRY) {
+    try { const r = await z.cmd("quickshield", 10 * 60_000); console.log(`[pool] shielded ${(tconf / 1e8).toFixed(6)} ZEC from t-addr: ${JSON.stringify(r).slice(0, 120)}`); }
+    catch (e) { console.warn("[pool] shield failed:", e.message.split("\n")[0]); }
+  }
   const bal = await z.cmd("spendable_balance");
   state.pool.balanceZat = Number(bal?.spendable_balance ?? 0);
+  state.pool.transparentZat = tconf;
   // deposits: incoming value transfers, deduplicated by txid
   const vts = await z.cmd("value_transfers");
   const list = Array.isArray(vts) ? vts : (vts?.value_transfers ?? []);
@@ -280,7 +295,7 @@ function publish() {
   });
   const out = {
     generatedAt: new Date().toISOString(), roundSeconds: ROUND, minPayoutZat: CFG.minPayoutZat, registry: CFG.registry,
-    pool: { address: state.pool.address, balanceZat: state.pool.balanceZat, depositedZat: state.pool.deposits.reduce((s, d) => s + d.zat, 0), deposits: state.pool.deposits.slice(-50), owedZat: owedZat() },
+    pool: { address: state.pool.address, taddress: state.pool.taddress ?? "", transparentZat: state.pool.transparentZat ?? 0, balanceZat: state.pool.balanceZat, depositedZat: state.pool.deposits.reduce((s, d) => s + d.zat, 0), deposits: state.pool.deposits.slice(-50), owedZat: owedZat() },
     pools,
     accrued: Object.fromEntries(Object.entries(state.accrued).map(([w, z]) => [w, Number(z)])),
     paid: state.paid, payments: state.payments.slice(-500), registered: Object.keys(state.registry.dest).length,
