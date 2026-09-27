@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T11:15:58.442Z",
+ "generatedAt": "2026-09-27T11:25:56.448Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
@@ -24,13 +24,13 @@
    "startsAt": "2026-09-24T00:00:00Z",
    "endsAt": null,
    "minHold": "1000",
-   "rounds": 499,
-   "lastRound": 1790507400,
-   "nextRound": 1790508000,
+   "rounds": 500,
+   "lastRound": 1790508000,
+   "nextRound": 1790508600,
    "allocatedZat": 694430,
    "holders": 15,
    "eligibleHolders": 15,
-   "lastBlock": 73895173,
+   "lastBlock": 73901144,
    "wallets": {
     "0x4583439924005ba530e63e59d0f3e19cbbe32063": {
      "balance": "12457124.786647208782189213",
