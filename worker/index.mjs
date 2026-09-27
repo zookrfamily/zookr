@@ -230,9 +230,11 @@ async function readPool(z) {
   const pick = (k) => Number((balText.match(new RegExp(`(?<![a-z_])${k}:\\s*(\\d+)`)) ?? [])[1] ?? 0);
   const tconf = pick("confirmed_transparent_balance"), tunconf = pick("unconfirmed_transparent_balance");
   console.log(`[pool] balances: orchard ${pick("total_orchard_balance") / 1e8} ironwood ${pick("total_ironwood_balance") / 1e8} transparent ${tconf / 1e8} (+${tunconf / 1e8} unconfirmed) ZEC`);
-  if (tconf > 20_000 && !DRY) {
-    try { const r = await z.cmd("quickshield", 10 * 60_000); console.log(`[pool] shielded ${(tconf / 1e8).toFixed(6)} ZEC from t-addr: ${JSON.stringify(r).slice(0, 120)}`); }
-    catch (e) { console.warn("[pool] shield failed:", e.message.split("\n")[0]); }
+  // `balance` prints transparent value in its own unit; zingo itself decides
+  // whether the amount is worth shielding, so try whenever anything is there
+  if (tconf > 0 && !DRY) {
+    try { const r = await z.cmd("quickshield", 10 * 60_000); console.log(`[pool] shield: ${JSON.stringify(r).slice(0, 200)}`); }
+    catch (e) { console.warn("[pool] shield failed:", e.message.split("\n").slice(0, 2).join(" | ")); }
   }
   const bal = await z.cmd("spendable_balance");
   state.pool.balanceZat = Number(bal?.spendable_balance ?? 0);

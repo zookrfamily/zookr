@@ -47,4 +47,12 @@ jobs:
           git config user.name zookr-bot
           git config user.email zookr-bot@users.noreply.github.com
           git add worker/data/state.json worker/data/public.json
-          git diff --cached --quiet || (git commit -m "round $(date -u +%FT%TZ)" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "round $(date -u +%FT%TZ)"
+          # another run or a code push may have landed meanwhile: our state is
+          # newer, so replay it on top and keep ours on conflict
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push && exit 0
+            sleep 5
+          done
+          exit 1
