@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 73971033
+  "lastBlock": 73972718
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 73971033,
+   "lastBlock": 73972718,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [],
     "0x26558f89f952e9f557d91be898e7adcdcfb8ade6": [],
@@ -70,7 +70,7 @@
     ],
     "0xbdb482d980a9e0a8e58e11f6327f4dc46b3e6697": [
      {
-      "amount": "17766709780138512749512731n",
+      "amount": "2766736218389762754337916n",
       "at": 1790514305
      }
     ],
@@ -575,6 +575,23 @@
       "amount": "63609821140669435649491n",
       "at": 1790515368
      }
+    ],
+    "0x8366a39cc670b4001a1121b8f6a443a643e40951": [
+     {
+      "amount": "14999973561748749995174815n",
+      "at": 1790515397
+     },
+     {
+      "amount": "2083190327594202838243953n",
+      "at": 1790515397
+     }
+    ],
+    "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
+    "0x2be87ad70cf11ea294d7c42044b5b8277a3e4874": [
+     {
+      "amount": "256422454555143968886n",
+      "at": 1790515397
+     }
     ]
    },
    "contracts": {
@@ -720,7 +737,10 @@
     "0x6a05b1a149b3c9a6151c8840905a495087a9e40e": false,
     "0x897def88a886f0fafbab32dc689d48f6fc234a5d": true,
     "0x81da6bcd98ae46621a1e9743a3f51b10b7e16d97": true,
-    "0xee2001abd562c94d417cce36285931e9d5c42056": false
+    "0xee2001abd562c94d417cce36285931e9d5c42056": false,
+    "0x8366a39cc670b4001a1121b8f6a443a643e40951": true,
+    "0xa633c73658857d5241fe21d43f854a82e2d0592c": true,
+    "0x2be87ad70cf11ea294d7c42044b5b8277a3e4874": true
    },
    "blockTimes": {
     "73960310": 1790514301,
@@ -951,16 +971,21 @@
     "73970712": 1790515348,
     "73970747": 1790515351,
     "73970914": 1790515368,
-    "73970915": 1790515368
+    "73970915": 1790515368,
+    "73971197": 1790515397,
+    "73971198": 1790515397,
+    "73971200": 1790515397,
+    "73971335": 1790515410,
+    "73971534": 1790515430
    },
-   "lastRound": 1790514901,
-   "rounds": 1,
+   "lastRound": 1790515501,
+   "rounds": 2,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
    "feesEthConverted": "0n",
    "graduated": false,
-   "mcapUsd": 20079.492254028715,
+   "mcapUsd": 20097.91537407444,
    "logo": "https://ipfs.io/ipfs/bafkreicdvltp5rb5vmqweolrvkcizd4lp5l56fz6nxzcr67sky337nh5m4",
    "description": "Zookr is a Zcash-powered launchpad on Robinhood Chain, built to connect token launches, creators, and holders through a native ZEC reward economy.",
    "socials": {
@@ -970,20 +995,75 @@
     "website": "",
     "farcaster": ""
    },
-   "feesEthPending": "2257974991746263n"
+   "feesEthPending": "2286954958210569n"
   }
  },
  "platform": {
   "creditedZat": "915000n",
-  "allocatedZat": "0n",
-  "lastRound": 1790514901,
-  "rounds": 1
+  "allocatedZat": "914974n",
+  "lastRound": 1790515501,
+  "rounds": 2
  },
  "registry": {
-  "lastBlock": 73971206,
+  "lastBlock": 73972718,
   "dest": {}
  },
- "accrued": {},
+ "accrued": {
+  "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": "24339n",
+  "0x49dc62277700ec8ed878c568dfae4c4616fe4901": "42031n",
+  "0x04bf8305087f674ab11148a81187d84ff673bb03": "66486n",
+  "0xaea12b0ca4fd4c10355baef4879f2e111f8bf9cd": "5216n",
+  "0x029fb5d8ea85af1d7fe36ddfaf817050f82e99fb": "2206n",
+  "0xc3ffce3145fa41bc5fe6159cc11428fffd3b1297": "40496n",
+  "0xbdb482d980a9e0a8e58e11f6327f4dc46b3e6697": "5766n",
+  "0x505a6f601b32445c54dbf38cf42474f3cde9c3b9": "37839n",
+  "0xbb33f5b0159476f600a657945a471e7df4138d31": "38099n",
+  "0xc7dfebf12b67dfce8fb255eeac4b5264c625a193": "35554n",
+  "0x60e7054ed7ad941947a118088eafddaf5ef5dbe8": "16582n",
+  "0x2514972a88c0fb0c6331e2bf3218903f04a7f05d": "11n",
+  "0x2450ab8baa525faa55d1d47dcc349d05c674e027": "7790n",
+  "0xb5ba45bf39569addceb52aafef8565eb150c3a80": "23812n",
+  "0x05b77e12c2982e7e111e3d76f374e9a18e5ca656": "20590n",
+  "0x39bd1ee5164a0f04ec501d4fd983d8c3b83059dd": "22120n",
+  "0xb68d599220a8a23500f82e26b2f3dc3948654319": "21832n",
+  "0xd99d1b684e7e386991f4a6294cbeff770f79cfc8": "25504n",
+  "0xc93934513c1f0d0f0e7ca7b73fff70556ff8988a": "18447n",
+  "0x51bd87df98c978f31f1025b748385be1406621c7": "30364n",
+  "0xd3f435434525b9d7503f16e035f68ca3140e8365": "36253n",
+  "0xde57e6d0ede42b1b87e2b4a0c344542e80bb9ff3": "1620n",
+  "0x78a823feb18c52df09358efd2847f42c53c25f2e": "761n",
+  "0x27be26502ecc090a5f0f48174acef6a6c3fb97f1": "8992n",
+  "0xcc00d47039dc20754eaeb3a21f7891226d52534c": "16554n",
+  "0xc71ac645214fdd704a2b1ac52d2dfc8f017f8a3f": "18268n",
+  "0x4e01a46fdd627248f71309d311daff40f1cdf326": "12623n",
+  "0x5a986336ba993260274c14dbc61435d6198a2ec0": "14777n",
+  "0xdf9879e7bf28fb100233f768666fa5f54a12289f": "5306n",
+  "0x08ca6446c7b5fb38deaa03a62f9b081e78391b57": "5587n",
+  "0x3f830fbcdd0e4babdae57a2dcfc185be5fab0f0d": "567n",
+  "0xe042f633c82dfb61536f5e832bfbc9d06e0a30d4": "9n",
+  "0xfd4ec3e58e744a23171e62f5f7889654028876b8": "33011n",
+  "0x95ab8656e7e7e0a721ed24375613226e49216e14": "4480n",
+  "0x9af51966f830738025ab9e451b5a8e8f39369483": "14712n",
+  "0x3aa9c9a4019da22e879691f9cc42160666f91190": "421n",
+  "0x1ac7296268dc1c59aa94f25a5aabdd1d1b47cb01": "5762n",
+  "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": "14311n",
+  "0x4bd48cd524c80107dc9b8336c866068f5f77e5a5": "14117n",
+  "0xb91bc56fb3df749a1e32cd8415df049ef2c2b531": "7940n",
+  "0x70b9978acb99a1613653051046d32fc2d62a470a": "14708n",
+  "0x4b9922e8a9e16540e0393ac5b8813fe9e8d1e412": "2458n",
+  "0x3ca53fe0817814b4581e342ffd2a69946613436b": "22281n",
+  "0xa52eb006c94ac502dc034591d7d60bfb03d35eb8": "13298n",
+  "0xa26446dc39adf5b108d40720db4f881e4dd84183": "14858n",
+  "0xba8ab41449e3d1d6f0b588186a114143ab4915aa": "5884n",
+  "0xd7793741842638f96e11155d3206d4d403a9c84b": "10822n",
+  "0xc50491baf5dce382c7a40629cd199cc17e68e0f7": "1983n",
+  "0x7da0e71dcdf4fac4e5fa8459b40821d9c972da7f": "2369n",
+  "0xf5c4f3dc02c3fb9279495a8fef7b0741da956157": "36n",
+  "0x000000000000000000000000000000000000dead": "113766n",
+  "0xf56650697b6ae05b89d367619e987bc995b02ac9": "5508n",
+  "0xab6d2de4de9660a478ba703b587bb4ace6d8da6b": "5344n",
+  "0xf7aa6b22bdb3e056009fd93b2ea5a1585e03407d": "504n"
+ },
  "paid": {},
  "payments": [],
  "conversions": [],
