@@ -49,7 +49,7 @@ export type PublicData = {
   pool: { address: string; taddress?: string; transparentZat?: number; balanceZat: number; depositedZat: number; deposits: { txid: string; zat: number; at: string | null; memo: string }[]; owedZat: number };
   platform: { creditedZat: number; allocatedZat: number; rounds: number };
   tokens: Token[]; conversions: Conversion[];
-  accrued: Record<string, number>; paid: Record<string, number>; payments: Payment[]; registered: number; registeredWallets?: string[];
+  accrued: Record<string, number>; paid: Record<string, number>; payments: Payment[]; registered: number; registeredWallets?: string[]; registeredList?: { wallet: string; zcash: string }[];
   totals: { paidZat: number; payments: number; tokens: number; feesEthCollected: string; platformPaidZat: number };
 };
 

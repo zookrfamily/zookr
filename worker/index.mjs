@@ -424,6 +424,7 @@ function publish() {
     conversions: state.conversions.slice(-100).map((c) => ({ ...c, wei: formatEther(big(c.wei)) })),
     accrued: Object.fromEntries(Object.entries(state.accrued).map(([w, z]) => [w, Number(big(z))])),
     paid: state.paid, payments: state.payments.slice(-500), registered: Object.keys(state.registry.dest).length, registeredWallets: Object.keys(state.registry.dest),
+    registeredList: Object.entries(state.registry.dest).map(([wallet, zcash]) => ({ wallet, zcash })),
     totals: { paidZat: state.payments.reduce((s, x) => s + x.zat, 0), payments: state.payments.length, tokens: tokens.length, feesEthCollected: formatEther(Object.values(state.tokens).reduce((s, t) => s + big(t.feesEthCollected), 0n)), platformPaidZat: Number(big(state.platform.allocatedZat)) },
   };
   writeFileSync(`${DATA}/public.json`, JSON.stringify(out, null, 1));

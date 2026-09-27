@@ -22,7 +22,7 @@ export function EligibleWallets({ d, me }: { d: PublicData; me: string }) {
   const list = [...rows.entries()].sort((a, b) => b[1].perRound - a[1].perRound);
   return (
     <div className="card">
-      <div className="card-head"><span className="k">Eligible wallets · next round</span><span className="k">{list.length} wallets · {reg.size} registered</span></div>
+      <div className="card-head"><span className="k">Eligible wallets · next round</span><span className="k">{list.length} wallets · <a href="/registered" style={{ textDecoration: "underline" }}>{reg.size} registered</a></span></div>
       {list.length === 0 ? <div className="empty">No wallet is eligible yet. Tokens qualify once they have been held through one full round.</div> : (
         <div className="table-wrap"><table>
           <thead><tr><th>Wallet</th><th>Token</th><th className="r">Eligible</th><th className="r">Next round</th><th className="r">Accrued</th><th className="r">Paid</th><th>Zcash address</th></tr></thead>

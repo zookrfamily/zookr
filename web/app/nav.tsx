@@ -36,6 +36,7 @@ export function Foot() {
       <span className="sp" />
       <a href="/docs">Docs</a>
       <a href="/tutorial">Tutorial</a>
+      <a href="/registered">Registered wallets</a>
       <a href={TELEGRAM_URL} target="_blank" rel="noreferrer">Telegram</a>
       <a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
       {REGISTRY && <a href={`${EXPLORER}/address/${REGISTRY}`} target="_blank" rel="noreferrer">Registry</a>}

@@ -151,7 +151,7 @@ export default function Dashboard() {
                 <div className="kv"><span>Owed to holders</span><b>{zec(d.pool.owedZat, 4)} ZEC</b></div>
                 <div className="kv"><span>Paid out</span><b>{zec(d.totals.paidZat, 4)} ZEC</b></div>
                 <div className="kv"><span>Tokens launched</span><b>{d.tokens.length}</b></div>
-                <div className="kv"><span>Registered wallets</span><b>{d.registered}</b></div>
+                <div className="kv"><span>Registered wallets</span><b><a href="/registered">{d.registered} · list →</a></b></div>
                 <div className="kv"><span>Registry</span><b>{d.registry ? <a href={`${EXPLORER}/address/${d.registry}`} target="_blank" rel="noreferrer">{short(d.registry)} ↗</a> : "—"}</b></div>
                 <div className="kv"><span>Updated</span><b>{new Date(d.generatedAt).toLocaleTimeString()}</b></div>
                 <div style={{ marginTop: 14 }}><Ca onpaper /></div>
