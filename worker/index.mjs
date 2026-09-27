@@ -417,7 +417,7 @@ function publish() {
     };
   }).sort((a, b) => b.launchedAt - a.launchedAt);
   const out = {
-    generatedAt: new Date().toISOString(), roundSeconds: ROUND, minPayoutZat: CFG.minPayoutZat, registry: CFG.registry, launchpad: CFG.launchpad, platformToken: CFG.platformToken, holderShareBps: CFG.holderShareBps, ethUsd,
+    generatedAt: new Date().toISOString(), roundSeconds: ROUND, minPayoutZat: CFG.minPayoutZat, payoutSeconds: CFG.payoutSeconds ?? 0, nextPayout: (state.lastPayout ?? now) + (CFG.payoutSeconds ?? 0), registry: CFG.registry, launchpad: CFG.launchpad, platformToken: CFG.platformToken, holderShareBps: CFG.holderShareBps, ethUsd,
     pool: { address: state.pool.address, taddress: state.pool.taddress, transparentZat: state.pool.transparentZat, balanceZat: state.pool.balanceZat, depositedZat: state.pool.deposits.reduce((s, d) => s + d.zat, 0), deposits: state.pool.deposits.slice(-50), owedZat: Number(owedZat()) },
     platform: { creditedZat: Number(big(state.platform.creditedZat)), allocatedZat: Number(big(state.platform.allocatedZat)), rounds: state.platform.rounds },
     tokens,
@@ -446,5 +446,12 @@ if (SEED && !DRY && cmd !== "dry") {
 } else console.log("[pool] skipped (no seed or dry run)");
 try { await settleConversions(); await collectFees(); } catch (e) { console.error("[fees]", e.message.split("\n")[0]); }
 processRounds(now);
-if (z) { try { await payouts(z); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); } await z.quit(); }
+// rounds allocate every ten minutes; registered wallets are paid on a slower clock (config.payoutSeconds)
+const PAYOUT_EVERY = CFG.payoutSeconds ?? 0;
+if (z) {
+  if (now - (state.lastPayout ?? 0) >= PAYOUT_EVERY) {
+    try { await payouts(z); state.lastPayout = now; save(); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); }
+  } else console.log(`[payouts] next payout window at ${new Date((state.lastPayout + PAYOUT_EVERY) * 1000).toISOString()}`);
+  await z.quit();
+}
 publish();

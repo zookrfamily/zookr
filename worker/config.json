@@ -10,6 +10,7 @@
   ],
   "roundSeconds": 600,
   "minPayoutZat": 100000,
+  "payoutSeconds": 7200,
   "holderShareBps": 9000,
   "convertMinWei": "3000000000000000",
   "supply": "1000000000000000000000000000"

@@ -12,7 +12,7 @@ const FAQ: [string, string][] = [
   ["I just bought - when do I qualify?", "A new amount skips the next scheduled round and qualifies for the one after. Buy at minute 9 and you are in the minute-20 round. Your older tokens keep their place."],
   ["What if I sell after a round?", "Allocations are final the moment a round is processed. Selling afterwards does not erase what you earned. Sells consume your newest tokens first."],
   ["Is it real ZEC?", "Yes. Native ZEC on the Zcash network, sent shielded to the u1 address you register. Not a wrapped token, not an IOU on another chain."],
-  ["What is the minimum payout?", "0.001 ZEC accrued across all tokens. Below that, your balance keeps accumulating and is paid when it crosses the line."],
+  ["When am I paid?", "Every two hours, to every registered wallet with at least 0.001 ZEC accrued across all tokens. Below that, your balance keeps accumulating and is paid when it crosses the line."],
   ["What does launching cost?", "The Pons launch fee of 0.0005 ETH plus gas. You can add an initial buy in the same transaction; it lands in your wallet, exempt from the launch-window snipe tax. Creators get no fee controls: the 90/10 profile is fixed for everyone."],
   ["Who runs this?", "The registry and the launchpad are contracts with no admin over your funds. The pool is a shielded Zcash wallet the operator holds, and the rounds engine is a scheduled job. Every allocation is published so you can audit the split."],
 ];

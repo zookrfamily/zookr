@@ -96,7 +96,8 @@ export default function Dashboard() {
                 <div className="kv"><span>Destination</span><b>{dest ? "registered" : "not registered"}</b></div>
                 <div className="kv"><span>Earned, unpaid</span><b>{zec(mine.accrued)} ZEC</b></div>
                 <div className="kv"><span>Payment minimum</span><b>{zec(d?.minPayoutZat ?? 0, 3)} ZEC</b></div>
-                <div className="kv"><span>Next payment</span><b>{!dest ? "register first" : mine.accrued >= (d?.minPayoutZat ?? 0) ? "next run" : "below minimum"}</b></div>
+                <div className="kv"><span>Next payment</span><b>{!dest ? "register first" : mine.accrued >= (d?.minPayoutZat ?? 0) ? (d?.nextPayout ? `${new Date(d.nextPayout * 1000).toUTCString().slice(17, 22)} UTC` : "next run") : "below minimum"}</b></div>
+                <div className="kv"><span>Payment schedule</span><b>every {(d?.payoutSeconds ?? 0) >= 3600 ? `${Math.round((d?.payoutSeconds ?? 0) / 3600)} h` : `${Math.round((d?.payoutSeconds ?? 600) / 60)} min`}</b></div>
                 <div className="kv"><span>Last payment</span><b>{mine.pays.length ? new Date(mine.pays[mine.pays.length - 1].at).toLocaleString() : "—"}</b></div>
               </div>
             )}

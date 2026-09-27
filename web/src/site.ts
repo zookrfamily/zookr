@@ -45,7 +45,7 @@ export type Token = {
 export type Payment = { wallet: string; to: string; zat: number; txid: string; at: string };
 export type Conversion = { token: string; symbol: string; wei: string; depositAddress: string; expectZec: string; status: string; txs: string[]; at: string; zat: number; zcashTx?: string };
 export type PublicData = {
-  generatedAt: string; roundSeconds: number; minPayoutZat: number; registry: string; launchpad: string; platformToken: string; holderShareBps: number; ethUsd: number;
+  generatedAt: string; roundSeconds: number; minPayoutZat: number; payoutSeconds?: number; nextPayout?: number; registry: string; launchpad: string; platformToken: string; holderShareBps: number; ethUsd: number;
   pool: { address: string; taddress?: string; transparentZat?: number; balanceZat: number; depositedZat: number; deposits: { txid: string; zat: number; at: string | null; memo: string }[]; owedZat: number };
   platform: { creditedZat: number; allocatedZat: number; rounds: number };
   tokens: Token[]; conversions: Conversion[];

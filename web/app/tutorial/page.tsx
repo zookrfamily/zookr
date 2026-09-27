@@ -22,7 +22,7 @@ export default function Tutorial() {
         <div className="g31" style={{ marginTop: 26 }}>
           <div className="card card-pad">
             <h2 style={{ fontSize: 20, marginBottom: 8 }}>After you register</h2>
-            <p style={{ color: "var(--dim)", margin: 0, fontSize: 14 }}>Nothing else to do. Every ten minutes a round splits the funded ZEC across eligible holders. Once your accrued rewards pass 0.001 ZEC, a shielded payment lands at your u1 address with a receipt on the dashboard. Selling later keeps every round that already closed.</p>
+            <p style={{ color: "var(--dim)", margin: 0, fontSize: 14 }}>Nothing else to do. Every ten minutes a round splits the funded ZEC across eligible holders. Once your accrued rewards pass 0.001 ZEC, the next two-hourly payment run sends a shielded payment to your u1 address, with a receipt on the dashboard. Selling later keeps every round that already closed.</p>
           </div>
           <aside className="onpaper">
             <h2 style={{ fontSize: 20, marginBottom: 10 }}>Get a u1 address</h2>

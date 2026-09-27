@@ -43,7 +43,7 @@ export default function Docs() {
 
           <h2 id="payments">Payments and the minimum</h2>
           <p>Payments are automatic. A payment needs at least the minimum (0.001 ZEC) of accrued rewards for your holder wallet, counted across every token. Below-minimum amounts are not lost; they remain owed and keep accumulating.</p>
-          <p>Payments go out in batched shielded transactions, up to 25 holders per transaction, after each round. A busy round can take two runs to clear.</p>
+          <p>Payments go out every two hours in batched shielded transactions, up to 25 holders per transaction. Rounds keep allocating every ten minutes in between; the payment window just collects them. A busy window can take two runs to clear.</p>
 
           <h2 id="address">Your Zcash address</h2>
           <p>Open the dashboard, connect your holder wallet, and paste a mainnet Unified Address starting with <code>u1</code> that includes an Orchard receiver. Sign the registration on Robinhood Chain.</p>
