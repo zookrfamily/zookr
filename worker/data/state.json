@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 73892785
+  "lastBlock": 73905575
  },
  "tokens": {},
  "platform": {
@@ -11,7 +11,7 @@
   "rounds": 0
  },
  "registry": {
-  "lastBlock": 73892785,
+  "lastBlock": 73905575,
   "dest": {}
  },
  "accrued": {},
@@ -21,8 +21,8 @@
  "pool": {
   "balanceZat": 935000,
   "deposits": [],
-  "address": "",
-  "taddress": "",
+  "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
+  "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
   "transparentZat": 0
  }
 }
