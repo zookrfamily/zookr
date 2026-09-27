@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T17:15:19.643Z",
+ "generatedAt": "2026-09-27T17:16:03.763Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
@@ -10,7 +10,7 @@
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
-  "transparentZat": 22,
+  "transparentZat": 0,
   "balanceZat": 18418237,
   "depositedZat": 0,
   "deposits": [],
