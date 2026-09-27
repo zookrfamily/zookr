@@ -81,7 +81,11 @@ export default function Home() {
           <aside className="onpaper">
             <h2 style={{ fontSize: 20, marginBottom: 10 }}>Fund the pool</h2>
             <p style={{ fontSize: 14, opacity: .9 }}>Native ZEC only, on the Zcash network. Send from any Zcash wallet to the shielded pool address. Every deposit extends the runway at the current emission.</p>
-            <p className="mono" style={{ fontSize: 11, wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px" }}>{d?.pool.address || "—"}</p>
+            <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Shielded · from a Zcash wallet</span>
+            <p className="mono" style={{ fontSize: 11, wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px", margin: "6px 0 12px" }}>{d?.pool.address || "—"}</p>
+            <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Transparent · from an exchange (Binance, etc.)</span>
+            <p className="mono" style={{ fontSize: 12, wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px", margin: "6px 0 4px" }}>{d?.pool.taddress || "—"}</p>
+            <p style={{ fontSize: 12, opacity: .85, margin: "0 0 10px" }}>Anything sent to the transparent address is shielded into the pool on the next round.</p>
             <div className="kv"><span>Token</span><b>{pool ? `${pool.symbol}` : "—"}</b></div>
             <div className="kv"><span>Min hold</span><b>{pool ? `${Number(pool.minHold).toLocaleString("en-US")} ${pool.symbol}` : "—"}</b></div>
             <div className="kv"><span>Registered wallets</span><b>{d?.registered ?? "—"}</b></div>

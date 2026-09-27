@@ -59,8 +59,10 @@ export default function PoolPage({ params }: { params: Promise<{ id: string }> }
                 <div className="kv"><span>Ends</span><b>{p.endsAt ? p.endsAt.slice(0, 10) : "while funded"}</b></div>
                 <div className="kv"><span>Deposited</span><b>{zec(d.pool.depositedZat, 4)} ZEC</b></div>
                 <div style={{ marginTop: 14 }}>
-                  <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Pool address · send ZEC here</span>
-                  <p className="mono" style={{ fontSize: 11, margin: "6px 0 0", wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px", color: "#fff" }}>{d.pool.address || "—"}</p>
+                  <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Pool address · shielded (from a Zcash wallet)</span>
+                  <p className="mono" style={{ fontSize: 11, margin: "6px 0 12px", wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px", color: "#fff" }}>{d.pool.address || "—"}</p>
+                  <span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Transparent · from an exchange</span>
+                  <p className="mono" style={{ fontSize: 12, margin: "6px 0 0", wordBreak: "break-all", background: "rgba(255,255,255,.18)", border: "1px solid rgba(255,255,255,.4)", borderRadius: 12, padding: "10px 12px", color: "#fff" }}>{d.pool.taddress || "—"}</p>
                 </div>
                 <p style={{ color: "var(--dim)", fontSize: 13, marginTop: 14 }}>Each round splits {zec(p.perRoundZat)} ZEC across every wallet whose {p.symbol} was held through the previous round. A new buy skips one round. Sells consume your newest tokens first.</p>
                 <a className="btn primary" href="/dashboard" style={{ marginTop: 10 }}>My rewards →</a>

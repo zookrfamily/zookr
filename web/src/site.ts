@@ -25,7 +25,7 @@ export type Pool = {
 export type Payment = { wallet: string; to: string; zat: number; txid: string; at: string };
 export type PublicData = {
   generatedAt: string; roundSeconds: number; minPayoutZat: number; registry: string;
-  pool: { address: string; balanceZat: number; depositedZat: number; deposits: { txid: string; zat: number; at: string | null; memo: string }[]; owedZat: number };
+  pool: { address: string; taddress?: string; transparentZat?: number; balanceZat: number; depositedZat: number; deposits: { txid: string; zat: number; at: string | null; memo: string }[]; owedZat: number };
   pools: Pool[];
   accrued: Record<string, number>; paid: Record<string, number>; payments: Payment[]; registered: number; registeredWallets?: string[];
   totals: { paidZat: number; payments: number };
