@@ -1,7 +1,7 @@
 {
  "pools": {
   "rnode": {
-   "lastBlock": 73850618,
+   "lastBlock": 73859532,
    "lots": {
     "0x3b778a02c52da568376041c4f813b1f4eb7b37f2": [],
     "0xb300000b72deaeb607a12d5f54773d1c19c7028d": [],
@@ -502,8 +502,8 @@
     "0xd3e5c5f7dc99ce2be4859dd43c84087b03c0ad91": [],
     "0x297e7a89767e4f2f14c7ebe13b8f7324fc985646": []
    },
-   "lastRound": 1790503200,
-   "rounds": 492,
+   "lastRound": 1790503800,
+   "rounds": 493,
    "allocatedZat": 0,
    "blockTimes": {
     "69616213": 1790076231,
@@ -756,7 +756,7 @@
   }
  },
  "registry": {
-  "lastBlock": 73850618,
+  "lastBlock": 73859532,
   "dest": {}
  },
  "accrued": {},
