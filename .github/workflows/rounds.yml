@@ -47,7 +47,7 @@ jobs:
         run: |
           git config user.name zookr-bot
           git config user.email zookr-bot@users.noreply.github.com
-          git add worker/data/state.json worker/data/public.json
+          git add worker/data/state.json worker/data/public.json worker/data/registered.md
           git diff --cached --quiet && exit 0
           git commit -m "round $(date -u +%FT%TZ)"
           # another run or a code push may have landed meanwhile: our state is

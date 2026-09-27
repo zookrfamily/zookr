@@ -432,6 +432,15 @@ function publish() {
     totals: { paidZat: state.payments.reduce((s, x) => s + x.zat, 0), payments: state.payments.length, tokens: tokens.length, feesEthCollected: formatEther(Object.values(state.tokens).reduce((s, t) => s + big(t.feesEthCollected), 0n)), platformPaidZat: Number(big(state.platform.allocatedZat)) },
   };
   writeFileSync(`${DATA}/public.json`, JSON.stringify(out, null, 1));
+  // a human-readable copy of the registry for the repo
+  const fmt = (z) => (Number(z) / 1e8).toFixed(8);
+  const rows = out.registeredList.map((r, i) => { const last = out.payments.filter((p) => p.wallet === r.wallet).pop(); return `| ${i + 1} | \`${r.wallet}\` | \`${r.zcash}\` | ${fmt(out.accrued[r.wallet] ?? 0)} | ${fmt(out.paid[r.wallet] ?? 0)} | ${last ? `${last.at.slice(0, 16).replace("T", " ")} UTC · [${last.txid.slice(0, 12)}…](https://mainnet.zcashexplorer.app/transactions/${last.txid})` : "—"} |`; });
+  writeFileSync(`${DATA}/registered.md`, [
+    "# Registered wallets", "",
+    `Updated ${out.generatedAt} · **${out.registered} wallets** · ${out.totals.payments} payments · ${fmt(out.totals.paidZat)} ZEC paid · next payout window ${new Date(out.nextPayout * 1000).toISOString().slice(0, 16).replace("T", " ")} UTC`, "",
+    `Registry contract: [${CFG.registry}](https://robinhoodchain.blockscout.com/address/${CFG.registry}). Written by the rounds engine every run; the on-chain registry is the source of truth.`, "",
+    "| # | Wallet (Robinhood Chain) | Zcash address | Accrued ZEC | Paid ZEC | Last payment |", "|---|---|---|---:|---:|---|", ...rows, "",
+  ].join("\n"));
   console.log(`[publish] ${tokens.length} token(s), ${out.totals.payments} payments, ${(out.totals.paidZat / 1e8).toFixed(6)} ZEC paid`);
 }
 
