@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T10:32:07.175Z",
+ "generatedAt": "2026-09-27T10:35:58.044Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
@@ -30,7 +30,7 @@
    "allocatedZat": 347215,
    "holders": 15,
    "eligibleHolders": 15,
-   "lastBlock": 73869089,
+   "lastBlock": 73871363,
    "wallets": {
     "0x4583439924005ba530e63e59d0f3e19cbbe32063": {
      "balance": "12457124.786647208782189213",
