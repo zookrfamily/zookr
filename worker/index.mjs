@@ -381,11 +381,12 @@ async function payouts(z) {
   const batch = due.slice(0, 25);
   const total = batch.reduce((s, [, z]) => s + z, 0n);
   if (Number(total) + 100_000 > state.pool.balanceZat) return console.warn(`[payouts] pool short: owes ${Number(total) / 1e8} ZEC, has ${state.pool.balanceZat / 1e8}`);
-  const recipients = batch.map(([w, zat]) => ({ address: state.registry.dest[w], amount: Number(zat), memo: `zookr reward ${w.slice(0, 10)}` }));
+  // no spaces in the memo and single quotes around the JSON: the interactive cli splits the line on whitespace
+  const recipients = batch.map(([w, zat]) => ({ address: state.registry.dest[w], amount: Number(zat), memo: `zookr:${w.slice(0, 10)}` }));
   if (DRY) return console.log("[payouts] DRY", JSON.stringify(recipients));
-  const r = await z.cmd(`quicksend ${JSON.stringify(recipients)}`, 10 * 60_000);
+  const r = await z.cmd(`quicksend '${JSON.stringify(recipients)}'`, 10 * 60_000);
   const txid = r?.txids?.[0] ?? (typeof r === "string" ? r.slice(0, 80) : "");
-  if (!txid || /error/i.test(txid)) throw new Error(`quicksend answered: ${JSON.stringify(r).slice(0, 300)}`);
+  if (!txid || /error/i.test(txid)) throw new Error(`quicksend answered: ${JSON.stringify(r).slice(0, 300)} | stderr: ${z.err.slice(-400).replace(/\s+/g, " ")}`);
   const at = new Date().toISOString();
   for (const [w, zat] of batch) { state.payments.push({ wallet: w, to: state.registry.dest[w], zat: Number(zat), txid, at }); state.paid[w] = (state.paid[w] ?? 0) + Number(zat); state.accrued[w] = 0n; }
   save();
