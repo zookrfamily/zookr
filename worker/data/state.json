@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74002584
+  "lastBlock": 74008479
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74002584,
+   "lastBlock": 74008479,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [],
     "0x26558f89f952e9f557d91be898e7adcdcfb8ade6": [],
@@ -30,12 +30,7 @@
       "at": 1790514303
      }
     ],
-    "0x49dc62277700ec8ed878c568dfae4c4616fe4901": [
-     {
-      "amount": "10083501891123502640779942n",
-      "at": 1790514303
-     }
-    ],
+    "0x49dc62277700ec8ed878c568dfae4c4616fe4901": [],
     "0x65050a9b7e5075a2ba5ced7b1b64ee66262c40dc": [],
     "0x15983b84cbae63214a7e1b34a6fbf0677ce1a6cb": [],
     "0x04bf8305087f674ab11148a81187d84ff673bb03": [
@@ -270,12 +265,7 @@
       "at": 1790514363
      }
     ],
-    "0x95ab8656e7e7e0a721ed24375613226e49216e14": [
-     {
-      "amount": "2149965070144845673302822n",
-      "at": 1790514370
-     }
-    ],
+    "0x95ab8656e7e7e0a721ed24375613226e49216e14": [],
     "0x1c8700f4ddac58ffb0f057a79a8d531cf12df5ae": [],
     "0x9af51966f830738025ab9e451b5a8e8f39369483": [
      {
@@ -370,6 +360,10 @@
      {
       "amount": "2537508731480815038801919n",
       "at": 1790518382
+     },
+     {
+      "amount": "1597400378668251959627896n",
+      "at": 1790518661
      }
     ],
     "0x1919770b7031e93245e5c89e0cf7ab15138a9d0c": [],
@@ -401,6 +395,10 @@
      {
       "amount": "2564099875887305500389851n",
       "at": 1790518382
+     },
+     {
+      "amount": "1587160734743064222903499n",
+      "at": 1790518684
      }
     ],
     "0x007bdfc5c1c518a336bf10adf9cd4511f745c107": [],
@@ -549,6 +547,10 @@
      {
       "amount": "63455275895547657589901n",
       "at": 1790518272
+     },
+     {
+      "amount": "317728378944905096653828n",
+      "at": 1790518721
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -603,12 +605,7 @@
       "at": 1790515850
      }
     ],
-    "0x973cda88a2560da4485bf4143f8c5260f517eb8e": [
-     {
-      "amount": "3274252709676819372609712n",
-      "at": 1790515880
-     }
-    ],
+    "0x973cda88a2560da4485bf4143f8c5260f517eb8e": [],
     "0xccf709e2c470c9c92460bc37262d68c03e7be8ca": [],
     "0x4ef173ca8eb41044199bc3c495df29876e7aa00a": [],
     "0x9f98ccedaae7354ba3b06441a2751c596b0a4233": [],
@@ -619,12 +616,7 @@
      }
     ],
     "0xe22768eef6d80b0e6afeb12a07ed2808713cdbaf": [],
-    "0x499a540ebc1ad442713b624e3f1de8cc58258175": [
-     {
-      "amount": "846216371990667264294229n",
-      "at": 1790516040
-     }
-    ],
+    "0x499a540ebc1ad442713b624e3f1de8cc58258175": [],
     "0x15b4fded7277720ac4ad6ea4f1f64a584ab60e0f": [],
     "0x1f1fdb16b748149a9aac49fbaf454495fe90f3a4": [
      {
@@ -732,6 +724,13 @@
      {
       "amount": "86497404210283899940616n",
       "at": 1790518553
+     }
+    ],
+    "0x6f92f3c911b6251f98037f012549c6fe975ef1f0": [],
+    "0xecd77e119bbe4d4cc4dee6c4c4ba628c61fbb7b2": [
+     {
+      "amount": "16410547025781516606118550n",
+      "at": 1790519143
      }
     ]
    },
@@ -933,7 +932,9 @@
     "0xf613f6314d87330c079a09d91dc35f23c8342ae8": true,
     "0xbbd854ad6e52f084a96c126286ec84a889966e4d": false,
     "0x00000000009726632680fb29d3f7a9734e3010e2": true,
-    "0xea0a8b68ea30bc6620c1276775c58274dcbf901d": true
+    "0xea0a8b68ea30bc6620c1276775c58274dcbf901d": true,
+    "0x6f92f3c911b6251f98037f012549c6fe975ef1f0": false,
+    "0xecd77e119bbe4d4cc4dee6c4c4ba628c61fbb7b2": true
    },
    "blockTimes": {
     "73960310": 1790514301,
@@ -1305,16 +1306,26 @@
     "74000853": 1790518382,
     "74000884": 1790518386,
     "74000936": 1790518391,
-    "74002559": 1790518553
+    "74002559": 1790518553,
+    "74003614": 1790518660,
+    "74003628": 1790518661,
+    "74003851": 1790518684,
+    "74004217": 1790518721,
+    "74004219": 1790518721,
+    "74004402": 1790518739,
+    "74004872": 1790518787,
+    "74006377": 1790518938,
+    "74006393": 1790518940,
+    "74008410": 1790519143
    },
-   "lastRound": 1790518501,
-   "rounds": 7,
+   "lastRound": 1790519101,
+   "rounds": 8,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
    "feesEthConverted": "0n",
    "graduated": false,
-   "mcapUsd": 18032.551986270482,
+   "mcapUsd": 18252.579682686704,
    "logo": "https://ipfs.io/ipfs/bafkreicdvltp5rb5vmqweolrvkcizd4lp5l56fz6nxzcr67sky337nh5m4",
    "description": "Zookr is a Zcash-powered launchpad on Robinhood Chain, built to connect token launches, creators, and holders through a native ZEC reward economy.",
    "socials": {
@@ -1324,7 +1335,7 @@
     "website": "",
     "farcaster": ""
    },
-   "feesEthPending": "11880000000000n"
+   "feesEthPending": "2861249254903311n"
   },
   "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96": {
    "token": "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96",
@@ -1335,7 +1346,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74002584,
+   "lastBlock": 74008479,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [
      {
@@ -1369,14 +1380,14 @@
     "73983391": 1790516623,
     "73983422": 1790516626
    },
-   "lastRound": 1790518354,
-   "rounds": 3,
+   "lastRound": 1790518954,
+   "rounds": 4,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
    "feesEthConverted": "0n",
    "graduated": false,
-   "mcapUsd": 4812.372985479398,
+   "mcapUsd": 4802.291719979377,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -1391,12 +1402,12 @@
  },
  "platform": {
   "creditedZat": "915000n",
-  "allocatedZat": "914990n",
-  "lastRound": 1790518501,
-  "rounds": 7
+  "allocatedZat": "914991n",
+  "lastRound": 1790519101,
+  "rounds": 8
  },
  "registry": {
-  "lastBlock": 74002584,
+  "lastBlock": 74008479,
   "dest": {}
  },
  "accrued": {
@@ -1450,7 +1461,7 @@
   "0xc50491baf5dce382c7a40629cd199cc17e68e0f7": "1983n",
   "0x7da0e71dcdf4fac4e5fa8459b40821d9c972da7f": "2369n",
   "0xf5c4f3dc02c3fb9279495a8fef7b0741da956157": "36n",
-  "0x000000000000000000000000000000000000dead": "113774n",
+  "0x000000000000000000000000000000000000dead": "113775n",
   "0xf56650697b6ae05b89d367619e987bc995b02ac9": "5508n",
   "0xab6d2de4de9660a478ba703b587bb4ace6d8da6b": "5344n",
   "0xf7aa6b22bdb3e056009fd93b2ea5a1585e03407d": "504n"
