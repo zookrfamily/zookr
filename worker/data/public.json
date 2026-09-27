@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T10:35:58.044Z",
+ "generatedAt": "2026-09-27T10:45:57.872Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
@@ -10,7 +10,7 @@
   "balanceZat": 935000,
   "depositedZat": 0,
   "deposits": [],
-  "owedZat": 347215
+  "owedZat": 694430
  },
  "pools": [
   {
@@ -24,13 +24,13 @@
    "startsAt": "2026-09-24T00:00:00Z",
    "endsAt": null,
    "minHold": "1000",
-   "rounds": 495,
-   "lastRound": 1790505000,
-   "nextRound": 1790505600,
-   "allocatedZat": 347215,
+   "rounds": 496,
+   "lastRound": 1790505600,
+   "nextRound": 1790506200,
+   "allocatedZat": 694430,
    "holders": 15,
    "eligibleHolders": 15,
-   "lastBlock": 73871363,
+   "lastBlock": 73877293,
    "wallets": {
     "0x4583439924005ba530e63e59d0f3e19cbbe32063": {
      "balance": "12457124.786647208782189213",
@@ -96,21 +96,21 @@
   }
  ],
  "accrued": {
-  "0x4583439924005ba530e63e59d0f3e19cbbe32063": 93468,
-  "0x67bb6879b16ef6bc9035e92dd6c24facacb931b6": 75187,
-  "0x73691cee20db22f55a6fd0d5948ab00e0fb973b1": 823,
-  "0xc06ebbefd94032b85424d51906e2a335efae264b": 19,
-  "0x5aafc1f252d544f744d17a4e734afd6efc47ede4": 91,
-  "0xcd6b980029e6e6e0733ac8ec3e02be9410d09799": 76,
-  "0x862e5a45bfb166169522dcde739a2886b1bdb85e": 108469,
-  "0xd867b33f0efc5ceca94fa9a6238979f6fd8fa5f0": 3865,
-  "0x0c384932f442467c23f8980d40989de3386f1242": 28386,
-  "0xad01c20d5886137e056775af56915de824c8fce5": 55,
-  "0x4f2bd69fa247bba32457c7b2ef6dd2e7bf32a1ce": 7901,
-  "0xba023a1a4c50a01879bc6b1f1903916953d0da19": 1523,
-  "0x082652417fb7eda61ed43795206044de533f3bfb": 670,
-  "0xa3812e64e917e847d6d3a22f77f10bc1139cd4ec": 26516,
-  "0xfad4c8f1e71e4c56b87733bd916ff7cff46c6c29": 166
+  "0x4583439924005ba530e63e59d0f3e19cbbe32063": 186936,
+  "0x67bb6879b16ef6bc9035e92dd6c24facacb931b6": 150374,
+  "0x73691cee20db22f55a6fd0d5948ab00e0fb973b1": 1646,
+  "0xc06ebbefd94032b85424d51906e2a335efae264b": 38,
+  "0x5aafc1f252d544f744d17a4e734afd6efc47ede4": 182,
+  "0xcd6b980029e6e6e0733ac8ec3e02be9410d09799": 152,
+  "0x862e5a45bfb166169522dcde739a2886b1bdb85e": 216938,
+  "0xd867b33f0efc5ceca94fa9a6238979f6fd8fa5f0": 7730,
+  "0x0c384932f442467c23f8980d40989de3386f1242": 56772,
+  "0xad01c20d5886137e056775af56915de824c8fce5": 110,
+  "0x4f2bd69fa247bba32457c7b2ef6dd2e7bf32a1ce": 15802,
+  "0xba023a1a4c50a01879bc6b1f1903916953d0da19": 3046,
+  "0x082652417fb7eda61ed43795206044de533f3bfb": 1340,
+  "0xa3812e64e917e847d6d3a22f77f10bc1139cd4ec": 53032,
+  "0xfad4c8f1e71e4c56b87733bd916ff7cff46c6c29": 332
  },
  "paid": {},
  "payments": [],
