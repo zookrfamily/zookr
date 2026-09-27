@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74020400
+  "lastBlock": 74021078
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74020400,
+   "lastBlock": 74021078,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [],
     "0x26558f89f952e9f557d91be898e7adcdcfb8ade6": [],
@@ -119,19 +119,19 @@
     "0x305aabee679fd43a46705602aa4d9e9a9d07ddd1": [],
     "0x51bd87df98c978f31f1025b748385be1406621c7": [
      {
-      "amount": "6619959498914791428512237n",
+      "amount": "4964969624186093571384178n",
       "at": 1790514306
      }
     ],
     "0xd3f435434525b9d7503f16e035f68ca3140e8365": [
      {
-      "amount": "7113455293147043323989432n",
+      "amount": "5335091469860282492992074n",
       "at": 1790514306
      }
     ],
     "0xde57e6d0ede42b1b87e2b4a0c344542e80bb9ff3": [
      {
-      "amount": "318247173858546829388386n",
+      "amount": "238685380393910122041290n",
       "at": 1790514306
      }
     ],
@@ -144,7 +144,7 @@
     "0xe492912f37c2a4eca45d42dc67548f4c6cd7ce2b": [],
     "0x78a823feb18c52df09358efd2847f42c53c25f2e": [
      {
-      "amount": "149510293010464271702830n",
+      "amount": "112132719757848203777123n",
       "at": 1790514306
      }
     ],
@@ -451,7 +451,12 @@
       "at": 1790515133
      }
     ],
-    "0x482f7447752858e9bbcc12ab2ab31faa522bffc2": [],
+    "0x482f7447752858e9bbcc12ab2ab31faa522bffc2": [
+     {
+      "amount": "145399342467247740040388n",
+      "at": 1790520413
+     }
+    ],
     "0x6a05b1a149b3c9a6151c8840905a495087a9e40e": [],
     "0x897def88a886f0fafbab32dc689d48f6fc234a5d": [],
     "0x81da6bcd98ae46621a1e9743a3f51b10b7e16d97": [],
@@ -483,12 +488,12 @@
       "at": 1790519963
      },
      {
-      "amount": "314716033559706297105916n",
+      "amount": "239750935121749155121461n",
       "at": 1790519984
      },
      {
-      "amount": "304223441451242230437511n",
-      "at": 1790520336
+      "amount": "555961663160021848236509n",
+      "at": 1790520386
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -1097,6 +1102,10 @@
      {
       "amount": "4133326328047355227670380n",
       "at": 1790520298
+     },
+     {
+      "amount": "644198450942081626956564n",
+      "at": 1790520417
      }
     ],
     "0x48b51287fb5281ea0913100809c3b7f1649c7996": [
@@ -1123,16 +1132,53 @@
       "at": 1790520337
      }
     ],
-    "0xf851686ea5829ed5d089063bb49096d25d226f05": [
-     {
-      "amount": "7891799361136380293973941n",
-      "at": 1790520343
-     }
-    ],
+    "0xf851686ea5829ed5d089063bb49096d25d226f05": [],
     "0x5d824500d5fac6cd703b2133fed5d8b1a67a4203": [
      {
       "amount": "769777480198436408096033n",
       "at": 1790520345
+     }
+    ],
+    "0xd03e1b8d92aebc2a213fdf9dad27e64a634186b4": [
+     {
+      "amount": "574290074514074442088471n",
+      "at": 1790520352
+     }
+    ],
+    "0x778a363bb7978472e4387d94ecba2b9b76023859": [
+     {
+      "amount": "1913668561908130258295986n",
+      "at": 1790520352
+     }
+    ],
+    "0x221408b167a7030945b275191a4b52b766dbcc2e": [
+     {
+      "amount": "9982964777131305881771998n",
+      "at": 1790520354
+     }
+    ],
+    "0x7332a7cd53d6d48e696ad9dfc4d30f93bbcf3dde": [
+     {
+      "amount": "379188539889199372421966n",
+      "at": 1790520368
+     }
+    ],
+    "0xeecdd7ffd044f13c2eae0b23ed3c66ac2d3ae5ce": [
+     {
+      "amount": "35931180724567810191831n",
+      "at": 1790520388
+     }
+    ],
+    "0x5043144f14a4c726461d38ea862959c72700bc27": [
+     {
+      "amount": "512692823595757884506501n",
+      "at": 1790520404
+     }
+    ],
+    "0x7963757a84e0115a458179495f4393b67eccf092": [
+     {
+      "amount": "204589372829108533560005n",
+      "at": 1790520415
      }
     ]
    },
@@ -1430,7 +1476,14 @@
     "0x8d8dd62f5363699365867e5f0a598138eddb50c1": true,
     "0x8761154bab03adec152acffdbb6433ab322cc77d": true,
     "0xf851686ea5829ed5d089063bb49096d25d226f05": true,
-    "0x5d824500d5fac6cd703b2133fed5d8b1a67a4203": true
+    "0x5d824500d5fac6cd703b2133fed5d8b1a67a4203": true,
+    "0xd03e1b8d92aebc2a213fdf9dad27e64a634186b4": true,
+    "0x778a363bb7978472e4387d94ecba2b9b76023859": true,
+    "0x221408b167a7030945b275191a4b52b766dbcc2e": false,
+    "0x7332a7cd53d6d48e696ad9dfc4d30f93bbcf3dde": true,
+    "0xeecdd7ffd044f13c2eae0b23ed3c66ac2d3ae5ce": true,
+    "0x5043144f14a4c726461d38ea862959c72700bc27": false,
+    "0x7963757a84e0115a458179495f4393b67eccf092": false
    },
    "blockTimes": {
     "73960310": 1790514301,
@@ -1998,7 +2051,20 @@
     "74020274": 1790520337,
     "74020328": 1790520343,
     "74020347": 1790520345,
-    "74020368": 1790520347
+    "74020368": 1790520347,
+    "74020416": 1790520352,
+    "74020417": 1790520352,
+    "74020442": 1790520354,
+    "74020573": 1790520368,
+    "74020754": 1790520386,
+    "74020761": 1790520387,
+    "74020762": 1790520387,
+    "74020767": 1790520387,
+    "74020774": 1790520388,
+    "74020930": 1790520404,
+    "74021026": 1790520413,
+    "74021042": 1790520415,
+    "74021065": 1790520417
    },
    "lastRound": 1790520301,
    "rounds": 10,
@@ -2007,7 +2073,7 @@
    "feesEthCollected": "0n",
    "feesEthConverted": "0n",
    "graduated": false,
-   "mcapUsd": 25262.637851847532,
+   "mcapUsd": 25343.84296170108,
    "logo": "https://ipfs.io/ipfs/bafkreicdvltp5rb5vmqweolrvkcizd4lp5l56fz6nxzcr67sky337nh5m4",
    "description": "Zookr is a Zcash-powered launchpad on Robinhood Chain, built to connect token launches, creators, and holders through a native ZEC reward economy.",
    "socials": {
@@ -2017,7 +2083,7 @@
     "website": "",
     "farcaster": ""
    },
-   "feesEthPending": "1980000000000000n"
+   "feesEthPending": "291660670307491n"
   },
   "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96": {
    "token": "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96",
@@ -2028,7 +2094,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74020400,
+   "lastBlock": 74021078,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [
      {
@@ -2122,7 +2188,7 @@
    "feesEthCollected": "3972806942528666n",
    "feesEthConverted": "3972806942528666n",
    "graduated": false,
-   "mcapUsd": 5044.489421271517,
+   "mcapUsd": 5045.408405034235,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -2142,7 +2208,7 @@
   "rounds": 10
  },
  "registry": {
-  "lastBlock": 74020400,
+  "lastBlock": 74021078,
   "dest": {}
  },
  "accrued": {
@@ -2226,6 +2292,6 @@
   "deposits": [],
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
-  "transparentZat": 631
+  "transparentZat": 0
  }
 }
