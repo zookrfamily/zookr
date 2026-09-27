@@ -346,7 +346,7 @@ function processRounds(nowSec) {
   const pt = CFG.platformToken && state.tokens[CFG.platformToken.toLowerCase()];
   if (pt && spendable > 0n) {
     const reserved = owedZat() + Object.values(state.tokens).reduce((s, t) => s + big(t.creditedZat) - big(t.allocatedZat), 0n) + big(state.platform.creditedZat) - big(state.platform.allocatedZat);
-    const free = spendable - reserved - 20_000n; // keep a fee margin behind
+    const free = spendable - reserved - 200_000n; // keep 0.002 ZEC behind for Zcash tx fees (ZIP-317: ~0.00005 per output)
     if (free > 0n) { state.platform.creditedZat = big(state.platform.creditedZat) + free; console.log(`[rounds] ${Number(free) / 1e8} ZEC unassigned in the pool -> credited to ${pt.symbol} holders`); }
   }
   for (const ts of Object.values(state.tokens)) {
