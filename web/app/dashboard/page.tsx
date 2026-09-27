@@ -6,7 +6,7 @@ import { Nav, Foot } from "../nav.tsx";
 import { useWallet, reader, friendly } from "../wallet.ts";
 import { useData } from "../data.ts";
 import { EligibleWallets } from "../eligible.tsx";
-import { Logo } from "../tokenrow.tsx";
+import { Logo, Ca } from "../tokenrow.tsx";
 import { REGISTRY, registryAbi, zec, short, ZEC_EXPLORER, EXPLORER } from "../../src/site.ts";
 
 export default function Dashboard() {
@@ -153,6 +153,7 @@ export default function Dashboard() {
                 <div className="kv"><span>Registered wallets</span><b>{d.registered}</b></div>
                 <div className="kv"><span>Registry</span><b>{d.registry ? <a href={`${EXPLORER}/address/${d.registry}`} target="_blank" rel="noreferrer">{short(d.registry)} ↗</a> : "—"}</b></div>
                 <div className="kv"><span>Updated</span><b>{new Date(d.generatedAt).toLocaleTimeString()}</b></div>
+                <div style={{ marginTop: 14 }}><Ca onpaper /></div>
               </div>
             )}
           </aside>

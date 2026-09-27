@@ -11,6 +11,7 @@ export const EXPLORER = "https://robinhoodchain.blockscout.com";
 export const ZEC_EXPLORER = "https://mainnet.zcashexplorer.app/transactions";
 export const PONS = "https://pons.trade";
 export const LAUNCH_FEE_ETH = "0.0005";
+export const PLATFORM_TOKEN = "0x8031df281c8d3ea06c495749eba444e1ced574eb";
 
 export const registryAbi = [
   { type: "function", name: "register", stateMutability: "nonpayable", inputs: [{ name: "zcashAddress", type: "string" }], outputs: [] },

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Nav, Foot } from "../nav.tsx";
 import { useData } from "../data.ts";
-import { Logo, Venue } from "../tokenrow.tsx";
+import { Logo, Venue, Ca } from "../tokenrow.tsx";
 import { zec, eth, usd, hhmm, EXPLORER } from "../../src/site.ts";
 
 type Filter = "all" | "curve" | "uniswap";
@@ -38,6 +38,7 @@ export default function Explore() {
           </div>
         </div>
         {err && <div className="msg err">data unavailable: {err}</div>}
+        <div style={{ marginBottom: 18 }}><Ca onpaper /></div>
 
         <div className="card gstat g3">
           <div className="card-pad"><span className="k">Tokens launched</span><div className="big">{d ? d.tokens.length : "—"}</div><span className="k">{onCurve} on the curve · {d ? d.tokens.length - onCurve : 0} on Uniswap</span></div>

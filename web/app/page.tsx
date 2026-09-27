@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Nav, Foot, Tg } from "./nav.tsx";
 import { useData } from "./data.ts";
-import { Logo, Venue } from "./tokenrow.tsx";
+import { Logo, Venue, Ca } from "./tokenrow.tsx";
 import { zec, short, eth, usd, hhmm, TELEGRAM_URL, GITHUB_URL, REGISTRY, LAUNCHPAD, EXPLORER } from "../src/site.ts";
 
 const FAQ: [string, string][] = [
@@ -39,6 +39,7 @@ export default function Home() {
             <a className="btn ghost" href="/explore">Explore tokens</a>
             <a className="btn ghost" href={TELEGRAM_URL} target="_blank" rel="noreferrer"><Tg /> Telegram</a>
           </div>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 26 }}><Ca onpaper /></div>
           <div className="hero-stats">
             <div><b>{d ? tokens.length : "—"}</b><span>tokens launched</span></div>
             <div><b>{d ? eth(d.totals.feesEthCollected, 4) : "—"} ETH</b><span>fees collected</span></div>
@@ -87,6 +88,7 @@ export default function Home() {
             <div className="kv"><span>Supply</span><b>1,000,000,000</b></div>
             <div className="kv"><span>Graduates to Uniswap at</span><b>4.2 ETH</b></div>
             <div className="kv"><span>Registered wallets</span><b>{d?.registered ?? "—"}</b></div>
+            <div style={{ marginTop: 14 }}><span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Platform token · holders get 10% of every token&apos;s fees</span><div style={{ marginTop: 6 }}><Ca onpaper /></div></div>
             <a className="btn primary" href="/launch" style={{ marginTop: 14 }}>Launch a token →</a>
           </aside>
         </div>

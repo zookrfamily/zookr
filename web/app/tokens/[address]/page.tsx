@@ -4,7 +4,7 @@ import { use, useState } from "react";
 import { Nav, Foot } from "../../nav.tsx";
 import { useData } from "../../data.ts";
 import { useWallet } from "../../wallet.ts";
-import { Logo, Venue } from "../../tokenrow.tsx";
+import { Logo, Venue, Ca } from "../../tokenrow.tsx";
 import { zec, short, eth, usd, hhmm, EXPLORER, ZEC_EXPLORER, PONS } from "../../../src/site.ts";
 
 export default function TokenPage({ params }: { params: Promise<{ address: string }> }) {
@@ -46,6 +46,7 @@ export default function TokenPage({ params }: { params: Promise<{ address: strin
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}><span className="pill ok"><i />Up to date</span><a className="btn primary" href={`${PONS}/token/${t.token}`} target="_blank" rel="noreferrer">Trade ↗</a></div>
             </div>
+            <div style={{ marginBottom: 26 }}><Ca address={t.token} symbol={t.symbol} onpaper /></div>
 
             <div className="g31" style={{ marginTop: 0 }}>
               <div>
