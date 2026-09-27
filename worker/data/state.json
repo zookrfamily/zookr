@@ -1,7 +1,7 @@
 {
  "pools": {
   "rnode": {
-   "lastBlock": 73865915,
+   "lastBlock": 73869089,
    "lots": {
     "0x3b778a02c52da568376041c4f813b1f4eb7b37f2": [],
     "0xb300000b72deaeb607a12d5f54773d1c19c7028d": [],
@@ -502,9 +502,9 @@
     "0xd3e5c5f7dc99ce2be4859dd43c84087b03c0ad91": [],
     "0x297e7a89767e4f2f14c7ebe13b8f7324fc985646": []
    },
-   "lastRound": 1790504400,
-   "rounds": 494,
-   "allocatedZat": 0,
+   "lastRound": 1790505000,
+   "rounds": 495,
+   "allocatedZat": 347215,
    "blockTimes": {
     "69616213": 1790076231,
     "69616307": 1790076242,
@@ -756,14 +756,30 @@
   }
  },
  "registry": {
-  "lastBlock": 73865915,
+  "lastBlock": 73869089,
   "dest": {}
  },
- "accrued": {},
+ "accrued": {
+  "0x4583439924005ba530e63e59d0f3e19cbbe32063": "93468n",
+  "0x67bb6879b16ef6bc9035e92dd6c24facacb931b6": "75187n",
+  "0x73691cee20db22f55a6fd0d5948ab00e0fb973b1": "823n",
+  "0xc06ebbefd94032b85424d51906e2a335efae264b": "19n",
+  "0x5aafc1f252d544f744d17a4e734afd6efc47ede4": "91n",
+  "0xcd6b980029e6e6e0733ac8ec3e02be9410d09799": "76n",
+  "0x862e5a45bfb166169522dcde739a2886b1bdb85e": "108469n",
+  "0xd867b33f0efc5ceca94fa9a6238979f6fd8fa5f0": "3865n",
+  "0x0c384932f442467c23f8980d40989de3386f1242": "28386n",
+  "0xad01c20d5886137e056775af56915de824c8fce5": "55n",
+  "0x4f2bd69fa247bba32457c7b2ef6dd2e7bf32a1ce": "7901n",
+  "0xba023a1a4c50a01879bc6b1f1903916953d0da19": "1523n",
+  "0x082652417fb7eda61ed43795206044de533f3bfb": "670n",
+  "0xa3812e64e917e847d6d3a22f77f10bc1139cd4ec": "26516n",
+  "0xfad4c8f1e71e4c56b87733bd916ff7cff46c6c29": "166n"
+ },
  "payments": [],
  "paid": {},
  "pool": {
-  "balanceZat": 0,
+  "balanceZat": 935000,
   "deposits": [],
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
