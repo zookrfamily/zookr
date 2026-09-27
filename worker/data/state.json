@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 73905575
+  "lastBlock": 73907202
  },
  "tokens": {},
  "platform": {
@@ -11,7 +11,7 @@
   "rounds": 0
  },
  "registry": {
-  "lastBlock": 73905575,
+  "lastBlock": 73907202,
   "dest": {}
  },
  "accrued": {},
