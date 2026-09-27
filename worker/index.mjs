@@ -39,7 +39,8 @@ const DRY = env("DRY_RUN", "0") === "1";
 const CFG = JSON.parse(readFileSync(new URL("./pools.json", import.meta.url), "utf8"));
 const ROUND = CFG.roundSeconds;
 
-const client = createPublicClient({ transport: http(RPC, { timeout: 60_000, retryCount: 3 }) });
+// the public RPC rate-limits bursts of eth_getLogs; back off generously
+const client = createPublicClient({ transport: http(RPC, { timeout: 60_000, retryCount: 6, retryDelay: 4_000 }) });
 const TRANSFER = parseAbiItem("event Transfer(address indexed from, address indexed to, uint256 value)");
 const REGISTERED = parseAbiItem("event Registered(address indexed wallet, string zcashAddress)");
 
@@ -317,8 +318,10 @@ if (cmd === "address" || cmd === "status") {
   try { await z.synced(); await readPool(z); publish(); } finally { await z.quit(); }
 } else {
   const now = Math.floor(Date.now() / 1000);
-  for (const p of CFG.pools) { await pullTransfers(p); await markContracts(p); }
-  await pullRegistry();
+  // a chain read failing must not stop the wallet from shielding, paying and
+  // publishing; the ledger simply resumes from its last block next run
+  try { for (const p of CFG.pools) { await pullTransfers(p); await markContracts(p); } await pullRegistry(); }
+  catch (e) { console.error("[chain] read failed, continuing with last state:", e.message.split("\n")[0]); }
   // no wallet (no seed, no binary, or a dry run): rounds still advance, but
   // nothing is allocated or paid - the pool balance reads as zero
   let z = null;
