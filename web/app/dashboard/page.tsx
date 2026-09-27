@@ -6,6 +6,7 @@ import { Nav, Foot } from "../nav.tsx";
 import { useWallet, reader, friendly } from "../wallet.ts";
 import { useData } from "../data.ts";
 import { EligibleWallets } from "../eligible.tsx";
+import { Logo } from "../tokenrow.tsx";
 import { REGISTRY, registryAbi, zec, short, ZEC_EXPLORER, EXPLORER } from "../../src/site.ts";
 
 export default function Dashboard() {
@@ -40,14 +41,14 @@ export default function Dashboard() {
     if (!d || !me) return null;
     const accrued = d.accrued[me] ?? 0, paid = d.paid[me] ?? 0;
     const pays = d.payments.filter((p) => p.wallet === me);
-    // pending: what the next round would give at current eligibility
+    // pending: what the next round would give at current eligibility, from what each token has funded
     let pending = 0;
-    const holdings = d.pools.map((p) => {
-      const h = p.wallets[me]; const eligible = Number(h?.eligible ?? 0), bal = Number(h?.balance ?? 0);
-      const total = Object.values(p.wallets).reduce((s, x) => s + Number(x.eligible), 0);
-      const share = total > 0 ? eligible / total : 0; pending += share * p.perRoundZat;
-      return { p, bal, eligible, waiting: Math.max(0, bal - eligible), share };
-    });
+    const holdings = d.tokens.map((t) => {
+      const h = t.wallets[me]; const eligible = Number(h?.eligible ?? 0), bal = Number(h?.balance ?? 0);
+      const total = Object.values(t.wallets).reduce((s, x) => s + Number(x.eligible), 0);
+      const share = total > 0 ? eligible / total : 0; const funded = Math.max(0, t.creditedZat - t.allocatedZat); pending += share * funded;
+      return { t, bal, eligible, waiting: Math.max(0, bal - eligible), share, next: share * funded };
+    }).filter((h) => h.bal > 0);
     return { accrued, paid, pays, pending, holdings };
   }, [d, me]);
 
@@ -117,14 +118,14 @@ export default function Dashboard() {
               <div className="tabs"><button className={tab === "holdings" ? "on" : ""} onClick={() => setTab("holdings")}>Holdings</button><button className={tab === "payments" ? "on" : ""} onClick={() => setTab("payments")}>Payments</button></div>
             </div>
             <div className="card">
-              {!w.address || !mine ? <div className="empty">Connect a wallet to see holdings and eligibility.</div> : tab === "holdings" ? (
+              {!w.address || !mine ? <div className="empty">Connect a wallet to see holdings and eligibility.</div> : tab === "holdings" ? (mine.holdings.length === 0 ? <div className="empty">You hold no launched token yet. <a href="/explore" style={{ textDecoration: "underline" }}>Explore tokens →</a></div> : (
                 <div className="table-wrap"><table>
-                  <thead><tr><th>Pool</th><th className="r">Balance</th><th className="r">Eligible</th><th className="r">Waiting</th><th className="r">Share</th><th className="r">Per round</th></tr></thead>
-                  <tbody>{mine.holdings.map(({ p, bal, eligible, waiting, share }) => (
-                    <tr key={p.id}><td><a href={`/pools/${p.id}`}><b>{p.symbol}</b> <span style={{ color: "var(--dim)" }}>{p.name}</span></a></td><td className="r mono">{bal.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{eligible.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{waiting.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{(share * 100).toFixed(3)}%</td><td className="r mono">{zec(share * p.perRoundZat)} ZEC</td></tr>
+                  <thead><tr><th>Token</th><th className="r">Balance</th><th className="r">Eligible</th><th className="r">Waiting</th><th className="r">Share</th><th className="r">Next round</th></tr></thead>
+                  <tbody>{mine.holdings.map(({ t, bal, eligible, waiting, share, next }) => (
+                    <tr key={t.token}><td><a href={`/tokens/${t.token}`} style={{ display: "flex", gap: 10, alignItems: "center" }}><Logo t={t} size={28} /><span><b>{t.symbol}</b> <span style={{ color: "var(--dim)" }}>{t.name}</span></span></a></td><td className="r mono">{bal.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{eligible.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{waiting.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td><td className="r mono">{(share * 100).toFixed(3)}%</td><td className="r mono">{zec(next)} ZEC</td></tr>
                   ))}</tbody>
                 </table></div>
-              ) : mine.pays.length === 0 ? <div className="empty">No payments yet.</div> : (
+              )) : mine.pays.length === 0 ? <div className="empty">No payments yet.</div> : (
                 <div className="table-wrap"><table>
                   <thead><tr><th>Time (UTC)</th><th className="r">ZEC</th><th>Destination</th><th>Zcash tx</th></tr></thead>
                   <tbody>{[...mine.pays].reverse().map((p, i) => (
@@ -148,6 +149,7 @@ export default function Dashboard() {
                 <div className="kv"><span>Spendable</span><b>{zec(d.pool.balanceZat, 4)} ZEC</b></div>
                 <div className="kv"><span>Owed to holders</span><b>{zec(d.pool.owedZat, 4)} ZEC</b></div>
                 <div className="kv"><span>Paid out</span><b>{zec(d.totals.paidZat, 4)} ZEC</b></div>
+                <div className="kv"><span>Tokens launched</span><b>{d.tokens.length}</b></div>
                 <div className="kv"><span>Registered wallets</span><b>{d.registered}</b></div>
                 <div className="kv"><span>Registry</span><b>{d.registry ? <a href={`${EXPLORER}/address/${d.registry}`} target="_blank" rel="noreferrer">{short(d.registry)} ↗</a> : "—"}</b></div>
                 <div className="kv"><span>Updated</span><b>{new Date(d.generatedAt).toLocaleTimeString()}</b></div>

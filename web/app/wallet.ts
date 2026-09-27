@@ -7,7 +7,7 @@ import { robinhoodChain } from "../src/chain.ts";
 export interface Wallet {
   address: Address | null; chainOk: boolean; busy: boolean; unavailable: boolean; error: string | null;
   connect: () => Promise<void>; disconnect: () => void;
-  send: (tx: { to: Address; data: `0x${string}` }) => Promise<`0x${string}`>;
+  send: (tx: { to: Address; data: `0x${string}`; value?: bigint }) => Promise<`0x${string}`>;
 }
 
 const CHAIN_HEX = `0x${robinhoodChain.id.toString(16)}`;
@@ -63,12 +63,12 @@ export function useWallet(): Wallet {
 
   const disconnect = useCallback(() => { setAddress(null); setError(null); }, []);
 
-  const send = useCallback(async (tx: { to: Address; data: `0x${string}` }) => {
+  const send = useCallback(async (tx: { to: Address; data: `0x${string}`; value?: bigint }) => {
     const p = injected();
     if (!p || !address) throw new Error("Connect a wallet first");
     if (!chainOk) await toChain(p);
     const client = createWalletClient({ account: address, chain: robinhoodChain, transport: custom(p) });
-    return client.sendTransaction({ to: tx.to, data: tx.data });
+    return client.sendTransaction({ to: tx.to, data: tx.data, value: tx.value });
   }, [address, chainOk, toChain]);
 
   return useMemo(() => ({ address, chainOk, busy, error, unavailable: checked && !injected(), connect, disconnect, send }), [address, chainOk, busy, error, checked, connect, disconnect, send]);
@@ -81,5 +81,6 @@ export function friendly(e: unknown): string {
   if (/insufficient funds/i.test(raw)) return "Not enough ETH to cover gas.";
   if (/AlreadyRegistered/i.test(raw)) return "This wallet already registered a destination.";
   if (/NotUnified/i.test(raw)) return "That is not a mainnet Unified Address (u1…).";
+  if (/BelowLaunchFee/i.test(raw)) return "The launch fee of 0.0005 ETH was not covered.";
   return raw.split("\n")[0].slice(0, 160);
 }

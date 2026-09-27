@@ -39,6 +39,7 @@ jobs:
           RPC_URL: ${{ vars.RPC_URL || 'https://rpc.mainnet.chain.robinhood.com' }}
           LIGHTWALLETD: ${{ vars.LIGHTWALLETD || 'https://zec.rocks:443' }}
           ZCASH_SEED: ${{ secrets.ZCASH_SEED }}
+          OPERATOR_KEY: ${{ secrets.OPERATOR_KEY }}
           ZCASH_BIRTHDAY: ${{ vars.ZCASH_BIRTHDAY }}
           DRY_RUN: ${{ inputs.dry && '1' || '0' }}
         run: cd worker && node index.mjs round
