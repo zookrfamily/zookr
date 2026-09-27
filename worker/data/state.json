@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 73978694
+  "lastBlock": 73984655
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 73978694,
+   "lastBlock": 73984655,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [],
     "0x26558f89f952e9f557d91be898e7adcdcfb8ade6": [],
@@ -221,7 +221,7 @@
       "at": 1790514573
      },
      {
-      "amount": "3921119055675967234705388n",
+      "amount": "2519656535875354125153112n",
       "at": 1790514595
      }
     ],
@@ -271,12 +271,7 @@
     ],
     "0x255e9c7fdd070c66f5ca08edc9beccdf91c115d1": [],
     "0xa4fbd14725073db3859d82779efb2818b3c9a7e5": [],
-    "0x08ca6446c7b5fb38deaa03a62f9b081e78391b57": [
-     {
-      "amount": "2680722160438069119997846n",
-      "at": 1790514649
-     }
-    ],
+    "0x08ca6446c7b5fb38deaa03a62f9b081e78391b57": [],
     "0x3f830fbcdd0e4babdae57a2dcfc185be5fab0f0d": [
      {
       "amount": "136071405255495308538486n",
@@ -401,18 +396,8 @@
     ],
     "0xb687d88f71a2af1a5f184e1c7fb4e4afe021f388": [],
     "0xc9b96646da921f5df21229a298d4fe63684a17d2": [],
-    "0x70b9978acb99a1613653051046d32fc2d62a470a": [
-     {
-      "amount": "7057219687037690895671260n",
-      "at": 1790514573
-     }
-    ],
-    "0x4b9922e8a9e16540e0393ac5b8813fe9e8d1e412": [
-     {
-      "amount": "1179689499725380242935026n",
-      "at": 1790514579
-     }
-    ],
+    "0x70b9978acb99a1613653051046d32fc2d62a470a": [],
+    "0x4b9922e8a9e16540e0393ac5b8813fe9e8d1e412": [],
     "0xf4419aacee7175f67b28c82021ae963db0501947": [
      {
       "amount": "1580512733805964143238103n",
@@ -450,7 +435,12 @@
       "at": 1790514636
      }
     ],
-    "0x007bdfc5c1c518a336bf10adf9cd4511f745c107": [],
+    "0x007bdfc5c1c518a336bf10adf9cd4511f745c107": [
+     {
+      "amount": "24699371163239582917243n",
+      "at": 1790516557
+     }
+    ],
     "0xa26446dc39adf5b108d40720db4f881e4dd84183": [
      {
       "amount": "7129364585290664256002707n",
@@ -507,7 +497,7 @@
     ],
     "0xf56650697b6ae05b89d367619e987bc995b02ac9": [
      {
-      "amount": "2642898414525190432427512n",
+      "amount": "528579682905038086485502n",
       "at": 1790514799
      }
     ],
@@ -569,6 +559,18 @@
      {
       "amount": "1644838536232388444838551n",
       "at": 1790515397
+     },
+     {
+      "amount": "160859310309438686478947n",
+      "at": 1790516345
+     },
+     {
+      "amount": "120135993866488883768128n",
+      "at": 1790516368
+     },
+     {
+      "amount": "142922252845493149414079n",
+      "at": 1790516539
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -617,6 +619,10 @@
      {
       "amount": "5791481786977294287250758n",
       "at": 1790515665
+     },
+     {
+      "amount": "11946612767768979137001599n",
+      "at": 1790516715
      }
     ],
     "0xf6198ce936b27b7f0a0282ddbe1e4d8c3a18e656": [
@@ -625,12 +631,7 @@
       "at": 1790515741
      }
     ],
-    "0x4e53af09a77070e351a1c6f66c8e6f0c28b8f3e8": [
-     {
-      "amount": "320233226793788791457679n",
-      "at": 1790515750
-     }
-    ],
+    "0x4e53af09a77070e351a1c6f66c8e6f0c28b8f3e8": [],
     "0x2da4a20a13a2854dfa5182a9999ded0c70268c02": [
      {
       "amount": "5254642065955637075877506n",
@@ -649,22 +650,8 @@
       "at": 1790515890
      }
     ],
-    "0x4ef173ca8eb41044199bc3c495df29876e7aa00a": [
-     {
-      "amount": "6004792360914125155703189n",
-      "at": 1790515921
-     },
-     {
-      "amount": "1182250858580016965607455n",
-      "at": 1790515930
-     }
-    ],
-    "0x9f98ccedaae7354ba3b06441a2751c596b0a4233": [
-     {
-      "amount": "434774563715446311987804n",
-      "at": 1790515946
-     }
-    ],
+    "0x4ef173ca8eb41044199bc3c495df29876e7aa00a": [],
+    "0x9f98ccedaae7354ba3b06441a2751c596b0a4233": [],
     "0xedf50aeef385a4350b426823b352ee93040f1d0d": [
      {
       "amount": "3199903199313957186452395n",
@@ -681,6 +668,20 @@
      {
       "amount": "846216371990667264294229n",
       "at": 1790516040
+     }
+    ],
+    "0x15b4fded7277720ac4ad6ea4f1f64a584ab60e0f": [],
+    "0x1f1fdb16b748149a9aac49fbaf454495fe90f3a4": [
+     {
+      "amount": "1776396984368234672428045n",
+      "at": 1790516462
+     }
+    ],
+    "0x00000000e91fc5bad977c0cc4ad60557c06886a2": [],
+    "0x95d36c33f6627d4a182430d543cf69b165b37700": [
+     {
+      "amount": "227567637137453950326943n",
+      "at": 1790516698
      }
     ]
    },
@@ -847,7 +848,11 @@
     "0x9f98ccedaae7354ba3b06441a2751c596b0a4233": true,
     "0xedf50aeef385a4350b426823b352ee93040f1d0d": false,
     "0xe22768eef6d80b0e6afeb12a07ed2808713cdbaf": true,
-    "0x499a540ebc1ad442713b624e3f1de8cc58258175": true
+    "0x499a540ebc1ad442713b624e3f1de8cc58258175": true,
+    "0x15b4fded7277720ac4ad6ea4f1f64a584ab60e0f": true,
+    "0x1f1fdb16b748149a9aac49fbaf454495fe90f3a4": true,
+    "0x00000000e91fc5bad977c0cc4ad60557c06886a2": true,
+    "0x95d36c33f6627d4a182430d543cf69b165b37700": true
    },
    "blockTimes": {
     "73960310": 1790514301,
@@ -1114,16 +1119,33 @@
     "73977300": 1790516010,
     "73977596": 1790516040,
     "73978031": 1790516084,
-    "73978299": 1790516110
+    "73978299": 1790516110,
+    "73978940": 1790516175,
+    "73979189": 1790516199,
+    "73980297": 1790516311,
+    "73980569": 1790516338,
+    "73980636": 1790516345,
+    "73980638": 1790516345,
+    "73980868": 1790516368,
+    "73981619": 1790516445,
+    "73981787": 1790516462,
+    "73982550": 1790516539,
+    "73982552": 1790516539,
+    "73982554": 1790516539,
+    "73982613": 1790516545,
+    "73982729": 1790516557,
+    "73983607": 1790516645,
+    "73984133": 1790516698,
+    "73984308": 1790516715
    },
-   "lastRound": 1790516101,
-   "rounds": 3,
+   "lastRound": 1790516701,
+   "rounds": 4,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
    "feesEthConverted": "0n",
    "graduated": false,
-   "mcapUsd": 22710.45317929069,
+   "mcapUsd": 21862.901364695535,
    "logo": "https://ipfs.io/ipfs/bafkreicdvltp5rb5vmqweolrvkcizd4lp5l56fz6nxzcr67sky337nh5m4",
    "description": "Zookr is a Zcash-powered launchpad on Robinhood Chain, built to connect token launches, creators, and holders through a native ZEC reward economy.",
    "socials": {
@@ -1133,23 +1155,85 @@
     "website": "",
     "farcaster": ""
    },
-   "feesEthPending": "664739486024644n"
+   "feesEthPending": "7620000000000n"
+  },
+  "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96": {
+   "token": "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96",
+   "symbol": "ZCAT",
+   "name": "Zookr Cat",
+   "curve": "0xea9f760529a47f98d24ce061d03915402a93e04e",
+   "vault": "0x3c3db856b0bbfaf756dfc2e8caab9d0791d471ad",
+   "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
+   "launchedAt": 1790516554,
+   "launchBlock": 73982701,
+   "lastBlock": 73984655,
+   "lots": {
+    "0xa27210c752089185bdafc81a197345b83f2df3b0": [
+     {
+      "amount": "17026505178163945936457784n",
+      "at": 1790516554
+     }
+    ],
+    "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
+    "0x65050a9b7e5075a2ba5ced7b1b64ee66262c40dc": [],
+    "0x5a986336ba993260274c14dbc61435d6198a2ec0": [
+     {
+      "amount": "5492219697512654380471772n",
+      "at": 1790516623
+     },
+     {
+      "amount": "5431186771913583359500770n",
+      "at": 1790516626
+     }
+    ]
+   },
+   "contracts": {
+    "0xa27210c752089185bdafc81a197345b83f2df3b0": false,
+    "0xe4f84d752e1442ced15e08b6f38b89852a39b174": true,
+    "0x65050a9b7e5075a2ba5ced7b1b64ee66262c40dc": true,
+    "0x5a986336ba993260274c14dbc61435d6198a2ec0": false
+   },
+   "blockTimes": {
+    "73982701": 1790516554,
+    "73982707": 1790516555,
+    "73982725": 1790516556,
+    "73983391": 1790516623,
+    "73983422": 1790516626
+   },
+   "lastRound": 0,
+   "rounds": 0,
+   "creditedZat": "0n",
+   "allocatedZat": "0n",
+   "feesEthCollected": "0n",
+   "feesEthConverted": "0n",
+   "graduated": false,
+   "mcapUsd": 4808.621403432654,
+   "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
+   "description": "",
+   "socials": {
+    "twitter": "",
+    "telegram": "",
+    "discord": "",
+    "website": "",
+    "farcaster": ""
+   },
+   "feesEthPending": "1522663199999999n"
   }
  },
  "platform": {
   "creditedZat": "915000n",
-  "allocatedZat": "914983n",
-  "lastRound": 1790516101,
-  "rounds": 3
+  "allocatedZat": "914986n",
+  "lastRound": 1790516701,
+  "rounds": 4
  },
  "registry": {
-  "lastBlock": 73978694,
+  "lastBlock": 73984655,
   "dest": {}
  },
  "accrued": {
   "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": "24339n",
   "0x49dc62277700ec8ed878c568dfae4c4616fe4901": "42032n",
-  "0x04bf8305087f674ab11148a81187d84ff673bb03": "66487n",
+  "0x04bf8305087f674ab11148a81187d84ff673bb03": "66488n",
   "0xaea12b0ca4fd4c10355baef4879f2e111f8bf9cd": "5216n",
   "0x029fb5d8ea85af1d7fe36ddfaf817050f82e99fb": "2206n",
   "0xc3ffce3145fa41bc5fe6159cc11428fffd3b1297": "40497n",
@@ -1197,7 +1281,7 @@
   "0xc50491baf5dce382c7a40629cd199cc17e68e0f7": "1983n",
   "0x7da0e71dcdf4fac4e5fa8459b40821d9c972da7f": "2369n",
   "0xf5c4f3dc02c3fb9279495a8fef7b0741da956157": "36n",
-  "0x000000000000000000000000000000000000dead": "113769n",
+  "0x000000000000000000000000000000000000dead": "113771n",
   "0xf56650697b6ae05b89d367619e987bc995b02ac9": "5508n",
   "0xab6d2de4de9660a478ba703b587bb4ace6d8da6b": "5344n",
   "0xf7aa6b22bdb3e056009fd93b2ea5a1585e03407d": "504n"
