@@ -1,6 +1,6 @@
 # Registered wallets
 
-Updated 2026-09-28T02:18:38.877Z · **13 wallets** · 7 payments · 0.02822088 ZEC paid · next payout window 2026-09-28 03:58 UTC
+Updated 2026-09-28T02:28:40.729Z · **14 wallets** · 7 payments · 0.02822088 ZEC paid · next payout window 2026-09-28 03:58 UTC
 
 Registry contract: [0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319](https://robinhoodchain.blockscout.com/address/0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319). Written by the rounds engine every run; the on-chain registry is the source of truth.
 
@@ -19,3 +19,4 @@ Registry contract: [0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319](https://robinhoo
 | 11 | `0xb91bc56fb3df749a1e32cd8415df049ef2c2b531` | `u1gp0u67pt5ypv5jwmpdmff6jmk9s37r6umcgscmpjegdjqfqf7hxh0gr85epjrswqtehhc48yttvnge6wtsw9sjum99s7fpvk5l7ahr34dq3gm8p8jk3kwdx70tl730utsx5uksqwtzs5velrvgkcu6nf9g2xg8e0msr2ygh7uv7vj0xe` | 0.00044065 | 0.00000000 | — |
 | 12 | `0x92f56adc7cc6f58ce50df4091d1d26ef17edff45` | `u14mnqdg8vjgzgl68e9mn2t76w7dt2eqkzvu2cs8q35xw9nykdklt0mdyvxx8vv70smjfw0atc3p8ckyewflh3te05q35vpcclayylr8e0` | 0.00000000 | 0.00000000 | — |
 | 13 | `0x0f972050adfc4e4fce6024431eab5b848043605b` | `u10y2kj49wmqsljy66w5un9ds6vfhyj2hk7xdz4457lgwx4cvfc3cjd6fdx62t4zqkaf3wp6hd6eg090ct5w0azhtmnvd7784hwejaezsj34wxgl2nlksw0kpxz32q0hlqu6k94hryxe5lj7vlttz07xmyxkzerhknnmm0hq22pcfezgmr` | 0.00000000 | 0.00000000 | — |
+| 14 | `0x4ef2edcf4536680fcf7dce324c923064cb7c6ca1` | `u16w48cr7hsrvemv5savwdazmfause7swwy489c4s6gwafyudzr4u7n0f3zg3dl6azcps9rd4tmzsynrv4nvw4peyl9cdjh05c2t4aza25guum8lfgdkqdjyhj54s8ej6ls26gjndm8na4lryyxt9mhlk35245rdcr957pg3yzfvultwqw` | 0.00000000 | 0.00000000 | — |
