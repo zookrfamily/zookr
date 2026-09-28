@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74612022
+  "lastBlock": 74618004
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74612022,
+   "lastBlock": 74618004,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [
      {
@@ -672,8 +672,16 @@
       "at": 1790578515
      },
      {
-      "amount": "869286459799770053973933n",
+      "amount": "547250867944169046036007n",
       "at": 1790579441
+     },
+     {
+      "amount": "1272873306730193358719220n",
+      "at": 1790580131
+     },
+     {
+      "amount": "31225485260567644587102398n",
+      "at": 1790580456
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -1435,7 +1443,12 @@
      }
     ],
     "0xc7819b64a1daecd7ec19856d026cb14efbd89046": [],
-    "0xe5e702641ea86f4ae6cc3cdaed2b886f976be044": [],
+    "0xe5e702641ea86f4ae6cc3cdaed2b886f976be044": [
+     {
+      "amount": "9661067755668030238137n",
+      "at": 1790579936
+     }
+    ],
     "0xf8e978b609d0d8b6602b18ad7f273295836c2f96": [],
     "0x379ac886267216618734ba2c934ddd6fb86e866e": [],
     "0x44df9f23225931f9d7eb9f41c8e9fe1e5b19dcb9": [],
@@ -3179,20 +3192,7 @@
       "at": 1790527911
      }
     ],
-    "0x609cfc581963e24ac7e40e5a9c8eeb4ce17ecd33": [
-     {
-      "amount": "15624454800516004527929739n",
-      "at": 1790527944
-     },
-     {
-      "amount": "9450800216444256698639158n",
-      "at": 1790530741
-     },
-     {
-      "amount": "6150230243607383360533501n",
-      "at": 1790537477
-     }
-    ],
+    "0x609cfc581963e24ac7e40e5a9c8eeb4ce17ecd33": [],
     "0x3644cd5b9288651a3b1f5a6dbb4e2c8980780163": [],
     "0x4123ffc81579e38dfff74b75d8bdf21c41e62237": [
      {
@@ -3431,6 +3431,10 @@
      {
       "amount": "191334487684350386575030n",
       "at": 1790538704
+     },
+     {
+      "amount": "312374524099932977699789n",
+      "at": 1790579936
      }
     ],
     "0x86c8348cd3d3f55f15905b69080a7a61bfb5142c": [],
@@ -3668,12 +3672,7 @@
      }
     ],
     "0x49c51e062aae8a8274ce8cc91b70e4b8470c6da6": [],
-    "0x67a3a89e8b9cc7fa86d7da238e119dda2175ed80": [
-     {
-      "amount": "1272873306730193358719220n",
-      "at": 1790570219
-     }
-    ],
+    "0x67a3a89e8b9cc7fa86d7da238e119dda2175ed80": [],
     "0xff7752ebfe44796c652cf417fd840598f54986f8": [
      {
       "amount": "5229117688176896689350480n",
@@ -8851,10 +8850,13 @@
     "74592575": 1790577914,
     "74597655": 1790578426,
     "74598536": 1790578515,
-    "74607761": 1790579441
+    "74607761": 1790579441,
+    "74612644": 1790579936,
+    "74614582": 1790580131,
+    "74617802": 1790580456
    },
-   "lastRound": 1790579701,
-   "rounds": 109,
+   "lastRound": 1790580301,
+   "rounds": 110,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -8881,7 +8883,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74612022,
+   "lastBlock": 74618004,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9378,14 +9380,14 @@
     "74425212": 1790561063,
     "74425635": 1790561106
    },
-   "lastRound": 1790579554,
-   "rounds": 105,
+   "lastRound": 1790580154,
+   "rounds": 106,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
    "feesEthCollected": "109051821783797468n",
    "feesEthConverted": "109051821783797468n",
    "graduated": false,
-   "mcapUsd": 5226.984375498715,
+   "mcapUsd": 5224.279060578264,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9401,11 +9403,11 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601064n",
-  "lastRound": 1790579701,
-  "rounds": 109
+  "lastRound": 1790580301,
+  "rounds": 110
  },
  "registry": {
-  "lastBlock": 74612022,
+  "lastBlock": 74618004,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
