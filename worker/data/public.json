@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T02:08:40.271Z",
+ "generatedAt": "2026-09-28T02:18:38.877Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2653.59,
+ "ethUsd": 2658.9,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 78
+  "rounds": 79
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 5239.997532670811,
+   "mcapUsd": 5250.483096340587,
    "feesEthPending": "0.001417533777406029",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 74,
-   "lastRound": 1790560954,
-   "nextRound": 1790561554,
+   "rounds": 75,
+   "lastRound": 1790561554,
+   "nextRound": 1790562154,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -65,7 +65,7 @@
     },
     "0x0f972050adfc4e4fce6024431eab5b848043605b": {
      "balance": "16683352.753396659689387777",
-     "eligible": "11306733.83384655119409465"
+     "eligible": "16683352.753396659689387777"
     },
     "0x4794a119af81a6dd1f00402b1dd8c7d9450288c4": {
      "balance": "14978766.046257132477367553",
@@ -98,11 +98,11 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 78,
-   "lastRound": 1790561101,
-   "nextRound": 1790561701,
-   "holders": 147,
-   "eligibleHolders": 147,
+   "rounds": 79,
+   "lastRound": 1790561701,
+   "nextRound": 1790562301,
+   "holders": 146,
+   "eligibleHolders": 146,
    "wallets": {
     "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": {
      "balance": "0.000051811636706975",
@@ -215,10 +215,6 @@
     "0x62935045f04bd7f3e5b19e8e2cfba3e08255e83e": {
      "balance": "609650.106754542530746387",
      "eligible": "609650.106754542530746387"
-    },
-    "0x9bf265c742d96aacf1083ef24c9110240af0bea9": {
-     "balance": "4780374.276729274020103423",
-     "eligible": "4780374.276729274020103423"
     },
     "0x48b51287fb5281ea0913100809c3b7f1649c7996": {
      "balance": "3186.923325545340845715",
@@ -577,8 +573,8 @@
      "eligible": "1.063450104884122045"
     },
     "0x1133067709fbf49f9e08afab8d1685729aeba498": {
-     "balance": "19642170.434614786517116678",
-     "eligible": "19642170.434614786517116678"
+     "balance": "6027639.16612154217697495",
+     "eligible": "6027639.16612154217697495"
     },
     "0xa1925c0f07b33263cc4227cc3bb61d4ee8ae8b01": {
      "balance": "2880819.088310672476799057",
