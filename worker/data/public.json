@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T19:05:33.990Z",
+ "generatedAt": "2026-09-28T19:15:39.244Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,20 +8,20 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2695.08,
+ "ethUsd": 2685.24,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
-  "transparentZat": 0,
+  "transparentZat": 722,
   "balanceZat": 38646127,
   "depositedZat": 0,
   "deposits": [],
-  "owedZat": 38489120
+  "owedZat": 38646125
  },
  "platform": {
-  "creditedZat": 30601074,
+  "creditedZat": 30672631,
   "allocatedZat": 30601068,
-  "rounds": 180
+  "rounds": 181
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
@@ -50,16 +50,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4930.310157202044,
-   "feesEthPending": "0.004163313189108301",
+   "mcapUsd": 4912.309113839001,
+   "feesEthPending": "0",
    "feesEthCollected": "0.113215134972905769",
-   "feesEthConverted": "0.109051821783797468",
-   "creditedZat": 16329430,
-   "allocatedZat": 16329429,
+   "feesEthConverted": "0.113215134972905769",
+   "creditedZat": 16973435,
+   "allocatedZat": 16486434,
    "platform": false,
-   "rounds": 176,
-   "lastRound": 1790622154,
-   "nextRound": 1790622754,
+   "rounds": 177,
+   "lastRound": 1790622754,
+   "nextRound": 1790623354,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -103,12 +103,12 @@
    "feesEthPending": "0",
    "feesEthCollected": "0",
    "feesEthConverted": "0",
-   "creditedZat": 30601074,
+   "creditedZat": 30672631,
    "allocatedZat": 30601068,
    "platform": true,
-   "rounds": 180,
-   "lastRound": 1790622301,
-   "nextRound": 1790622901,
+   "rounds": 181,
+   "lastRound": 1790622901,
+   "nextRound": 1790623501,
    "holders": 89,
    "eligibleHolders": 89,
    "wallets": {
@@ -613,13 +613,14 @@
    "wei": "0.004163313189108301",
    "depositAddress": "0x8a84694bFb23465acB8199724daa0267Bdc2aCd6",
    "expectZec": "0.00715497",
-   "status": "PENDING",
+   "status": "SUCCESS",
    "txs": [
     "0xa897bc7fa2e061847d48c87456dfc6f5ec4d3f80200cc28dbf4282d7d8c19fdb",
     "0x158fbe2aa7411e3a17b246241b98f313d54fc50479294d98ed9eca7352f8bb6f"
    ],
    "at": "2026-09-28T19:05:33.752Z",
-   "zat": 0
+   "zat": 715562,
+   "zcashTx": "5f801eb2d9e60639e5731533008bcd0ef3eea5f16cb8af13d4c150bfeb2fbd7b"
   }
  ],
  "accrued": {
@@ -678,7 +679,7 @@
   "0xab6d2de4de9660a478ba703b587bb4ace6d8da6b": 5510,
   "0xf7aa6b22bdb3e056009fd93b2ea5a1585e03407d": 31093,
   "0xa27210c752089185bdafc81a197345b83f2df3b0": 0,
-  "0x48b51287fb5281ea0913100809c3b7f1649c7996": 0,
+  "0x48b51287fb5281ea0913100809c3b7f1649c7996": 37,
   "0xad01c20d5886137e056775af56915de824c8fce5": 17063,
   "0xee2001abd562c94d417cce36285931e9d5c42056": 349,
   "0x7df718cdeb3dddcad753101e54ee8bdda71dff20": 0,
@@ -870,7 +871,9 @@
   "0x9e0bfeb071916ff292e6ee513efd56eab29a99de": 3472,
   "0x77018191c32bdf7542d8d82007ae26b41f614d96": 474,
   "0x11ee5aabcec04785ae45c8943adb9f5a996397dd": 6,
-  "0x221408b167a7030945b275191a4b52b766dbcc2e": 1
+  "0x221408b167a7030945b275191a4b52b766dbcc2e": 1,
+  "0x0f972050adfc4e4fce6024431eab5b848043605b": 82709,
+  "0x4794a119af81a6dd1f00402b1dd8c7d9450288c4": 74259
  },
  "paid": {
   "0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b": 1332106,
