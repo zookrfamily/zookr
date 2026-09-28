@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 75028847
+  "lastBlock": 75034813
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 75028847,
+   "lastBlock": 75034813,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [
      {
@@ -9017,8 +9017,8 @@
     "75023387": 1790621172,
     "75027297": 1790621566
    },
-   "lastRound": 1790621701,
-   "rounds": 179,
+   "lastRound": 1790622301,
+   "rounds": 180,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -9045,7 +9045,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 75028847,
+   "lastBlock": 75034813,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9544,14 +9544,14 @@
     "74886557": 1790607456,
     "74933510": 1790612151
    },
-   "lastRound": 1790621554,
-   "rounds": 175,
+   "lastRound": 1790622154,
+   "rounds": 176,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
-   "feesEthCollected": "109051821783797468n",
+   "feesEthCollected": "113215134972905769n",
    "feesEthConverted": "109051821783797468n",
    "graduated": false,
-   "mcapUsd": 4925.626958928732,
+   "mcapUsd": 4930.310157202044,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9567,11 +9567,11 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601068n",
-  "lastRound": 1790621701,
-  "rounds": 179
+  "lastRound": 1790622301,
+  "rounds": 180
  },
  "registry": {
-  "lastBlock": 75028847,
+  "lastBlock": 75034813,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
@@ -10518,6 +10518,20 @@
    "at": "2026-09-27T18:26:03.415Z",
    "zat": 596578,
    "zcashTx": "3e89509166ca7daf3028034fb7fae65fda537352cfa133ec745fb913810b421c"
+  },
+  {
+   "token": "0x5975686c3f9f0d8666138becbb6e27ea05cc6a96",
+   "symbol": "ZCAT",
+   "wei": "4163313189108301n",
+   "depositAddress": "0x8a84694bFb23465acB8199724daa0267Bdc2aCd6",
+   "expectZec": "0.00715497",
+   "status": "PENDING",
+   "txs": [
+    "0xa897bc7fa2e061847d48c87456dfc6f5ec4d3f80200cc28dbf4282d7d8c19fdb",
+    "0x158fbe2aa7411e3a17b246241b98f313d54fc50479294d98ed9eca7352f8bb6f"
+   ],
+   "at": "2026-09-28T19:05:33.752Z",
+   "zat": 0
   }
  ],
  "pool": {
@@ -10529,7 +10543,7 @@
  },
  "lastPayout": 1790618123,
  "zk": {
-  "lastBlock": 75028907,
+  "lastBlock": 75034813,
   "supply": "34506558n",
   "redeems": []
  }
