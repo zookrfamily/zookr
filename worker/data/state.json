@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74945177
+  "lastBlock": 74951152
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74945177,
+   "lastBlock": 74951152,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [
      {
@@ -252,16 +252,7 @@
      }
     ],
     "0xbd66d30d6917a1ff20fa66c4b5c3d0573686b8a2": [],
-    "0x66dc2fef0f1fb9667e84fba649e3900ac8465550": [
-     {
-      "amount": "6175930799046966563679839n",
-      "at": 1790610377
-     },
-     {
-      "amount": "5382803205069858763571736n",
-      "at": 1790610517
-     }
-    ],
+    "0x66dc2fef0f1fb9667e84fba649e3900ac8465550": [],
     "0x000000000000000000000000000000000000dead": [
      {
       "amount": "54586381541924592009003939n",
@@ -843,6 +834,18 @@
      {
       "amount": "4947402904330398290594180n",
       "at": 1790612883
+     },
+     {
+      "amount": "6656366872324618077304268n",
+      "at": 1790613492
+     },
+     {
+      "amount": "488336144030975130143754n",
+      "at": 1790613751
+     },
+     {
+      "amount": "4495340043318661827251575n",
+      "at": 1790613838
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -1520,6 +1523,10 @@
      {
       "amount": "2842522671612761807020n",
       "at": 1790612944
+     },
+     {
+      "amount": "12210812654206362680871n",
+      "at": 1790613731
      }
     ],
     "0xf8e978b609d0d8b6602b18ad7f273295836c2f96": [],
@@ -3525,12 +3532,7 @@
       "at": 1790577914
      }
     ],
-    "0x4f031cd22efecb7307f4c8c038d0556217b8b354": [
-     {
-      "amount": "93519868211636070128893n",
-      "at": 1790578426
-     }
-    ],
+    "0x4f031cd22efecb7307f4c8c038d0556217b8b354": [],
     "0xa2d6fb364df54c9a333f089b926849ba89958d63": [],
     "0xbcba15cafa233c1e113ef26f00f587094e396bb1": [
      {
@@ -9067,10 +9069,14 @@
     "74939602": 1790612764,
     "74939799": 1790612783,
     "74940773": 1790612883,
-    "74941375": 1790612944
+    "74941375": 1790612944,
+    "74946859": 1790613492,
+    "74949236": 1790613731,
+    "74949452": 1790613751,
+    "74950319": 1790613838
    },
-   "lastRound": 1790613301,
-   "rounds": 165,
+   "lastRound": 1790613901,
+   "rounds": 166,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -9097,7 +9103,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74945177,
+   "lastBlock": 74951152,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9596,14 +9602,14 @@
     "74886557": 1790607456,
     "74933510": 1790612151
    },
-   "lastRound": 1790613154,
-   "rounds": 161,
+   "lastRound": 1790613754,
+   "rounds": 162,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
    "feesEthCollected": "109051821783797468n",
    "feesEthConverted": "109051821783797468n",
    "graduated": false,
-   "mcapUsd": 4926.578233577999,
+   "mcapUsd": 4909.766283526539,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9619,11 +9625,11 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601068n",
-  "lastRound": 1790613301,
-  "rounds": 165
+  "lastRound": 1790613901,
+  "rounds": 166
  },
  "registry": {
-  "lastBlock": 74945177,
+  "lastBlock": 74951152,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
@@ -10581,7 +10587,7 @@
  },
  "lastPayout": 1790610325,
  "zk": {
-  "lastBlock": 74945177,
+  "lastBlock": 74951152,
   "supply": "34506558n",
   "redeems": []
  }
