@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T10:36:38.656Z",
+ "generatedAt": "2026-09-28T10:46:30.038Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2650.1,
+ "ethUsd": 2654.53,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 129
+  "rounds": 130
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
@@ -50,16 +50,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 5233.105891012144,
+   "mcapUsd": 5241.853734149076,
    "feesEthPending": "0.001417533777406029",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 125,
-   "lastRound": 1790591554,
-   "nextRound": 1790592154,
+   "rounds": 126,
+   "lastRound": 1790592154,
+   "nextRound": 1790592754,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -106,9 +106,9 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 129,
-   "lastRound": 1790591701,
-   "nextRound": 1790592301,
+   "rounds": 130,
+   "lastRound": 1790592301,
+   "nextRound": 1790592901,
    "holders": 129,
    "eligibleHolders": 129,
    "wallets": {
@@ -345,8 +345,8 @@
      "eligible": "2321885.025415041997886145"
     },
     "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": {
-     "balance": "7883834.354324917286496187",
-     "eligible": "7883834.354324917286496187"
+     "balance": "5831834.354324917286496187",
+     "eligible": "5831834.354324917286496187"
     },
     "0x06fe5931df48732bc50f564231158d6e0c2a228a": {
      "balance": "6245.24281775542064538",
