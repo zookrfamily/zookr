@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T08:06:33.768Z",
+ "generatedAt": "2026-09-28T08:16:47.669Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2647.89,
+ "ethUsd": 2647.25,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 114
+  "rounds": 115
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 5228.741842855796,
+   "mcapUsd": 5227.478046104637,
    "feesEthPending": "0.001417533777406029",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 110,
-   "lastRound": 1790582554,
-   "nextRound": 1790583154,
+   "rounds": 111,
+   "lastRound": 1790583154,
+   "nextRound": 1790583754,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -98,23 +98,15 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 114,
-   "lastRound": 1790582701,
-   "nextRound": 1790583301,
-   "holders": 137,
-   "eligibleHolders": 137,
+   "rounds": 115,
+   "lastRound": 1790583301,
+   "nextRound": 1790583901,
+   "holders": 136,
+   "eligibleHolders": 136,
    "wallets": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": {
      "balance": "11012593.927487158288342889",
      "eligible": "11012593.927487158288342889"
-    },
-    "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": {
-     "balance": "0.000051811636706975",
-     "eligible": "0.000051811636706975"
-    },
-    "0x04bf8305087f674ab11148a81187d84ff673bb03": {
-     "balance": "9990713.916986340711915991",
-     "eligible": "9990713.916986340711915991"
     },
     "0x2514972a88c0fb0c6331e2bf3218903f04a7f05d": {
      "balance": "4442.484037340508168736",
@@ -651,6 +643,10 @@
     "0x1347ec04c9830617d47a6f2df1541f3f20208c1f": {
      "balance": "35138.966754054270556804",
      "eligible": "35138.966754054270556804"
+    },
+    "0xd839cdc0fa9afe7f867fd0cdf5c62b4057ebb4af": {
+     "balance": "518619.135514803248503542",
+     "eligible": "518619.135514803248503542"
     }
    }
   }
