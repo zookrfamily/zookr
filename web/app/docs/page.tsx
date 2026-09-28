@@ -1,6 +1,6 @@
 import { Nav, Foot } from "../nav.tsx";
 
-const TOC: [string, string][] = [["how", "How Zookr works"], ["launch", "Launching a token"], ["fees", "Fees to ZEC"], ["qualify", "Who qualifies"], ["rounds", "Reward rounds"], ["selling", "Selling & transfers"], ["payments", "Payments & the minimum"], ["address", "Your Zcash address (video)"], ["dashboard", "The dashboard"], ["verify", "Check a payment"], ["trust", "What you are trusting"]];
+const TOC: [string, string][] = [["how", "How Zookr works"], ["launch", "Launching a token"], ["fees", "Fees to ZEC"], ["qualify", "Who qualifies"], ["rounds", "Reward rounds"], ["selling", "Selling & transfers"], ["payments", "Payments & the minimum"], ["address", "Redeem to native Zcash"], ["dashboard", "The dashboard"], ["verify", "Check a payment"], ["trust", "What you are trusting"]];
 
 export default function Docs() {
   return (
@@ -10,8 +10,8 @@ export default function Docs() {
         <nav className="docs-toc"><span className="k" style={{ paddingLeft: 12, marginBottom: 6, color: "rgba(255,255,255,.75)" }}>Quick guide</span>{TOC.map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}</nav>
         <div className="docs-main">
           <h2 id="how">How Zookr works.</h2>
-          <p>Zookr is a launchpad on Robinhood Chain whose tokens pay their holders automatic rewards in native, shielded ZEC. You hold tokens in your own wallet. There is no staking deposit and no claim transaction.</p>
-          <p>Every token launched through Zookr carries a fixed 2% creator fee on buys and sells. The fee is collected in ETH, converted to ZEC, and credited to that token&apos;s reward pool. Every ten minutes a round splits the credited ZEC pro-rata across eligible holders. Holders who registered a Zcash address are paid once their accrued rewards reach the minimum.</p>
+          <p>Zookr is a launchpad on Robinhood Chain whose tokens pay their holders automatic rewards in ZEC. You hold tokens in your own wallet. There is no staking deposit, no claim transaction and no registration.</p>
+          <p>Every token launched through Zookr carries a fixed 2% creator fee on buys and sells. The fee is collected in ETH, converted to native ZEC held in Zookr&apos;s shielded pool, and credited to that token&apos;s reward pool. Every ten minutes a round splits the credited ZEC pro-rata across eligible holders. Every two hours, each holder&apos;s earned ZEC is paid to the holder&apos;s own wallet as zkZEC, a token backed 1:1 by the pool and redeemable for native shielded Zcash at any time.</p>
 
           <h2 id="launch">Launching a token</h2>
           <p>Open Launch, connect a wallet on Robinhood Chain, fill in a name, symbol, image and optional links, and sign one transaction. The launchpad deploys the token on Pons V2 (1,000,000,000 supply, ETH-quoted bonding curve, graduation to a Uniswap V4 pool at 4.2 ETH) with a fresh fee vault as the creator-fee recipient.</p>
@@ -43,27 +43,25 @@ export default function Docs() {
           <p>Outgoing amounts consume your newest lots first. Only the affected portion loses its pending eligibility. A transfer creates fresh eligibility for the receiver, and buying back does not restore the waiting time of the tokens you sold.</p>
 
           <h2 id="payments">Payments and the minimum</h2>
-          <p>Payments are automatic. A payment needs at least the minimum (0.001 ZEC) of accrued rewards for your holder wallet, counted across every token. Below-minimum amounts are not lost; they remain owed and keep accumulating.</p>
-          <p>Payments go out every two hours in batched shielded transactions, up to 25 holders per transaction. Rounds keep allocating every ten minutes in between; the payment window just collects them. A busy window can take two runs to clear.</p>
+          <p>Payments are automatic and need nothing from you. Every two hours, each wallet with at least the minimum (0.001 ZEC) of accrued rewards, counted across every token, receives that amount in its own wallet as <b>zkZEC</b>. Below-minimum amounts are not lost; they remain owed and keep accumulating. Rounds keep allocating every ten minutes in between; the payment window just collects them.</p>
+          <p>zkZEC is Zookr&apos;s ZEC token on Robinhood Chain: 8 decimals, 1 unit = 1 zatoshi, so 1 zkZEC = 1 ZEC. Every unit in circulation is backed by native ZEC in the shielded pool; the pool balance, the supply and the coverage are published every round. Contract: <code>0x553F77633bc5ec8aE851648AC6f4133463c01362</code>. Add it to your wallet from the dashboard to see the balance.</p>
 
-          <h2 id="address">Your Zcash address</h2>
-          <p>Open the dashboard, connect your holder wallet, and paste a mainnet Unified Address starting with <code>u1</code> that includes an Orchard receiver. Sign the registration on Robinhood Chain.</p>
-          <video controls playsInline preload="metadata" poster="/tutorial-register.jpg" src="/tutorial-register.mp4" style={{ display: "block", width: "100%", maxWidth: 680, aspectRatio: "16 / 9", borderRadius: 16, background: "#2a0d14", margin: "14px 0 6px" }} />
-          <p style={{ fontSize: 13 }}>19 seconds: dashboard, connect, paste the u1 address, register. A free wallet that gives you a u1 address: Zashi, Ywallet or Nighthawk. Exchange addresses (t1…) cannot receive shielded payouts.</p>
+          <h2 id="address">Redeeming to native Zcash</h2>
+          <p>Optional, any time, any amount from 0.001 ZEC. On the dashboard, enter the amount and a mainnet Unified Address starting with <code>u1</code> (Zashi, Ywallet or Nighthawk give you one; exchange <code>t1</code> addresses cannot receive shielded funds) and click Redeem. Your zkZEC is burned on Robinhood Chain and the rounds engine sends the same amount of shielded ZEC to that address on its next run, usually within ten minutes.</p>
           <table><tbody>
-            <tr><td><b>Public and permanent</b></td><td>The registered address is intentionally public and cannot be edited, reset, or replaced. A different destination needs a different wallet.</td></tr>
-            <tr><td><b>Only you authorize it</b></td><td>The registry has no owner and no override. Nothing ever asks for a seed phrase or viewing key.</td></tr>
-            <tr><td><b>Not required to earn</b></td><td>You accrue rewards without registering. Registration is required before rewards can be delivered.</td></tr>
+            <tr><td><b>Public burn, private payout</b></td><td>The redemption (amount and u1 address) is a public transaction on Robinhood Chain; the Zcash payment itself is shielded.</td></tr>
+            <tr><td><b>Registered address</b></td><td>If you registered a Zcash address on the old flow it is prefilled for you. Registration is no longer required for anything.</td></tr>
+            <tr><td><b>Never a seed phrase</b></td><td>Nothing ever asks for a seed phrase or viewing key.</td></tr>
           </tbody></table>
 
           <h2 id="dashboard">Follow your rewards</h2>
-          <p>The dashboard is personal to the connected wallet: pending (what the next round would give at your current eligibility), earned unpaid, ZEC received, your holdings per token, and every completed payment with its Zcash transaction. Each token page shows its fees, conversions, funded ZEC and who the next round pays.</p>
+          <p>The dashboard is personal to the connected wallet: your zkZEC balance, pending (what the next round would give at your current eligibility), earned not yet paid, ZEC received, your holdings per token, every payment with its transaction, and your redemptions with their Zcash transaction. Each token page shows its fees, conversions, funded ZEC and who the next round pays.</p>
 
           <h2 id="verify">Check a payment yourself</h2>
-          <p>Every payment lists the Zcash transaction id. Shielded transactions reveal nothing on a block explorer beyond their existence, so the receipt is the wallet: the ZEC lands at the address you registered. The public registry proves which destination you authorized; the memo on each payment names your holder wallet.</p>
+          <p>Payments are zkZEC mints: public transactions on Robinhood Chain you can open on the explorer, one per payout window, listing every wallet and amount. Redemptions list the Zcash transaction id; shielded transactions reveal nothing on a block explorer beyond their existence, so the receipt is the wallet: the ZEC lands at the u1 address you gave. The memo on each payout names the redemption id.</p>
 
           <h2 id="trust">What you are trusting</h2>
-          <p>The registry and the launchpad are contracts with no admin over funds: the launchpad only creates vaults and its operator key can only move vault ETH out for conversion. Everything else is operated: the pool is a shielded Zcash wallet the operator holds, and the rounds engine is a scheduled job that reads Robinhood Chain and publishes its state. You can audit the allocations from the published data, but you are trusting the operator to run the job and complete the conversions.</p>
+          <p>The launchpad and zkZEC are contracts with narrow operator powers: the launchpad&apos;s operator can only move vault ETH out for conversion, and zkZEC&apos;s operator can only mint. Everything else is operated: the pool is a shielded Zcash wallet the operator holds, and the rounds engine is a scheduled job that reads Robinhood Chain and publishes its state. zkZEC is a claim on that pool, so you are trusting the operator to keep it fully backed, keep the job running, and pay redemptions. The published pool balance against the zkZEC supply is the number to watch.</p>
         </div>
       </main>
       <Foot />

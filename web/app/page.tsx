@@ -4,15 +4,16 @@ import { useState } from "react";
 import { Nav, Foot, Tg } from "./nav.tsx";
 import { useData } from "./data.ts";
 import { Logo, Venue, Ca } from "./tokenrow.tsx";
-import { zec, short, eth, usd, hhmm, TELEGRAM_URL, GITHUB_URL, REGISTRY, LAUNCHPAD, EXPLORER } from "../src/site.ts";
+import { zec, short, eth, usd, hhmm, TELEGRAM_URL, GITHUB_URL, REGISTRY, LAUNCHPAD, ZKZEC, EXPLORER } from "../src/site.ts";
 
 const FAQ: [string, string][] = [
-  ["Where does the ZEC come from?", "Every token launched on Zookr carries a fixed 2% creator fee on buys and sells. The fee is collected in ETH, converted to native ZEC, and 90% is credited to that token's holders. The other 10% goes to holders of the platform token."],
-  ["Do I need to stake or claim?", "No. Hold a launched token in your own wallet. Rewards accrue to your address automatically and are paid out automatically. Nothing ever leaves your wallet."],
+  ["Where does the ZEC come from?", "Every token launched on Zookr carries a fixed 2% creator fee on buys and sells. The fee is collected in ETH, converted to native ZEC held in Zookr's shielded pool, and 90% is credited to that token's holders. The other 10% goes to holders of the platform token."],
+  ["Do I need to register, stake or claim?", "No. Hold a launched token in your own wallet. Rewards accrue to your address automatically and are paid to that same wallet automatically, every two hours. Nothing to sign up for."],
+  ["How does ZEC land in a Robinhood Chain wallet?", "As zkZEC, Zookr's ZEC token on Robinhood Chain. 1 zkZEC = 1 ZEC, backed one-to-one by native ZEC in the shielded pool. The pool balance and the zkZEC supply are both published so you can check the coverage."],
+  ["Can I get native Zcash instead?", "Yes, any time. On the dashboard, redeem any amount of zkZEC to a Zcash Unified Address (u1…) from Zashi, Ywallet or Nighthawk. The zkZEC is burned and shielded ZEC arrives within minutes. Minimum 0.001 ZEC."],
   ["I just bought - when do I qualify?", "A new amount skips the next scheduled round and qualifies for the one after. Buy at minute 9 and you are in the minute-20 round. Your older tokens keep their place."],
   ["What if I sell after a round?", "Allocations are final the moment a round is processed. Selling afterwards does not erase what you earned. Sells consume your newest tokens first."],
-  ["Is it real ZEC?", "Yes. Native ZEC on the Zcash network, sent shielded to the u1 address you register. Not a wrapped token, not an IOU on another chain."],
-  ["When am I paid?", "Every two hours, to every registered wallet with at least 0.001 ZEC accrued across all tokens. Below that, your balance keeps accumulating and is paid when it crosses the line."],
+  ["When am I paid?", "Every two hours, to every wallet with at least 0.001 ZEC accrued across all tokens. Below that, your balance keeps accumulating and is paid when it crosses the line."],
   ["What does launching cost?", "The Pons launch fee of 0.0005 ETH plus gas. You can add an initial buy in the same transaction; it lands in your wallet, exempt from the launch-window snipe tax. Creators get no fee controls: the 90/10 profile is fixed for everyone."],
   ["Who runs this?", "The registry and the launchpad are contracts with no admin over your funds. The pool is a shielded Zcash wallet the operator holds, and the rounds engine is a scheduled job. Every allocation is published so you can audit the split."],
 ];
@@ -33,13 +34,13 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element -- static mark */}
           <img src="/logo.png" alt="Zookr" width={132} height={132} />
           <h1>Launch a token.<br />Holders earn ZEC.</h1>
-          <p>Every token launched on Zookr pays its holders native, shielded ZEC from a fixed 2% trading fee. Hold in your own wallet, register a Zcash address once, get paid every ten minutes. No staking, no claim.</p>
+          <p>Every token launched on Zookr pays its holders ZEC from a fixed 2% trading fee. Just hold in your own wallet: rewards accrue every ten minutes and land in that wallet every two hours. No staking, no claim, no registration.</p>
           <div className="ctas">
             <a className="btn primary" href="/launch">Launch a token →</a>
             <a className="btn ghost" href="/explore">Explore tokens</a>
             <a className="btn ghost" href={TELEGRAM_URL} target="_blank" rel="noreferrer"><Tg /> Telegram</a>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: 26 }}><Ca onpaper /></div>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 26, gap: 10, flexWrap: "wrap" }}><Ca onpaper /><Ca address={ZKZEC} symbol="zkZEC" onpaper /></div>
           <div className="hero-stats">
             <div><b>{d ? tokens.length : "—"}</b><span>tokens launched</span></div>
             <div><b>{d ? eth(d.totals.feesEthCollected, 4) : "—"} ETH</b><span>fees collected</span></div>
@@ -56,7 +57,7 @@ export default function Home() {
           <div><b>01</b><h3>A token launches</h3><p>Anyone launches on Pons through Zookr. A fixed 2% creator fee on every buy and sell is routed to a vault that belongs to that token.</p></div>
           <div><b>02</b><h3>Fees become ZEC</h3><p>The rounds engine collects the vault, swaps the ETH for native ZEC, and credits 90% to the token&apos;s holders and 10% to platform-token holders.</p></div>
           <div><b>03</b><h3>Rounds allocate</h3><p>Every ten minutes the credited ZEC is split pro-rata across wallets that held through the previous round. Allocations are final and published.</p></div>
-          <div><b>04</b><h3>You are paid</h3><p>Register a u1 address on-chain. Once you have accrued 0.001 ZEC, a shielded payment lands in your wallet with a receipt.</p></div>
+          <div><b>04</b><h3>You are paid</h3><p>Every two hours your earned ZEC is minted to your wallet as zkZEC, backed 1:1 by the pool. Redeem it for native shielded Zcash whenever you like.</p></div>
         </div>
       </section>
 
@@ -87,7 +88,7 @@ export default function Home() {
             <div className="kv"><span>Launch fee</span><b>0.0005 ETH</b></div>
             <div className="kv"><span>Supply</span><b>1,000,000,000</b></div>
             <div className="kv"><span>Graduates to Uniswap at</span><b>4.2 ETH</b></div>
-            <div className="kv"><span>Registered wallets</span><b>{d?.registered ?? "—"}</b></div>
+            <div className="kv"><span>Paid to wallets</span><b>{d ? `${zec(d.totals.paidZat, 4)} ZEC` : "—"}</b></div>
             <div style={{ marginTop: 14 }}><span className="k" style={{ color: "rgba(255,255,255,.8)" }}>Platform token · holders get 10% of every token&apos;s fees</span><div style={{ marginTop: 6 }}><Ca onpaper /></div></div>
             <a className="btn primary" href="/launch" style={{ marginTop: 14 }}>Launch a token →</a>
           </aside>
@@ -98,8 +99,8 @@ export default function Home() {
       <section className="wrap sec">
         <div className="sec-head"><span className="k">Why Zookr</span><h2>Built to be checked, not trusted</h2></div>
         <div className="why">
-          <div className="card card-pad"><h3>Real, shielded ZEC</h3><p>Payouts are native Zcash sent to Orchard addresses. No wrapped asset, no bridge, no token you have to sell to get out.</p></div>
-          <div className="card card-pad"><h3>Nothing to lock</h3><p>Your tokens stay in your wallet the whole time. Sell whenever you like; you keep every round that already closed.</p></div>
+          <div className="card card-pad"><h3>Backed by real, shielded ZEC</h3><p>zkZEC in your wallet is a 1:1 claim on native Zcash in the pool, redeemable to an Orchard address any time. Pool balance and supply are published every round.</p></div>
+          <div className="card card-pad"><h3>Nothing to lock, nothing to register</h3><p>Your tokens stay in your wallet the whole time and rewards come to that same wallet. Sell whenever you like; you keep every round that already closed.</p></div>
           <div className="card card-pad"><h3>Automatic, every ten minutes</h3><p>A scheduled job reads Robinhood Chain, collects fees, converts, allocates, pays and publishes. No claim button.</p></div>
           <div className="card card-pad"><h3>Fixed fee profile</h3><p>One launchpad contract sets the 2% fee and its vault for every token. {LAUNCHPAD && <a className="mono" style={{ fontSize: 12 }} href={`${EXPLORER}/address/${LAUNCHPAD}`} target="_blank" rel="noreferrer">{short(LAUNCHPAD)} ↗</a>}</p></div>
           <div className="card card-pad"><h3>Registry with no admin</h3><p>One contract maps your wallet to your Zcash address. Once, permanently, only by you. {REGISTRY && <a className="mono" style={{ fontSize: 12 }} href={`${EXPLORER}/address/${REGISTRY}`} target="_blank" rel="noreferrer">{short(REGISTRY)} ↗</a>}</p></div>

@@ -329,7 +329,8 @@ async function readPool(z) {
 }
 
 // ------------------------------------------------------------------ rounds
-const owedZat = () => Object.values(state.accrued).reduce((s, v) => s + big(v), 0n);
+// everything the pool owes: unpaid accruals, every zkZEC in circulation, redemptions not yet paid
+const owedZat = () => Object.values(state.accrued).reduce((s, v) => s + big(v), 0n) + big(state.zk?.supply) + (state.zk ? pendingRedeemZat() : 0n);
 /** Split `amount` across wallets whose lots were held through the previous round. */
 function allocate(ts, prevBoundary, amount, label) {
   const eligible = []; let total = 0n;
@@ -379,22 +380,69 @@ function processRounds(nowSec) {
 }
 
 // ----------------------------------------------------------------- payouts
-async function payouts(z) {
-  const due = Object.entries(state.accrued).map(([w, zat]) => [w, big(zat)]).filter(([w, zat]) => zat >= BigInt(CFG.minPayoutZat) && state.registry.dest[w]);
+// Earned ZEC is minted as zkZEC (1 unit = 1 zatoshi) straight to the holder's
+// wallet on Robinhood Chain - nothing to register. Every zkZEC is a claim on
+// native ZEC in the shielded pool; redemptions burn it and are paid below.
+const zkAbi = [
+  { type: "function", name: "mint", stateMutability: "nonpayable", inputs: [{ type: "address[]" }, { type: "uint256[]" }], outputs: [] },
+  { type: "function", name: "totalSupply", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+];
+const REDEEM = parseAbiItem("event Redeem(uint256 indexed id, address indexed from, uint256 amount, string zcashAddress)");
+state.zk ??= { lastBlock: CFG.zkzecFromBlock - 1, supply: 0n, redeems: [] };
+
+async function readZk() {
+  if (!CFG.zkzec) return;
+  state.zk.supply = await client.readContract({ address: CFG.zkzec, abi: zkAbi, functionName: "totalSupply" });
+  const head = Number(await client.getBlockNumber()) - 2;
+  for (let from = state.zk.lastBlock + 1; from <= head; from += 20_000) {
+    const to = Math.min(from + 19_999, head);
+    const logs = await client.getLogs({ address: CFG.zkzec, event: REDEEM, fromBlock: BigInt(from), toBlock: BigInt(to) });
+    for (const l of logs) {
+      const b = await client.getBlock({ blockNumber: l.blockNumber });
+      state.zk.redeems.push({ id: Number(l.args.id), wallet: l.args.from.toLowerCase(), zat: Number(l.args.amount), to: l.args.zcashAddress, at: new Date(Number(b.timestamp) * 1000).toISOString(), burnTx: l.transactionHash, status: "pending", txid: "" });
+      console.log(`[redeem] #${l.args.id} ${l.args.from} ${Number(l.args.amount) / 1e8} ZEC -> ${l.args.zcashAddress.slice(0, 12)}…`);
+    }
+    state.zk.lastBlock = to;
+  }
+  save();
+}
+const pendingRedeemZat = () => state.zk.redeems.filter((r) => r.status === "pending").reduce((s, r) => s + BigInt(r.zat), 0n);
+
+async function mintPayouts() {
+  if (!CFG.zkzec || !wallet) return console.log("[payouts] skipped (no zkZEC or operator key)");
+  const due = Object.entries(state.accrued).map(([w, zat]) => [w, big(zat)]).filter(([, zat]) => zat >= BigInt(CFG.minPayoutZat));
   if (!due.length) return console.log("[payouts] nothing due");
-  const batch = due.slice(0, 25);
-  const total = batch.reduce((s, [, z]) => s + z, 0n);
-  if (Number(total) + 100_000 > state.pool.balanceZat) return console.warn(`[payouts] pool short: owes ${Number(total) / 1e8} ZEC, has ${state.pool.balanceZat / 1e8}`);
+  for (let i = 0; i < due.length; i += 100) {
+    const batch = due.slice(i, i + 100);
+    const total = batch.reduce((s, [, z]) => s + z, 0n);
+    if (DRY) { console.log(`[payouts] DRY mint ${batch.length} wallets ${Number(total) / 1e8} ZEC`); continue; }
+    const hash = await wallet.sendTransaction({ to: CFG.zkzec, data: encodeFunctionData({ abi: zkAbi, functionName: "mint", args: [batch.map(([w]) => w), batch.map(([, z]) => z)] }) });
+    const rc = await client.waitForTransactionReceipt({ hash });
+    if (rc.status !== "success") throw new Error(`mint reverted ${hash}`);
+    const at = new Date().toISOString();
+    for (const [w, zat] of batch) { state.payments.push({ kind: "mint", wallet: w, to: w, zat: Number(zat), txid: hash, at }); state.paid[w] = (state.paid[w] ?? 0) + Number(zat); state.accrued[w] = 0n; }
+    state.zk.supply = big(state.zk.supply) + total;
+    save();
+    console.log(`[payouts] minted zkZEC to ${batch.length} wallets, ${Number(total) / 1e8} ZEC, tx ${hash}`);
+  }
+}
+
+/// Pending redemptions are paid in native shielded ZEC, batched, every run.
+async function redemptions(z) {
+  const pending = state.zk.redeems.filter((r) => r.status === "pending").slice(0, 25);
+  if (!pending.length) return;
+  const total = pending.reduce((s, r) => s + r.zat, 0);
+  if (total + 100_000 > state.pool.balanceZat) return console.warn(`[redeem] pool short: owes ${total / 1e8} ZEC, has ${state.pool.balanceZat / 1e8}`);
   // no spaces in the memo and single quotes around the JSON: the interactive cli splits the line on whitespace
-  const recipients = batch.map(([w, zat]) => ({ address: state.registry.dest[w], amount: Number(zat), memo: `zookr:${w.slice(0, 10)}` }));
-  if (DRY) return console.log("[payouts] DRY", JSON.stringify(recipients));
+  const recipients = pending.map((r) => ({ address: r.to, amount: r.zat, memo: `zookr:redeem:${r.id}` }));
+  if (DRY) return console.log("[redeem] DRY", JSON.stringify(recipients));
   const r = await z.cmd(`quicksend '${JSON.stringify(recipients)}'`, 10 * 60_000);
   const txid = r?.txids?.[0] ?? (typeof r === "string" ? r.slice(0, 80) : "");
   if (!txid || /error/i.test(txid)) throw new Error(`quicksend answered: ${JSON.stringify(r).slice(0, 300)} | stderr: ${z.err.slice(-400).replace(/\s+/g, " ")}`);
   const at = new Date().toISOString();
-  for (const [w, zat] of batch) { state.payments.push({ wallet: w, to: state.registry.dest[w], zat: Number(zat), txid, at }); state.paid[w] = (state.paid[w] ?? 0) + Number(zat); state.accrued[w] = 0n; }
+  for (const p of pending) { p.status = "paid"; p.txid = txid; p.paidAt = at; }
   save();
-  console.log(`[payouts] ${batch.length} holders, ${Number(total) / 1e8} ZEC, txid ${txid}`);
+  console.log(`[redeem] paid ${pending.length} redemption(s), ${total / 1e8} ZEC, txid ${txid}`);
 }
 
 // ----------------------------------------------------------------- publish
@@ -424,6 +472,8 @@ function publish() {
     generatedAt: new Date().toISOString(), roundSeconds: ROUND, minPayoutZat: CFG.minPayoutZat, payoutSeconds: CFG.payoutSeconds ?? 0, nextPayout: (state.lastPayout ?? now) + (CFG.payoutSeconds ?? 0), registry: CFG.registry, launchpad: CFG.launchpad, platformToken: CFG.platformToken, holderShareBps: CFG.holderShareBps, ethUsd,
     pool: { address: state.pool.address, taddress: state.pool.taddress, transparentZat: state.pool.transparentZat, balanceZat: state.pool.balanceZat, depositedZat: state.pool.deposits.reduce((s, d) => s + d.zat, 0), deposits: state.pool.deposits.slice(-50), owedZat: Number(owedZat()) },
     platform: { creditedZat: Number(big(state.platform.creditedZat)), allocatedZat: Number(big(state.platform.allocatedZat)), rounds: state.platform.rounds },
+    zkzec: { address: CFG.zkzec ?? "", supply: Number(big(state.zk.supply)), pendingRedeemZat: Number(pendingRedeemZat()), redeems: state.zk.redeems.slice(-200), backingZat: state.pool.balanceZat,
+      coverageBps: Number(big(state.zk.supply) + pendingRedeemZat()) > 0 ? Math.floor((state.pool.balanceZat * 10_000) / Number(big(state.zk.supply) + pendingRedeemZat())) : 10_000 },
     tokens,
     conversions: state.conversions.slice(-100).map((c) => ({ ...c, wei: formatEther(big(c.wei)) })),
     accrued: Object.fromEntries(Object.entries(state.accrued).map(([w, z]) => [w, Number(big(z))])),
@@ -432,14 +482,16 @@ function publish() {
     totals: { paidZat: state.payments.reduce((s, x) => s + x.zat, 0), payments: state.payments.length, tokens: tokens.length, feesEthCollected: formatEther(Object.values(state.tokens).reduce((s, t) => s + big(t.feesEthCollected), 0n)), platformPaidZat: Number(big(state.platform.allocatedZat)) },
   };
   writeFileSync(`${DATA}/public.json`, JSON.stringify(out, null, 1));
-  // a human-readable copy of the registry for the repo
+  // a human-readable payout ledger for the repo: every wallet that has been paid
   const fmt = (z) => (Number(z) / 1e8).toFixed(8);
-  const rows = out.registeredList.map((r, i) => { const last = out.payments.filter((p) => p.wallet === r.wallet).pop(); return `| ${i + 1} | \`${r.wallet}\` | \`${r.zcash}\` | ${fmt(out.accrued[r.wallet] ?? 0)} | ${fmt(out.paid[r.wallet] ?? 0)} | ${last ? `${last.at.slice(0, 16).replace("T", " ")} UTC · [${last.txid.slice(0, 12)}…](https://mainnet.zcashexplorer.app/transactions/${last.txid})` : "—"} |`; });
+  const link = (p) => (p.kind === "mint" ? `[${p.txid.slice(0, 12)}…](https://robinhoodchain.blockscout.com/tx/${p.txid})` : `[${p.txid.slice(0, 12)}…](https://mainnet.zcashexplorer.app/transactions/${p.txid})`);
+  const paidWallets = Object.entries(out.paid).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  const rows = paidWallets.map(([w, v], i) => { const last = out.payments.filter((p) => p.wallet === w).pop(); return `| ${i + 1} | \`${w}\` | ${fmt(v)} | ${fmt(out.accrued[w] ?? 0)} | ${last ? `${last.at.slice(0, 16).replace("T", " ")} UTC · ${last.kind === "mint" ? "zkZEC" : "native"} · ${link(last)}` : "—"} |`; });
   writeFileSync(`${DATA}/registered.md`, [
-    "# Registered wallets", "",
-    `Updated ${out.generatedAt} · **${out.registered} wallets** · ${out.totals.payments} payments · ${fmt(out.totals.paidZat)} ZEC paid · next payout window ${new Date(out.nextPayout * 1000).toISOString().slice(0, 16).replace("T", " ")} UTC`, "",
-    `Registry contract: [${CFG.registry}](https://robinhoodchain.blockscout.com/address/${CFG.registry}). Written by the rounds engine every run; the on-chain registry is the source of truth.`, "",
-    "| # | Wallet (Robinhood Chain) | Zcash address | Accrued ZEC | Paid ZEC | Last payment |", "|---|---|---|---:|---:|---|", ...rows, "",
+    "# Paid wallets", "",
+    `Updated ${out.generatedAt} · **${paidWallets.length} wallets paid** · ${out.totals.payments} payments · ${fmt(out.totals.paidZat)} ZEC paid · zkZEC in circulation ${fmt(out.zkzec.supply)} · pool backing ${fmt(out.zkzec.backingZat)} ZEC · next payout window ${new Date(out.nextPayout * 1000).toISOString().slice(0, 16).replace("T", " ")} UTC`, "",
+    `Rewards are minted as zkZEC ([${CFG.zkzec}](https://robinhoodchain.blockscout.com/token/${CFG.zkzec})) straight to holder wallets every payout window; no registration. Redemptions to native ZEC are listed in public.json. Written by the rounds engine every run.`, "",
+    "| # | Wallet (Robinhood Chain) | Paid ZEC | Accrued, unpaid | Last payment |", "|---|---|---:|---:|---|", ...rows, "",
   ].join("\n"));
   console.log(`[publish] ${tokens.length} token(s), ${out.totals.payments} payments, ${(out.totals.paidZat / 1e8).toFixed(6)} ZEC paid`);
 }
@@ -451,6 +503,7 @@ try {
   await discoverLaunches();
   for (const ts of Object.values(state.tokens)) await pullTransfers(ts);
   await pullRegistry();
+  await readZk();
   await readMarket();
 } catch (e) { console.error("[chain] read failed, continuing with last state:", e.message.split("\n")[0]); }
 let z = null;
@@ -460,12 +513,11 @@ if (SEED && !DRY && cmd !== "dry") {
 } else console.log("[pool] skipped (no seed or dry run)");
 try { await settleConversions(); await collectFees(); } catch (e) { console.error("[fees]", e.message.split("\n")[0]); }
 processRounds(now);
-// rounds allocate every ten minutes; registered wallets are paid on a slower clock (config.payoutSeconds)
+// rounds allocate every ten minutes; zkZEC is minted to wallets on a slower clock (config.payoutSeconds)
 const PAYOUT_EVERY = CFG.payoutSeconds ?? 0;
-if (z) {
-  if (now - (state.lastPayout ?? 0) >= PAYOUT_EVERY) {
-    try { await payouts(z); state.lastPayout = now; save(); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); }
-  } else console.log(`[payouts] next payout window at ${new Date((state.lastPayout + PAYOUT_EVERY) * 1000).toISOString()}`);
-  await z.quit();
-}
+if (now - (state.lastPayout ?? 0) >= PAYOUT_EVERY) {
+  try { await mintPayouts(); state.lastPayout = now; save(); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); }
+} else console.log(`[payouts] next payout window at ${new Date((state.lastPayout + PAYOUT_EVERY) * 1000).toISOString()}`);
+// redemptions to native ZEC go out every run
+if (z) { try { await redemptions(z); } catch (e) { console.error("[redeem]", e.message.split("\n").slice(0, 3).join(" | ")); } await z.quit(); }
 publish();

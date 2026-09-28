@@ -12,6 +12,13 @@ export const ZEC_EXPLORER = "https://mainnet.zcashexplorer.app/transactions";
 export const PONS = "https://pons.trade";
 export const LAUNCH_FEE_ETH = "0.0005";
 export const PLATFORM_TOKEN = "0x8031df281c8d3ea06c495749eba444e1ced574eb";
+/* zkZEC: rewards as a token on Robinhood Chain, 1 unit = 1 zatoshi, backed 1:1 by the shielded pool */
+export const ZKZEC = (process.env.NEXT_PUBLIC_ZKZEC ?? "0x553F77633bc5ec8aE851648AC6f4133463c01362") as `0x${string}`;
+export const zkzecAbi = [
+  { type: "function", name: "balanceOf", stateMutability: "view", inputs: [{ type: "address" }], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "totalSupply", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "redeem", stateMutability: "nonpayable", inputs: [{ name: "amount", type: "uint256" }, { name: "zcashAddress", type: "string" }], outputs: [{ type: "uint256" }] },
+] as const;
 
 export const registryAbi = [
   { type: "function", name: "register", stateMutability: "nonpayable", inputs: [{ name: "zcashAddress", type: "string" }], outputs: [] },
@@ -42,12 +49,14 @@ export type Token = {
   holders: number; eligibleHolders: number;
   wallets: Record<string, { balance: string; eligible: string }>;
 };
-export type Payment = { wallet: string; to: string; zat: number; txid: string; at: string };
+export type Payment = { kind?: "mint"; wallet: string; to: string; zat: number; txid: string; at: string };
+export type Redeem = { id: number; wallet: string; zat: number; to: string; at: string; burnTx: string; status: "pending" | "paid"; txid: string; paidAt?: string };
 export type Conversion = { token: string; symbol: string; wei: string; depositAddress: string; expectZec: string; status: string; txs: string[]; at: string; zat: number; zcashTx?: string };
 export type PublicData = {
   generatedAt: string; roundSeconds: number; minPayoutZat: number; payoutSeconds?: number; nextPayout?: number; registry: string; launchpad: string; platformToken: string; holderShareBps: number; ethUsd: number;
   pool: { address: string; taddress?: string; transparentZat?: number; balanceZat: number; depositedZat: number; deposits: { txid: string; zat: number; at: string | null; memo: string }[]; owedZat: number };
   platform: { creditedZat: number; allocatedZat: number; rounds: number };
+  zkzec?: { address: string; supply: number; pendingRedeemZat: number; redeems: Redeem[]; backingZat: number; coverageBps: number };
   tokens: Token[]; conversions: Conversion[];
   accrued: Record<string, number>; paid: Record<string, number>; payments: Payment[]; registered: number; registeredWallets?: string[]; registeredList?: { wallet: string; zcash: string }[];
   totals: { paidZat: number; payments: number; tokens: number; feesEthCollected: string; platformPaidZat: number };
