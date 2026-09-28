@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74403875
+  "lastBlock": 74409764
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74403875,
+   "lastBlock": 74409764,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [],
     "0x26558f89f952e9f557d91be898e7adcdcfb8ade6": [],
@@ -702,6 +702,14 @@
      {
       "amount": "161594732408278324406305n",
       "at": 1790558753
+     },
+     {
+      "amount": "4862238849249001543921914n",
+      "at": 1790559016
+     },
+     {
+      "amount": "9416864984871809200000000n",
+      "at": 1790559256
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -2362,12 +2370,7 @@
       "at": 1790524572
      }
     ],
-    "0x72e303f8f49dfdb621e45412cea5970110736df6": [
-     {
-      "amount": "4862238849249001543921914n",
-      "at": 1790524574
-     }
-    ],
+    "0x72e303f8f49dfdb621e45412cea5970110736df6": [],
     "0x37db52f4150b272917580f0a1cd8b28372220a74": [],
     "0xb19eb1cb625f40689d36feeaa3d64024a523a7a7": [],
     "0x5c49df2e8a23b1438f5d3e7f20bdfe7f66d54dbf": [
@@ -3467,12 +3470,8 @@
     "0xc05d7d6e266f81b04b51df51c70b57b2851ed81e": [],
     "0xd30e47c2020d76d3484e9dceeed090604d0af8e8": [
      {
-      "amount": "10395449633909355987376578n",
+      "amount": "10310970726795087297004002n",
       "at": 1790554244
-     },
-     {
-      "amount": "9332386077757540509627424n",
-      "at": 1790558553
      }
     ],
     "0x4c3c8bf6aca7eb3095259b87761728e6f83d1696": [
@@ -8610,10 +8609,12 @@
     "74400647": 1790558592,
     "74402210": 1790558749,
     "74402214": 1790558749,
-    "74402254": 1790558753
+    "74402254": 1790558753,
+    "74404867": 1790559016,
+    "74407263": 1790559256
    },
-   "lastRound": 1790558701,
-   "rounds": 74,
+   "lastRound": 1790559301,
+   "rounds": 75,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -8640,7 +8641,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74403875,
+   "lastBlock": 74409764,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9103,14 +9104,14 @@
     "74153637": 1790533752,
     "74201580": 1790538571
    },
-   "lastRound": 1790558554,
-   "rounds": 70,
+   "lastRound": 1790559154,
+   "rounds": 71,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
    "feesEthCollected": "109051821783797468n",
    "feesEthConverted": "109051821783797468n",
    "graduated": false,
-   "mcapUsd": 4932.977409723536,
+   "mcapUsd": 4932.608252255811,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9126,11 +9127,11 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601064n",
-  "lastRound": 1790558701,
-  "rounds": 74
+  "lastRound": 1790559301,
+  "rounds": 75
  },
  "registry": {
-  "lastBlock": 74403875,
+  "lastBlock": 74409764,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
