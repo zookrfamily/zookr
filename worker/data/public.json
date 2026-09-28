@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T04:35:22.011Z",
+ "generatedAt": "2026-09-28T04:48:01.133Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2657.46,
+ "ethUsd": 2658.3,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 93
+  "rounds": 94
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 5247.639553650478,
+   "mcapUsd": 5249.298286886375,
    "feesEthPending": "0.001417533777406029",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 89,
-   "lastRound": 1790569954,
-   "nextRound": 1790570554,
+   "rounds": 90,
+   "lastRound": 1790570554,
+   "nextRound": 1790571154,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -98,11 +98,11 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 93,
-   "lastRound": 1790570101,
-   "nextRound": 1790570701,
-   "holders": 137,
-   "eligibleHolders": 137,
+   "rounds": 94,
+   "lastRound": 1790570701,
+   "nextRound": 1790571301,
+   "holders": 138,
+   "eligibleHolders": 138,
    "wallets": {
     "0xdfde0207c0b79f9d0b67d41a769971356746f6b7": {
      "balance": "0.000051811636706975",
@@ -651,6 +651,10 @@
     "0x8fb00111220f537ecbcfe71042c63ab069aa19da": {
      "balance": "984646.920590125351068381",
      "eligible": "984646.920590125351068381"
+    },
+    "0x67a3a89e8b9cc7fa86d7da238e119dda2175ed80": {
+     "balance": "1272873.30673019335871922",
+     "eligible": "1272873.30673019335871922"
     }
    }
   }
