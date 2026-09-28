@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74778168
+  "lastBlock": 74784179
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -8998,8 +8998,8 @@
     "74773210": 1790596081,
     "74774356": 1790596197
    },
-   "lastRound": 1790596501,
-   "rounds": 137,
+   "lastRound": 1790597101,
+   "rounds": 138,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -9523,8 +9523,8 @@
     "74425212": 1790561063,
     "74425635": 1790561106
    },
-   "lastRound": 1790596354,
-   "rounds": 133,
+   "lastRound": 1790596954,
+   "rounds": 134,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
    "feesEthCollected": "109051821783797468n",
@@ -9546,8 +9546,8 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601065n",
-  "lastRound": 1790596501,
-  "rounds": 137
+  "lastRound": 1790597101,
+  "rounds": 138
  },
  "registry": {
   "lastBlock": 74778168,
