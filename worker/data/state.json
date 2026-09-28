@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 74588241
+  "lastBlock": 74594155
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 74588241,
+   "lastBlock": 74594155,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [
      {
@@ -664,20 +664,8 @@
       "at": 1790562201
      },
      {
-      "amount": "8359512364199487859190209n",
+      "amount": "5558668375722192924047637n",
       "at": 1790576628
-     },
-     {
-      "amount": "1069958025802353433716261n",
-      "at": 1790576993
-     },
-     {
-      "amount": "3753122747017338265743622n",
-      "at": 1790576993
-     },
-     {
-      "amount": "48766556505549767704235n",
-      "at": 1790577038
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -1463,6 +1451,10 @@
      {
       "amount": "5363240836085136794385n",
       "at": 1790577221
+     },
+     {
+      "amount": "232468720064873231062762n",
+      "at": 1790577914
      }
     ],
     "0xf8e978b609d0d8b6602b18ad7f273295836c2f96": [],
@@ -2151,12 +2143,7 @@
      }
     ],
     "0x69eaecf7386f1875b9ba21f4cf60b9f4b3b95699": [],
-    "0xbd1cf40a6102c86d96c0d1f85d40d9cd90093158": [
-     {
-      "amount": "76266017693237966452092n",
-      "at": 1790524730
-     }
-    ],
+    "0xbd1cf40a6102c86d96c0d1f85d40d9cd90093158": [],
     "0x202787a54d8763954196cbabd118f8ade8b520ff": [],
     "0xd2fcd0e27646a6652e8364865ed8c147b1311360": [],
     "0x5983b049d718a6a7b0e27d44ee824966d9012c0c": [],
@@ -3756,7 +3743,13 @@
       "at": 1790573594
      }
     ],
-    "0x9e76017824763cd30dc700c56ba3fe03dd869193": []
+    "0x9e76017824763cd30dc700c56ba3fe03dd869193": [],
+    "0xbb151d5dba44fe638600caaf5450da6e4508b883": [
+     {
+      "amount": "7516488615430901137696020n",
+      "at": 1790577914
+     }
+    ]
    },
    "contracts": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": false,
@@ -5071,7 +5064,8 @@
     "0xd1582d32a36539a056cb716a856cc0611290fa16": true,
     "0x1b5f693f163962694666ddc6eb8e6755b8ab26b4": true,
     "0x1347ec04c9830617d47a6f2df1541f3f20208c1f": false,
-    "0x9e76017824763cd30dc700c56ba3fe03dd869193": false
+    "0x9e76017824763cd30dc700c56ba3fe03dd869193": false,
+    "0xbb151d5dba44fe638600caaf5450da6e4508b883": true
    },
    "blockTimes": {
     "73960310": 1790514301,
@@ -8879,10 +8873,12 @@
     "74583467": 1790576993,
     "74583469": 1790576993,
     "74583915": 1790577038,
-    "74585714": 1790577221
+    "74585714": 1790577221,
+    "74588779": 1790577530,
+    "74592575": 1790577914
    },
-   "lastRound": 1790577301,
-   "rounds": 105,
+   "lastRound": 1790577901,
+   "rounds": 106,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -8909,7 +8905,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 74588241,
+   "lastBlock": 74594155,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9406,14 +9402,14 @@
     "74425212": 1790561063,
     "74425635": 1790561106
    },
-   "lastRound": 1790577154,
-   "rounds": 101,
+   "lastRound": 1790577754,
+   "rounds": 102,
    "creditedZat": "16329430n",
    "allocatedZat": "16329429n",
    "feesEthCollected": "109051821783797468n",
    "feesEthConverted": "109051821783797468n",
    "graduated": false,
-   "mcapUsd": 5230.538803861351,
+   "mcapUsd": 5233.974751278566,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9429,11 +9425,11 @@
  "platform": {
   "creditedZat": "30601074n",
   "allocatedZat": "30601064n",
-  "lastRound": 1790577301,
-  "rounds": 105
+  "lastRound": 1790577901,
+  "rounds": 106
  },
  "registry": {
-  "lastBlock": 74588241,
+  "lastBlock": 74594155,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
