@@ -10,6 +10,10 @@ on:
         description: dry run (no payouts)
         type: boolean
         default: false
+      payout:
+        description: pay now, ignoring the 2-hour window
+        type: boolean
+        default: false
 concurrency: { group: rounds, cancel-in-progress: false }
 permissions: { contents: write }
 jobs:
@@ -42,6 +46,7 @@ jobs:
           OPERATOR_KEY: ${{ secrets.OPERATOR_KEY }}
           ZCASH_BIRTHDAY: ${{ vars.ZCASH_BIRTHDAY }}
           DRY_RUN: ${{ inputs.dry && '1' || '0' }}
+          FORCE_PAYOUT: ${{ inputs.payout && '1' || '0' }}
         run: cd worker && node index.mjs round
       - name: commit data
         run: |

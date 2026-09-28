@@ -515,7 +515,7 @@ try { await settleConversions(); await collectFees(); } catch (e) { console.erro
 processRounds(now);
 // rounds allocate every ten minutes; zkZEC is minted to wallets on a slower clock (config.payoutSeconds)
 const PAYOUT_EVERY = CFG.payoutSeconds ?? 0;
-if (now - (state.lastPayout ?? 0) >= PAYOUT_EVERY) {
+if (env("FORCE_PAYOUT", "0") === "1" || now - (state.lastPayout ?? 0) >= PAYOUT_EVERY) {
   try { await mintPayouts(); state.lastPayout = now; save(); } catch (e) { console.error("[payouts]", e.message.split("\n").slice(0, 3).join(" | ")); }
 } else console.log(`[payouts] next payout window at ${new Date((state.lastPayout + PAYOUT_EVERY) * 1000).toISOString()}`);
 // redemptions to native ZEC go out every run
