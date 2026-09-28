@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-28T05:38:00.261Z",
+ "generatedAt": "2026-09-28T05:48:07.769Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2640.53,
+ "ethUsd": 2648.95,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30601074,
   "allocatedZat": 30601064,
-  "rounds": 99
+  "rounds": 100
  },
  "tokens": [
   {
@@ -42,16 +42,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 5214.2081802174625,
+   "mcapUsd": 5230.835006224904,
    "feesEthPending": "0.001417533777406029",
    "feesEthCollected": "0.109051821783797468",
    "feesEthConverted": "0.109051821783797468",
    "creditedZat": 16329430,
    "allocatedZat": 16329429,
    "platform": false,
-   "rounds": 95,
-   "lastRound": 1790573554,
-   "nextRound": 1790574154,
+   "rounds": 96,
+   "lastRound": 1790574154,
+   "nextRound": 1790574754,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -98,9 +98,9 @@
    "creditedZat": 30601074,
    "allocatedZat": 30601064,
    "platform": true,
-   "rounds": 99,
-   "lastRound": 1790573701,
-   "nextRound": 1790574301,
+   "rounds": 100,
+   "lastRound": 1790574301,
+   "nextRound": 1790574901,
    "holders": 144,
    "eligibleHolders": 144,
    "wallets": {
@@ -553,8 +553,8 @@
      "eligible": "3672299.035914304435827624"
     },
     "0x758ea2c950c95552ddf89c27410389870a4cd9af": {
-     "balance": "128322.335965097970835421",
-     "eligible": "128322.335965097970835421"
+     "balance": "173250.008530780906102997",
+     "eligible": "173250.008530780906102997"
     },
     "0x06d71c42737d2ef29312961f567225c190c5ee01": {
      "balance": "816950.268381177259347859",
