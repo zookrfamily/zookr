@@ -1,6 +1,6 @@
 # Paid wallets
 
-Updated 2026-09-28T23:35:27.978Z · **61 wallets paid** · 63 payments · 0.37972497 ZEC paid · zkZEC in circulation 0.35150409 · pool backing 0.39353689 ZEC · next payout window 2026-09-29 00:05 UTC
+Updated 2026-09-29T02:41:02.880Z · **61 wallets paid** · 63 payments · 0.37972497 ZEC paid · zkZEC in circulation 0.35150409 · pool backing 0.39353689 ZEC · next payout window 2026-09-29 04:40 UTC
 
 Rewards are minted as zkZEC ([0x553F77633bc5ec8aE851648AC6f4133463c01362](https://robinhoodchain.blockscout.com/token/0x553F77633bc5ec8aE851648AC6f4133463c01362)) straight to holder wallets every payout window; no registration. Redemptions to native ZEC are listed in public.json. Written by the rounds engine every run.
 
@@ -9,7 +9,7 @@ Rewards are minted as zkZEC ([0x553F77633bc5ec8aE851648AC6f4133463c01362](https:
 | 1 | `0xf8bebdbbe1027b86377cf67252f89b0824cdc619` | 0.07068327 | 0.00000000 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
 | 2 | `0x029fb5d8ea85af1d7fe36ddfaf817050f82e99fb` | 0.04864837 | 0.00000000 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
 | 3 | `0x0d390241476fe1fdedbc6ae443e5e6e40014e961` | 0.02555577 | 0.00000002 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
-| 4 | `0xc2c6acd377458010713e733e1b21dd6f670d091c` | 0.01694761 | 0.00009635 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
+| 4 | `0xc2c6acd377458010713e733e1b21dd6f670d091c` | 0.01694761 | 0.00009636 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
 | 5 | `0xbc1baedc32246f4cc94f5dd5b93e1e06370ff69b` | 0.01332106 | 0.00000000 | 2026-09-27 19:46 UTC · native · [fff428159599…](https://mainnet.zcashexplorer.app/transactions/fff428159599de7830720f8ea1dedb1171ffa19d2da20e6dc110415af1612e38) |
 | 6 | `0x95dc68e02d0f9e71a19754a25ed4a0fcaf17d94d` | 0.01330524 | 0.00007563 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
 | 7 | `0x7df718cdeb3dddcad753101e54ee8bdda71dff20` | 0.01273697 | 0.00000000 | 2026-09-28 09:34 UTC · zkZEC · [0x464b5a3db0…](https://robinhoodchain.blockscout.com/tx/0x464b5a3db0631e82bfd9de9eabda346028f9ebab075a543e3c3f4a5b770a211b) |
