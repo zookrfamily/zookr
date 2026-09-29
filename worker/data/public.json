@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-09-29T02:41:02.880Z",
+ "generatedAt": "2026-09-29T02:41:43.987Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
- "nextPayout": 1790656851,
+ "nextPayout": 1790656895,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
