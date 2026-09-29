@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-29T20:24:25.537Z",
+ "generatedAt": "2026-09-29T20:34:21.308Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2692.509263468428,
+ "ethUsd": 2690.8286113632967,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -16,12 +16,12 @@
   "balanceZat": 39353689,
   "depositedZat": 0,
   "deposits": [],
-  "owedZat": 39204684
+  "owedZat": 39204685
  },
  "platform": {
   "creditedZat": 30672631,
-  "allocatedZat": 30672627,
-  "rounds": 331
+  "allocatedZat": 30672628,
+  "rounds": 332
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
@@ -50,16 +50,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4860.841000307571,
+   "mcapUsd": 4857.8068853387895,
    "feesEthPending": "0.000231275732024131",
    "feesEthCollected": "0.113215134972905769",
    "feesEthConverted": "0.113215134972905769",
    "creditedZat": 16973435,
    "allocatedZat": 16973434,
    "platform": false,
-   "rounds": 328,
-   "lastRound": 1790713354,
-   "nextRound": 1790713954,
+   "rounds": 329,
+   "lastRound": 1790713954,
+   "nextRound": 1790714554,
    "holders": 4,
    "eligibleHolders": 4,
    "wallets": {
@@ -104,11 +104,11 @@
    "feesEthCollected": "0",
    "feesEthConverted": "0",
    "creditedZat": 30672631,
-   "allocatedZat": 30672627,
+   "allocatedZat": 30672628,
    "platform": true,
-   "rounds": 331,
-   "lastRound": 1790712901,
-   "nextRound": 1790713501,
+   "rounds": 332,
+   "lastRound": 1790713501,
+   "nextRound": 1790714101,
    "holders": 73,
    "eligibleHolders": 73,
    "wallets": {
@@ -677,7 +677,7 @@
   "0xabb4670f2bb0e2bf57a57677fe76cd260a1b36d8": 773,
   "0x47f60a1266d6499e9363af2b794cf3a9b60872b2": 33154,
   "0x1cdbdb52c21f511d939e6a0b286511f073d45419": 89,
-  "0xc2c6acd377458010713e733e1b21dd6f670d091c": 9636,
+  "0xc2c6acd377458010713e733e1b21dd6f670d091c": 9637,
   "0x67579ac300eb2db8faf63c2414e5c5080d88da3e": 23222,
   "0x7111809669a4a3ed3cc73e3250c3308c509d4d56": 0,
   "0xdd32b9a1d161654b622b6367241e117f63610c4c": 0,
@@ -1462,6 +1462,6 @@
   "payments": 63,
   "tokens": 2,
   "feesEthCollected": "0.113215134972905769",
-  "platformPaidZat": 30672627
+  "platformPaidZat": 30672628
  }
 }
