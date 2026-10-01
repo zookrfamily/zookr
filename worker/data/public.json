@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-01T09:02:48.235Z",
+ "generatedAt": "2026-10-01T09:12:42.461Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30672631,
   "allocatedZat": 30672629,
-  "rounds": 551
+  "rounds": 552
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
@@ -57,9 +57,9 @@
    "creditedZat": 16973435,
    "allocatedZat": 16973434,
    "platform": false,
-   "rounds": 548,
-   "lastRound": 1790845354,
-   "nextRound": 1790845954,
+   "rounds": 549,
+   "lastRound": 1790845954,
+   "nextRound": 1790846554,
    "holders": 5,
    "eligibleHolders": 5,
    "wallets": {
@@ -110,9 +110,9 @@
    "creditedZat": 30672631,
    "allocatedZat": 30672629,
    "platform": true,
-   "rounds": 551,
-   "lastRound": 1790844901,
-   "nextRound": 1790845501,
+   "rounds": 552,
+   "lastRound": 1790845501,
+   "nextRound": 1790846101,
    "holders": 68,
    "eligibleHolders": 68,
    "wallets": {
