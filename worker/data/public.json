@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-10-09T09:41:50.106Z",
+ "generatedAt": "2026-10-09T16:43:19.079Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
- "nextPayout": 1791546036,
+ "nextPayout": 1791571079,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2503.41,
+ "ethUsd": 2487.01,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -21,7 +21,7 @@
  "platform": {
   "creditedZat": 30672631,
   "allocatedZat": 30672629,
-  "rounds": 1707
+  "rounds": 1749
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
@@ -50,18 +50,18 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4337.74630028238,
-   "feesEthPending": "0.000943682113820578",
+   "mcapUsd": 4181.154126537073,
+   "feesEthPending": "0.001454988760801634",
    "feesEthCollected": "0.113215134972905769",
    "feesEthConverted": "0.113215134972905769",
    "creditedZat": 16973435,
    "allocatedZat": 16973434,
    "platform": false,
-   "rounds": 1703,
-   "lastRound": 1791538354,
-   "nextRound": 1791538954,
-   "holders": 3,
-   "eligibleHolders": 3,
+   "rounds": 1745,
+   "lastRound": 1791563554,
+   "nextRound": 1791564154,
+   "holders": 2,
+   "eligibleHolders": 2,
    "wallets": {
     "0x48b51287fb5281ea0913100809c3b7f1649c7996": {
      "balance": "7489.787945867265012169",
@@ -70,10 +70,6 @@
     "0x0d390241476fe1fdedbc6ae443e5e6e40014e961": {
      "balance": "164.307004836608345861",
      "eligible": "164.307004836608345861"
-    },
-    "0x4794a119af81a6dd1f00402b1dd8c7d9450288c4": {
-     "balance": "14978766.046257132477367553",
-     "eligible": "14978766.046257132477367553"
     }
    }
   },
@@ -102,9 +98,9 @@
    "creditedZat": 30672631,
    "allocatedZat": 30672629,
    "platform": true,
-   "rounds": 1707,
-   "lastRound": 1791538501,
-   "nextRound": 1791539101,
+   "rounds": 1749,
+   "lastRound": 1791563701,
+   "nextRound": 1791564301,
    "holders": 60,
    "eligibleHolders": 60,
    "wallets": {
