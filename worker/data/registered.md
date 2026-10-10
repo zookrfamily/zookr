@@ -1,6 +1,6 @@
 # Paid wallets
 
-Updated 2026-10-10T13:05:45.891Z · **61 wallets paid** · 63 payments · 0.37972497 ZEC paid · zkZEC in circulation 0.35150409 · pool backing 0.39353689 ZEC · next payout window 2026-10-10 15:05 UTC
+Updated 2026-10-10T17:50:49.262Z · **61 wallets paid** · 63 payments · 0.37972497 ZEC paid · zkZEC in circulation 0.35150409 · pool backing 0.39353689 ZEC · next payout window 2026-10-10 19:48 UTC
 
 Rewards are minted as zkZEC ([0x553F77633bc5ec8aE851648AC6f4133463c01362](https://robinhoodchain.blockscout.com/token/0x553F77633bc5ec8aE851648AC6f4133463c01362)) straight to holder wallets every payout window; no registration. Redemptions to native ZEC are listed in public.json. Written by the rounds engine every run.
 
