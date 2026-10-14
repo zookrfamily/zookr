@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-14T19:29:47.072Z",
+ "generatedAt": "2026-10-14T19:31:33.517Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
@@ -8,7 +8,7 @@
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2432.99,
+ "ethUsd": 2431.99,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
@@ -50,7 +50,7 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4089.5754863479974,
+   "mcapUsd": 4087.8946017219414,
    "feesEthPending": "0.001506729639444846",
    "feesEthCollected": "0.113215134972905769",
    "feesEthConverted": "0.113215134972905769",
