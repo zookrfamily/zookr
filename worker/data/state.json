@@ -1,7 +1,7 @@
 {
  "v": 2,
  "launches": {
-  "lastBlock": 89139681
+  "lastBlock": 89312749
  },
  "tokens": {
   "0x8031df281c8d3ea06c495749eba444e1ced574eb": {
@@ -14,7 +14,7 @@
    "adopted": true,
    "launchedAt": 1790514301,
    "launchBlock": 73960310,
-   "lastBlock": 89139681,
+   "lastBlock": 89312749,
    "lots": {
     "0xd2fe04f0782179120094430a5af65fbc3d483a9c": [
      {
@@ -1013,6 +1013,10 @@
      {
       "amount": "617517912734965142880832n",
       "at": 1792049008
+     },
+     {
+      "amount": "40384895065844216643220n",
+      "at": 1792065451
      }
     ],
     "0xa633c73658857d5241fe21d43f854a82e2d0592c": [],
@@ -2495,12 +2499,7 @@
     "0x63790d03c73d76d61ef07bd6c25946e11b35bcde": [],
     "0xa989ecc647add9a58a5f38016df51e5be4041144": [],
     "0xf1f305d5a803cf0eac6994f3877ff63b5a6bdb4a": [],
-    "0x2d7cb838f3507076326c8e36d4a9709c5a65b35a": [
-     {
-      "amount": "40384895065844216643220n",
-      "at": 1790525723
-     }
-    ],
+    "0x2d7cb838f3507076326c8e36d4a9709c5a65b35a": [],
     "0x7be18e49c0c58f713a866a3d5c74ae4a5ca83d1c": [],
     "0x93a521182d42cb04b2ad2d54100dc94d90386d7c": [
      {
@@ -8709,10 +8708,11 @@
     "87699910": 1791913470,
     "87792331": 1791922789,
     "88258740": 1791970040,
-    "89042706": 1792049008
+    "89042706": 1792049008,
+    "89206125": 1792065451
    },
-   "lastRound": 1792058701,
-   "rounds": 2574,
+   "lastRound": 1792076101,
+   "rounds": 2603,
    "creditedZat": "0n",
    "allocatedZat": "0n",
    "feesEthCollected": "0n",
@@ -8739,7 +8739,7 @@
    "creator": "0xa27210c752089185bdafc81a197345b83f2df3b0",
    "launchedAt": 1790516554,
    "launchBlock": 73982701,
-   "lastBlock": 89139681,
+   "lastBlock": 89312749,
    "lots": {
     "0xa27210c752089185bdafc81a197345b83f2df3b0": [],
     "0xe4f84d752e1442ced15e08b6f38b89852a39b174": [],
@@ -9212,14 +9212,14 @@
     "88575907": 1792001933,
     "88575956": 1792001938
    },
-   "lastRound": 1792058554,
-   "rounds": 2570,
+   "lastRound": 1792075954,
+   "rounds": 2599,
    "creditedZat": "16973435n",
    "allocatedZat": "16973434n",
    "feesEthCollected": "113215134972905769n",
    "feesEthConverted": "113215134972905769n",
    "graduated": false,
-   "mcapUsd": 3987.89877531787,
+   "mcapUsd": 4013.582692404006,
    "logo": "https://i.ibb.co/rRg4DQST/Creating-a-cute-cat-head-20260927161432.jpg",
    "description": "",
    "socials": {
@@ -9235,11 +9235,11 @@
  "platform": {
   "creditedZat": "30672631n",
   "allocatedZat": "30672629n",
-  "lastRound": 1792058701,
-  "rounds": 2574
+  "lastRound": 1792076101,
+  "rounds": 2603
  },
  "registry": {
-  "lastBlock": 89139681,
+  "lastBlock": 89312749,
   "dest": {
    "0x4dc60a33f6f0adc1e3030aa64dc1e2c71641752e": "u129lj2nn57g857yfgrhds0p2jmcfu0dawlt9gz36fk44fh5gazx03zjfd6dqq6k0ceal28uk9te0eyk9apnyum5lpf3a3zq3la2w2gt30nczgh64nvauffp8hqzpd08p0cnjyfd0vr4p6ud86ypvreu0yg4adlun5nzkamphzf55ahlg9",
    "0x3e3d239c4a9f7e2ad8146c2eb47cd324b1686868": "u1l2ezvynfpswxddv46gd4wwsj78vfpmfggx0cascvun77cfd3y3ul3mwg5qyywyzaam6p475xdecau42nll3cmksg4la65hl8ztkgl83j9xl06kd9p90wekxcs5m0zwtfgcry8jljjqalhpt507wswevfsrny685ctxvftc9daq2qqd8r",
@@ -10239,9 +10239,9 @@
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
   "transparentZat": 0
  },
- "lastPayout": 1792058752,
+ "lastPayout": 1792076205,
  "zk": {
-  "lastBlock": 89139681,
+  "lastBlock": 89312749,
   "supply": "35150409n",
   "redeems": []
  }
