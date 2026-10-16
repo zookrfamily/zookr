@@ -1,19 +1,19 @@
 {
- "generatedAt": "2026-10-16T04:23:34.730Z",
+ "generatedAt": "2026-10-16T09:11:08.953Z",
  "roundSeconds": 600,
  "minPayoutZat": 100000,
  "payoutSeconds": 7200,
- "nextPayout": 1792131803,
+ "nextPayout": 1792149057,
  "registry": "0xe49c1751D8Db37Bfb340e7A1cdf11d3Cff0DD319",
  "launchpad": "0x02976Ff212005BA28469541a62cf219201326EDE",
  "platformToken": "0x8031df281c8d3ea06c495749eba444e1ced574eb",
  "holderShareBps": 9000,
- "ethUsd": 2438.78,
+ "ethUsd": 2452.63,
  "pool": {
   "address": "u10uaknlr63g7u8ap562a305lywvep79udss3ly905v0t5sycm4fwjrvy50mjcmnd4ly835jrwury6ypdt6musqt4ewcpzrmauqcc7r46n",
   "taddress": "t1PtyJztfrkzw1tSB22Yxff1KMRVxBMtSfi",
   "transparentZat": 0,
-  "balanceZat": 39353689,
+  "balanceZat": 0,
   "depositedZat": 0,
   "deposits": [],
   "owedZat": 39204686
@@ -21,15 +21,15 @@
  "platform": {
   "creditedZat": 30672631,
   "allocatedZat": 30672629,
-  "rounds": 2683
+  "rounds": 2712
  },
  "zkzec": {
   "address": "0x553F77633bc5ec8aE851648AC6f4133463c01362",
   "supply": 35150409,
   "pendingRedeemZat": 0,
   "redeems": [],
-  "backingZat": 39353689,
-  "coverageBps": 11195
+  "backingZat": 0,
+  "coverageBps": 0
  },
  "tokens": [
   {
@@ -50,16 +50,16 @@
     "farcaster": ""
    },
    "venue": "curve",
-   "mcapUsd": 4099.307808332862,
+   "mcapUsd": 4122.5880604037375,
    "feesEthPending": "0.001506729639444846",
    "feesEthCollected": "0.113215134972905769",
    "feesEthConverted": "0.113215134972905769",
    "creditedZat": 16973435,
    "allocatedZat": 16973434,
    "platform": false,
-   "rounds": 2680,
-   "lastRound": 1792124554,
-   "nextRound": 1792125154,
+   "rounds": 2708,
+   "lastRound": 1792141354,
+   "nextRound": 1792141954,
    "holders": 3,
    "eligibleHolders": 3,
    "wallets": {
@@ -102,9 +102,9 @@
    "creditedZat": 30672631,
    "allocatedZat": 30672629,
    "platform": true,
-   "rounds": 2683,
-   "lastRound": 1792124101,
-   "nextRound": 1792124701,
+   "rounds": 2712,
+   "lastRound": 1792141501,
+   "nextRound": 1792142101,
    "holders": 60,
    "eligibleHolders": 60,
    "wallets": {
